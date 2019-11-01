@@ -184,7 +184,7 @@ namespace Bodega.Reportes
                                                                                                                                                                                      //"select * from detalleInventario where FK_Propietario =  '"+cmb_propietario.Text.ToString()+"' and Fecha=MONTH(text)"
                 cmd.Fill(tabla);
 
-            }
+            }//prueba
 
             grf_Barras.DataSource = tabla;
 

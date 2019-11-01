@@ -122,3 +122,38 @@ C:\Users\WILLI\Desktop\Bodega_Campito-master\obj\Debug\Bodega.csproj.CoreCompile
 C:\Users\WILLI\Desktop\Bodega_Campito-master\obj\Debug\Bodega.csproj.CopyComplete
 C:\Users\WILLI\Desktop\Bodega_Campito-master\obj\Debug\Bodega.exe
 C:\Users\WILLI\Desktop\Bodega_Campito-master\obj\Debug\Bodega.pdb
+C:\Users\Williams Cuesta\Source\Repos\Bodega_Campito2019\bin\Debug\Bodega.exe.config
+C:\Users\Williams Cuesta\Source\Repos\Bodega_Campito2019\obj\Debug\Bodega.exe
+C:\Users\Williams Cuesta\Source\Repos\Bodega_Campito2019\obj\Debug\Bodega.pdb
+C:\Users\Williams Cuesta\Source\Repos\Bodega_Campito2019\bin\Debug\Bodega.exe
+C:\Users\Williams Cuesta\Source\Repos\Bodega_Campito2019\bin\Debug\Bodega.pdb
+C:\Users\Williams Cuesta\Source\Repos\Bodega_Campito2019\bin\Debug\Common.dll
+C:\Users\Williams Cuesta\Source\Repos\Bodega_Campito2019\bin\Debug\Datos.dll
+C:\Users\Williams Cuesta\Source\Repos\Bodega_Campito2019\bin\Debug\Dominio.dll
+C:\Users\Williams Cuesta\Source\Repos\Bodega_Campito2019\bin\Debug\MySql.Data.dll
+C:\Users\Williams Cuesta\Source\Repos\Bodega_Campito2019\bin\Debug\Google.Protobuf.dll
+C:\Users\Williams Cuesta\Source\Repos\Bodega_Campito2019\bin\Debug\Common.pdb
+C:\Users\Williams Cuesta\Source\Repos\Bodega_Campito2019\bin\Debug\Datos.pdb
+C:\Users\Williams Cuesta\Source\Repos\Bodega_Campito2019\bin\Debug\Dominio.pdb
+C:\Users\Williams Cuesta\Source\Repos\Bodega_Campito2019\bin\Debug\MySql.Data.xml
+C:\Users\Williams Cuesta\Source\Repos\Bodega_Campito2019\obj\Debug\Bodega.csprojResolveAssemblyReference.cache
+C:\Users\Williams Cuesta\Source\Repos\Bodega_Campito2019\obj\Debug\Bodega.Ajustes.AjustesPrincipal.resources
+C:\Users\Williams Cuesta\Source\Repos\Bodega_Campito2019\obj\Debug\Bodega.Ajustes.CambiarContraseña.resources
+C:\Users\Williams Cuesta\Source\Repos\Bodega_Campito2019\obj\Debug\Bodega.Ajustes.EliminarProducto.resources
+C:\Users\Williams Cuesta\Source\Repos\Bodega_Campito2019\obj\Debug\Bodega.Ajustes.EliminarUsuario.resources
+C:\Users\Williams Cuesta\Source\Repos\Bodega_Campito2019\obj\Debug\Bodega.Ajustes.NuevoProducto.resources
+C:\Users\Williams Cuesta\Source\Repos\Bodega_Campito2019\obj\Debug\Bodega.Ajustes.NuevoUsuario.resources
+C:\Users\Williams Cuesta\Source\Repos\Bodega_Campito2019\obj\Debug\Bodega.Ajustes.RestaurarProducto.resources
+C:\Users\Williams Cuesta\Source\Repos\Bodega_Campito2019\obj\Debug\Bodega.Login.resources
+C:\Users\Williams Cuesta\Source\Repos\Bodega_Campito2019\obj\Debug\Bodega.Prinicipal.resources
+C:\Users\Williams Cuesta\Source\Repos\Bodega_Campito2019\obj\Debug\Bodega.Productos.ListadoProducto.resources
+C:\Users\Williams Cuesta\Source\Repos\Bodega_Campito2019\obj\Debug\Bodega.Properties.Resources.resources
+C:\Users\Williams Cuesta\Source\Repos\Bodega_Campito2019\obj\Debug\Bodega.Reportes.ReportesEntradas.resources
+C:\Users\Williams Cuesta\Source\Repos\Bodega_Campito2019\obj\Debug\Bodega.Reportes.ReportEntradas.resources
+C:\Users\Williams Cuesta\Source\Repos\Bodega_Campito2019\obj\Debug\Bodega.Reportes.ReportSalidas.resources
+C:\Users\Williams Cuesta\Source\Repos\Bodega_Campito2019\obj\Debug\Bodega.Traslados.Devoluciones.resources
+C:\Users\Williams Cuesta\Source\Repos\Bodega_Campito2019\obj\Debug\Bodega.Traslados.EntradaProducto.resources
+C:\Users\Williams Cuesta\Source\Repos\Bodega_Campito2019\obj\Debug\Bodega.Traslados.Prestamo.resources
+C:\Users\Williams Cuesta\Source\Repos\Bodega_Campito2019\obj\Debug\Bodega.Traslados.SalidaProducto.resources
+C:\Users\Williams Cuesta\Source\Repos\Bodega_Campito2019\obj\Debug\Bodega.Traslados.TipoTraslado.resources
+C:\Users\Williams Cuesta\Source\Repos\Bodega_Campito2019\obj\Debug\Bodega.csproj.GenerateResource.Cache
