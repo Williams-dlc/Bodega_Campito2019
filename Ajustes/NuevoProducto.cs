@@ -65,7 +65,7 @@ namespace Bodega.Ajustes
                         con.Close();//cierra la conexion
 
 
-                        MessageBox.Show("Se añadio el prodcuto '" + txt_nombre.Text + "'", "Nuevo producto", MessageBoxButtons.OK);
+                        MessageBox.Show("Se añadio el producto '" + txt_nombre.Text + "'", "Nuevo producto", MessageBoxButtons.OK);
                         txt_codigo.Text = "";
                         txt_nombre.Text = "";
                     }
