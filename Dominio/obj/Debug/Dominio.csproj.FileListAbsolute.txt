@@ -1,0 +1,31 @@
+C:\Users\Williams Cuesta\source\repos\Dominio\bin\Debug\Dominio.dll
+C:\Users\Williams Cuesta\source\repos\Dominio\bin\Debug\Dominio.pdb
+C:\Users\Williams Cuesta\source\repos\Dominio\bin\Debug\Datos.dll
+C:\Users\Williams Cuesta\source\repos\Dominio\bin\Debug\Datos.pdb
+C:\Users\Williams Cuesta\source\repos\Dominio\obj\Debug\Dominio.csprojResolveAssemblyReference.cache
+C:\Users\Williams Cuesta\source\repos\Dominio\obj\Debug\Dominio.dll
+C:\Users\Williams Cuesta\source\repos\Dominio\obj\Debug\Dominio.pdb
+C:\Users\Williams Cuesta\source\repos\Dominio\bin\Debug\Common.dll
+C:\Users\Williams Cuesta\source\repos\Dominio\bin\Debug\Common.pdb
+C:\Users\Williams Cuesta\source\repos\Bodega_Campito2\Dominio\bin\Debug\Dominio.dll
+C:\Users\Williams Cuesta\source\repos\Bodega_Campito2\Dominio\bin\Debug\Dominio.pdb
+C:\Users\Williams Cuesta\source\repos\Bodega_Campito2\Dominio\bin\Debug\Common.dll
+C:\Users\Williams Cuesta\source\repos\Bodega_Campito2\Dominio\bin\Debug\Datos.dll
+C:\Users\Williams Cuesta\source\repos\Bodega_Campito2\Dominio\bin\Debug\Common.pdb
+C:\Users\Williams Cuesta\source\repos\Bodega_Campito2\Dominio\bin\Debug\Datos.pdb
+C:\Users\Williams Cuesta\source\repos\Bodega_Campito2\Dominio\obj\Debug\Dominio.csprojAssemblyReference.cache
+C:\Users\Williams Cuesta\source\repos\Bodega_Campito2\Dominio\obj\Debug\Dominio.csproj.CoreCompileInputs.cache
+C:\Users\Williams Cuesta\source\repos\Bodega_Campito2\Dominio\obj\Debug\Dominio.csproj.CopyComplete
+C:\Users\Williams Cuesta\source\repos\Bodega_Campito2\Dominio\obj\Debug\Dominio.dll
+C:\Users\Williams Cuesta\source\repos\Bodega_Campito2\Dominio\obj\Debug\Dominio.pdb
+C:\Users\WILLI\Desktop\Bodega_Campito-master\Dominio\bin\Debug\Dominio.dll
+C:\Users\WILLI\Desktop\Bodega_Campito-master\Dominio\bin\Debug\Dominio.pdb
+C:\Users\WILLI\Desktop\Bodega_Campito-master\Dominio\bin\Debug\Common.dll
+C:\Users\WILLI\Desktop\Bodega_Campito-master\Dominio\bin\Debug\Datos.dll
+C:\Users\WILLI\Desktop\Bodega_Campito-master\Dominio\bin\Debug\Common.pdb
+C:\Users\WILLI\Desktop\Bodega_Campito-master\Dominio\bin\Debug\Datos.pdb
+C:\Users\WILLI\Desktop\Bodega_Campito-master\Dominio\obj\Debug\Dominio.csprojAssemblyReference.cache
+C:\Users\WILLI\Desktop\Bodega_Campito-master\Dominio\obj\Debug\Dominio.csproj.CoreCompileInputs.cache
+C:\Users\WILLI\Desktop\Bodega_Campito-master\Dominio\obj\Debug\Dominio.csproj.CopyComplete
+C:\Users\WILLI\Desktop\Bodega_Campito-master\Dominio\obj\Debug\Dominio.dll
+C:\Users\WILLI\Desktop\Bodega_Campito-master\Dominio\obj\Debug\Dominio.pdb

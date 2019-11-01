@@ -1,0 +1,33 @@
+C:\Users\Williams Cuesta\source\repos\Bodega_Campito2\Datos\bin\Debug\Datos.dll
+C:\Users\Williams Cuesta\source\repos\Bodega_Campito2\Datos\bin\Debug\Datos.pdb
+C:\Users\Williams Cuesta\source\repos\Bodega_Campito2\Datos\bin\Debug\MySql.Data.dll
+C:\Users\Williams Cuesta\source\repos\Bodega_Campito2\Datos\bin\Debug\Google.Protobuf.dll
+C:\Users\Williams Cuesta\source\repos\Bodega_Campito2\Datos\bin\Debug\MySql.Data.xml
+C:\Users\Williams Cuesta\source\repos\Bodega_Campito2\Datos\obj\Debug\Datos.dll
+C:\Users\Williams Cuesta\source\repos\Bodega_Campito2\Datos\obj\Debug\Datos.pdb
+C:\Users\Williams Cuesta\source\repos\Bodega_Campito2\Datos\bin\Debug\Common.dll
+C:\Users\Williams Cuesta\source\repos\Bodega_Campito2\Datos\bin\Debug\Common.pdb
+C:\Users\Williams Cuesta\Source\Repos\Bodega_Campito\Datos\bin\Debug\Datos.dll
+C:\Users\Williams Cuesta\Source\Repos\Bodega_Campito\Datos\bin\Debug\Datos.pdb
+C:\Users\Williams Cuesta\Source\Repos\Bodega_Campito\Datos\bin\Debug\Common.dll
+C:\Users\Williams Cuesta\Source\Repos\Bodega_Campito\Datos\bin\Debug\MySql.Data.dll
+C:\Users\Williams Cuesta\Source\Repos\Bodega_Campito\Datos\bin\Debug\Google.Protobuf.dll
+C:\Users\Williams Cuesta\Source\Repos\Bodega_Campito\Datos\bin\Debug\Common.pdb
+C:\Users\Williams Cuesta\Source\Repos\Bodega_Campito\Datos\bin\Debug\MySql.Data.xml
+C:\Users\Williams Cuesta\Source\Repos\Bodega_Campito\Datos\obj\Debug\Datos.csprojResolveAssemblyReference.cache
+C:\Users\Williams Cuesta\Source\Repos\Bodega_Campito\Datos\obj\Debug\Datos.dll
+C:\Users\Williams Cuesta\Source\Repos\Bodega_Campito\Datos\obj\Debug\Datos.pdb
+C:\Users\Williams Cuesta\source\repos\Bodega_Campito2\Datos\obj\Debug\Datos.csprojAssemblyReference.cache
+C:\Users\Williams Cuesta\source\repos\Bodega_Campito2\Datos\obj\Debug\Datos.csproj.CoreCompileInputs.cache
+C:\Users\Williams Cuesta\source\repos\Bodega_Campito2\Datos\obj\Debug\Datos.csproj.CopyComplete
+C:\Users\WILLI\Desktop\Bodega_Campito-master\Datos\bin\Debug\Datos.dll
+C:\Users\WILLI\Desktop\Bodega_Campito-master\Datos\bin\Debug\Datos.pdb
+C:\Users\WILLI\Desktop\Bodega_Campito-master\Datos\bin\Debug\Common.dll
+C:\Users\WILLI\Desktop\Bodega_Campito-master\Datos\bin\Debug\Google.Protobuf.dll
+C:\Users\WILLI\Desktop\Bodega_Campito-master\Datos\bin\Debug\Common.pdb
+C:\Users\WILLI\Desktop\Bodega_Campito-master\Datos\bin\Debug\MySql.Data.xml
+C:\Users\WILLI\Desktop\Bodega_Campito-master\Datos\obj\Debug\Datos.csprojAssemblyReference.cache
+C:\Users\WILLI\Desktop\Bodega_Campito-master\Datos\obj\Debug\Datos.csproj.CoreCompileInputs.cache
+C:\Users\WILLI\Desktop\Bodega_Campito-master\Datos\obj\Debug\Datos.csproj.CopyComplete
+C:\Users\WILLI\Desktop\Bodega_Campito-master\Datos\obj\Debug\Datos.dll
+C:\Users\WILLI\Desktop\Bodega_Campito-master\Datos\obj\Debug\Datos.pdb

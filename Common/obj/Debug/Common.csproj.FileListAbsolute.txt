@@ -1,0 +1,11 @@
+C:\Users\Williams Cuesta\source\repos\Bodega_Campito2\Common\bin\Debug\Common.dll
+C:\Users\Williams Cuesta\source\repos\Bodega_Campito2\Common\bin\Debug\Common.pdb
+C:\Users\Williams Cuesta\source\repos\Bodega_Campito2\Common\obj\Debug\Common.dll
+C:\Users\Williams Cuesta\source\repos\Bodega_Campito2\Common\obj\Debug\Common.pdb
+C:\Users\Williams Cuesta\Source\Repos\Bodega_Campito\Common\bin\Debug\Common.dll
+C:\Users\Williams Cuesta\Source\Repos\Bodega_Campito\Common\bin\Debug\Common.pdb
+C:\Users\Williams Cuesta\Source\Repos\Bodega_Campito\Common\obj\Debug\Common.csprojResolveAssemblyReference.cache
+C:\Users\Williams Cuesta\Source\Repos\Bodega_Campito\Common\obj\Debug\Common.dll
+C:\Users\Williams Cuesta\Source\Repos\Bodega_Campito\Common\obj\Debug\Common.pdb
+C:\Users\Williams Cuesta\source\repos\Bodega_Campito2\Common\obj\Debug\Common.csprojAssemblyReference.cache
+C:\Users\Williams Cuesta\source\repos\Bodega_Campito2\Common\obj\Debug\Common.csproj.CoreCompileInputs.cache
