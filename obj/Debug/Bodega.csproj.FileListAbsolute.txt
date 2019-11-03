@@ -157,3 +157,4 @@ C:\Users\Williams Cuesta\Source\Repos\Bodega_Campito2019\obj\Debug\Bodega.Trasla
 C:\Users\Williams Cuesta\Source\Repos\Bodega_Campito2019\obj\Debug\Bodega.Traslados.SalidaProducto.resources
 C:\Users\Williams Cuesta\Source\Repos\Bodega_Campito2019\obj\Debug\Bodega.Traslados.TipoTraslado.resources
 C:\Users\Williams Cuesta\Source\Repos\Bodega_Campito2019\obj\Debug\Bodega.csproj.GenerateResource.Cache
+C:\Users\Williams Cuesta\Source\Repos\Bodega_Campito2019\obj\Debug\Bodega.Ajustes.EliminarEntrada.resources

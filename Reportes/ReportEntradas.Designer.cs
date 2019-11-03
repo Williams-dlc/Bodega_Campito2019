@@ -29,6 +29,9 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ReportEntradas));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lbl_titulo = new System.Windows.Forms.Label();
@@ -43,7 +46,6 @@
             this.txt_codigo = new System.Windows.Forms.TextBox();
             this.btn_aceptarCod = new System.Windows.Forms.Button();
             this.btn_aceparPro = new System.Windows.Forms.Button();
-            this.dgv_Entradas = new System.Windows.Forms.DataGridView();
             this.cmb_propietario = new System.Windows.Forms.ComboBox();
             this.dtp_FechaPro = new System.Windows.Forms.DateTimePicker();
             this.btn_imprimir = new System.Windows.Forms.Panel();
@@ -54,10 +56,11 @@
             this.btn_imprimirPropietario = new System.Windows.Forms.Panel();
             this.prt_docCod = new System.Drawing.Printing.PrintDocument();
             this.prt_docPropietario = new System.Drawing.Printing.PrintDocument();
+            this.dgv_Entradas = new System.Windows.Forms.DataGridView();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_Entradas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_Entradas)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -231,16 +234,6 @@
             this.btn_aceparPro.UseVisualStyleBackColor = false;
             this.btn_aceparPro.Click += new System.EventHandler(this.btn_aceparPro_Click);
             // 
-            // dgv_Entradas
-            // 
-            this.dgv_Entradas.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgv_Entradas.BackgroundColor = System.Drawing.Color.White;
-            this.dgv_Entradas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_Entradas.Location = new System.Drawing.Point(28, 250);
-            this.dgv_Entradas.Name = "dgv_Entradas";
-            this.dgv_Entradas.Size = new System.Drawing.Size(762, 328);
-            this.dgv_Entradas.TabIndex = 19;
-            // 
             // cmb_propietario
             // 
             this.cmb_propietario.FormattingEnabled = true;
@@ -327,18 +320,50 @@
             // 
             this.prt_docPropietario.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.prt_docPropietario_PrintPage);
             // 
+            // dgv_Entradas
+            // 
+            this.dgv_Entradas.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgv_Entradas.BackgroundColor = System.Drawing.Color.White;
+            this.dgv_Entradas.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgv_Entradas.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.DeepSkyBlue;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_Entradas.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgv_Entradas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_Entradas.EnableHeadersVisualStyles = false;
+            this.dgv_Entradas.Location = new System.Drawing.Point(28, 276);
+            this.dgv_Entradas.Name = "dgv_Entradas";
+            this.dgv_Entradas.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.DeepSkyBlue;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_Entradas.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.DeepSkyBlue;
+            this.dgv_Entradas.RowsDefaultCellStyle = dataGridViewCellStyle3;
+            this.dgv_Entradas.Size = new System.Drawing.Size(762, 302);
+            this.dgv_Entradas.TabIndex = 24;
+            // 
             // ReportEntradas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(850, 615);
+            this.Controls.Add(this.dgv_Entradas);
             this.Controls.Add(this.btn_imprimirPropietario);
             this.Controls.Add(this.btn_imprimirCod);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.btn_imprimir);
             this.Controls.Add(this.dtp_FechaPro);
             this.Controls.Add(this.cmb_propietario);
-            this.Controls.Add(this.dgv_Entradas);
             this.Controls.Add(this.btn_aceparPro);
             this.Controls.Add(this.btn_aceptarCod);
             this.Controls.Add(this.txt_codigo);
@@ -358,8 +383,8 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_Entradas)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_Entradas)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -381,7 +406,6 @@
         private System.Windows.Forms.TextBox txt_codigo;
         private System.Windows.Forms.Button btn_aceptarCod;
         private System.Windows.Forms.Button btn_aceparPro;
-        private System.Windows.Forms.DataGridView dgv_Entradas;
         private System.Windows.Forms.ComboBox cmb_propietario;
         private System.Windows.Forms.DateTimePicker dtp_FechaPro;
         private System.Windows.Forms.Panel btn_imprimir;
@@ -392,5 +416,6 @@
         private System.Windows.Forms.Panel btn_imprimirPropietario;
         private System.Drawing.Printing.PrintDocument prt_docCod;
         private System.Drawing.Printing.PrintDocument prt_docPropietario;
+        private System.Windows.Forms.DataGridView dgv_Entradas;
     }
 }

@@ -418,7 +418,7 @@ namespace Bodega.Traslados
 
                     dgb_pedido.Rows.Remove(dgb_pedido.CurrentRow);
                 }
-                else if (result == DialogResult.Yes)
+                else if (result == DialogResult.No)
                 {
 
                 }

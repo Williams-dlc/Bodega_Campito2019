@@ -43,7 +43,15 @@
             this.label3 = new System.Windows.Forms.Label();
             this.btn_CambiarPass = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
-            this.panel2 = new System.Windows.Forms.Panel();
+            this.btn_RestaurarProducto = new System.Windows.Forms.Panel();
+            this.label5 = new System.Windows.Forms.Label();
+            this.btn_eliminarEntrada = new System.Windows.Forms.Panel();
+            this.label6 = new System.Windows.Forms.Label();
+            this.btn_EliminarSalida = new System.Windows.Forms.Panel();
+            this.label7 = new System.Windows.Forms.Label();
+            this.btn_eliminarPrestamo = new System.Windows.Forms.Panel();
+            this.label8 = new System.Windows.Forms.Label();
+            this.btn_eliminarDevolucion = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -201,33 +209,133 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(50, 364);
+            this.label4.Location = new System.Drawing.Point(81, 364);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(153, 19);
+            this.label4.Size = new System.Drawing.Size(84, 38);
             this.label4.TabIndex = 12;
-            this.label4.Text = "Restaurar Producto";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.label4.Text = "Restaurar \r\nProducto";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // panel2
+            // btn_RestaurarProducto
             // 
-            this.panel2.BackColor = System.Drawing.Color.LightSeaGreen;
-            this.panel2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel2.BackgroundImage")));
-            this.panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel2.Location = new System.Drawing.Point(83, 271);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(82, 77);
-            this.panel2.TabIndex = 11;
-            this.panel2.Click += new System.EventHandler(this.panel2_Click);
+            this.btn_RestaurarProducto.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.btn_RestaurarProducto.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_RestaurarProducto.BackgroundImage")));
+            this.btn_RestaurarProducto.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btn_RestaurarProducto.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.btn_RestaurarProducto.Location = new System.Drawing.Point(83, 271);
+            this.btn_RestaurarProducto.Name = "btn_RestaurarProducto";
+            this.btn_RestaurarProducto.Size = new System.Drawing.Size(82, 77);
+            this.btn_RestaurarProducto.TabIndex = 11;
+            this.btn_RestaurarProducto.Click += new System.EventHandler(this.panel2_Click);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(238, 364);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(71, 38);
+            this.label5.TabIndex = 14;
+            this.label5.Text = "Eliminar\r\nEntrada\r\n";
+            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // btn_eliminarEntrada
+            // 
+            this.btn_eliminarEntrada.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.btn_eliminarEntrada.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_eliminarEntrada.BackgroundImage")));
+            this.btn_eliminarEntrada.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btn_eliminarEntrada.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.btn_eliminarEntrada.Location = new System.Drawing.Point(232, 271);
+            this.btn_eliminarEntrada.Name = "btn_eliminarEntrada";
+            this.btn_eliminarEntrada.Size = new System.Drawing.Size(82, 77);
+            this.btn_eliminarEntrada.TabIndex = 13;
+            this.btn_eliminarEntrada.Click += new System.EventHandler(this.btn_eliminarEntrada_Click);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(379, 364);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(71, 38);
+            this.label6.TabIndex = 16;
+            this.label6.Text = "Eliminar\r\nSalida\n";
+            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // btn_EliminarSalida
+            // 
+            this.btn_EliminarSalida.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.btn_EliminarSalida.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_EliminarSalida.BackgroundImage")));
+            this.btn_EliminarSalida.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btn_EliminarSalida.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.btn_EliminarSalida.Location = new System.Drawing.Point(373, 271);
+            this.btn_EliminarSalida.Name = "btn_EliminarSalida";
+            this.btn_EliminarSalida.Size = new System.Drawing.Size(82, 77);
+            this.btn_EliminarSalida.TabIndex = 15;
+            this.btn_EliminarSalida.Click += new System.EventHandler(this.btn_EliminarSalida_Click);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(520, 364);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(80, 38);
+            this.label7.TabIndex = 18;
+            this.label7.Text = "Eliminar\r\nPrestamo";
+            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // btn_eliminarPrestamo
+            // 
+            this.btn_eliminarPrestamo.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.btn_eliminarPrestamo.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_eliminarPrestamo.BackgroundImage")));
+            this.btn_eliminarPrestamo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btn_eliminarPrestamo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.btn_eliminarPrestamo.Location = new System.Drawing.Point(521, 271);
+            this.btn_eliminarPrestamo.Name = "btn_eliminarPrestamo";
+            this.btn_eliminarPrestamo.Size = new System.Drawing.Size(82, 77);
+            this.btn_eliminarPrestamo.TabIndex = 17;
+            this.btn_eliminarPrestamo.Click += new System.EventHandler(this.btn_eliminarPrestamo_Click);
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(670, 364);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(97, 38);
+            this.label8.TabIndex = 20;
+            this.label8.Text = "Eliminar\r\nDevolución";
+            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // btn_eliminarDevolucion
+            // 
+            this.btn_eliminarDevolucion.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.btn_eliminarDevolucion.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_eliminarDevolucion.BackgroundImage")));
+            this.btn_eliminarDevolucion.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btn_eliminarDevolucion.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.btn_eliminarDevolucion.Location = new System.Drawing.Point(679, 271);
+            this.btn_eliminarDevolucion.Name = "btn_eliminarDevolucion";
+            this.btn_eliminarDevolucion.Size = new System.Drawing.Size(82, 77);
+            this.btn_eliminarDevolucion.TabIndex = 19;
+            this.btn_eliminarDevolucion.Click += new System.EventHandler(this.btn_eliminarDevolucion_Click);
             // 
             // AjustesPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(850, 615);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.btn_eliminarDevolucion);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.btn_eliminarPrestamo);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.btn_EliminarSalida);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.btn_eliminarEntrada);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.btn_RestaurarProducto);
             this.Controls.Add(this.btn_CambiarPass);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.btn_EliminarProducto);
@@ -266,6 +374,14 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Panel btn_CambiarPass;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel btn_RestaurarProducto;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Panel btn_eliminarEntrada;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Panel btn_EliminarSalida;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Panel btn_eliminarPrestamo;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Panel btn_eliminarDevolucion;
     }
 }

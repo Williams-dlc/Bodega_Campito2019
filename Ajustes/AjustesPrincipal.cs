@@ -72,5 +72,26 @@ namespace Bodega.Ajustes
             RestaurarProducto restaurar = new RestaurarProducto();
             restaurar.Show();
         }
+
+        private void btn_eliminarEntrada_Click(object sender, EventArgs e)
+        {
+            EliminarEntrada entrada = new EliminarEntrada();
+            entrada.Show();
+        }
+
+        private void btn_EliminarSalida_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_eliminarPrestamo_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_eliminarDevolucion_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
