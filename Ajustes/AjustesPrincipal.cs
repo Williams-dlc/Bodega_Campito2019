@@ -81,7 +81,7 @@ namespace Bodega.Ajustes
 
         private void btn_EliminarSalida_Click(object sender, EventArgs e)
         {
-
+           
         }
 
         private void btn_eliminarPrestamo_Click(object sender, EventArgs e)
