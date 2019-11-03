@@ -1,6 +1,6 @@
 ﻿namespace Bodega.Ajustes
 {
-    partial class ElliminarSalida
+    partial class EliminarSalida
     {
         /// <summary>
         /// Required designer variable.
@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ElliminarSalida));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EliminarSalida));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pnl_titulo = new System.Windows.Forms.Panel();
             this.btn_salir = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -45,7 +45,7 @@
             this.btn_eliminar = new System.Windows.Forms.Button();
             this.txt_propietario = new System.Windows.Forms.TextBox();
             this.txt_producto = new System.Windows.Forms.TextBox();
-            this.txt_codEntrada = new System.Windows.Forms.TextBox();
+            this.txt_codSalida = new System.Windows.Forms.TextBox();
             this.dtp_FechaPro = new System.Windows.Forms.DateTimePicker();
             this.cmb_propietario = new System.Windows.Forms.ComboBox();
             this.btn_aceparPro = new System.Windows.Forms.Button();
@@ -85,6 +85,7 @@
             this.btn_salir.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.btn_salir.TabIndex = 30;
             this.btn_salir.TabStop = false;
+            this.btn_salir.Click += new System.EventHandler(this.btn_salir_Click);
             // 
             // label1
             // 
@@ -161,31 +162,32 @@
             this.dgv_Entradas.BackgroundColor = System.Drawing.Color.White;
             this.dgv_Entradas.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgv_Entradas.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.DeepSkyBlue;
-            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_Entradas.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle13.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            dataGridViewCellStyle13.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle13.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.Color.DeepSkyBlue;
+            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_Entradas.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle13;
             this.dgv_Entradas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_Entradas.EnableHeadersVisualStyles = false;
             this.dgv_Entradas.Location = new System.Drawing.Point(32, 247);
             this.dgv_Entradas.Name = "dgv_Entradas";
             this.dgv_Entradas.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.DeepSkyBlue;
-            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_Entradas.RowHeadersDefaultCellStyle = dataGridViewCellStyle11;
-            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.DeepSkyBlue;
-            this.dgv_Entradas.RowsDefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle14.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            dataGridViewCellStyle14.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle14.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.Color.DeepSkyBlue;
+            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_Entradas.RowHeadersDefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.Color.DeepSkyBlue;
+            this.dgv_Entradas.RowsDefaultCellStyle = dataGridViewCellStyle15;
             this.dgv_Entradas.Size = new System.Drawing.Size(690, 271);
             this.dgv_Entradas.TabIndex = 86;
+            this.dgv_Entradas.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_Entradas_CellDoubleClick);
             // 
             // btn_eliminar
             // 
@@ -203,6 +205,7 @@
             this.btn_eliminar.Tag = "3";
             this.btn_eliminar.Text = "Eliminar";
             this.btn_eliminar.UseVisualStyleBackColor = false;
+            this.btn_eliminar.Click += new System.EventHandler(this.btn_eliminar_Click);
             // 
             // txt_propietario
             // 
@@ -218,12 +221,12 @@
             this.txt_producto.Size = new System.Drawing.Size(121, 20);
             this.txt_producto.TabIndex = 83;
             // 
-            // txt_codEntrada
+            // txt_codSalida
             // 
-            this.txt_codEntrada.Location = new System.Drawing.Point(43, 554);
-            this.txt_codEntrada.Name = "txt_codEntrada";
-            this.txt_codEntrada.Size = new System.Drawing.Size(97, 20);
-            this.txt_codEntrada.TabIndex = 82;
+            this.txt_codSalida.Location = new System.Drawing.Point(43, 554);
+            this.txt_codSalida.Name = "txt_codSalida";
+            this.txt_codSalida.Size = new System.Drawing.Size(97, 20);
+            this.txt_codSalida.TabIndex = 82;
             // 
             // dtp_FechaPro
             // 
@@ -350,6 +353,7 @@
             this.btn_propietario.Size = new System.Drawing.Size(67, 61);
             this.btn_propietario.TabIndex = 71;
             this.btn_propietario.UseVisualStyleBackColor = false;
+            this.btn_propietario.Click += new System.EventHandler(this.btn_propietario_Click);
             // 
             // btn_codigo
             // 
@@ -363,6 +367,7 @@
             this.btn_codigo.Size = new System.Drawing.Size(67, 61);
             this.btn_codigo.TabIndex = 70;
             this.btn_codigo.UseVisualStyleBackColor = false;
+            this.btn_codigo.Click += new System.EventHandler(this.btn_codigo_Click);
             // 
             // btn_Fecha
             // 
@@ -376,6 +381,7 @@
             this.btn_Fecha.Size = new System.Drawing.Size(67, 61);
             this.btn_Fecha.TabIndex = 69;
             this.btn_Fecha.UseVisualStyleBackColor = false;
+            this.btn_Fecha.Click += new System.EventHandler(this.btn_Fecha_Click);
             // 
             // lbl_buscar
             // 
@@ -388,7 +394,7 @@
             this.lbl_buscar.TabIndex = 68;
             this.lbl_buscar.Text = "Buscar Salida";
             // 
-            // ElliminarSalida
+            // EliminarSalida
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -403,7 +409,7 @@
             this.Controls.Add(this.btn_eliminar);
             this.Controls.Add(this.txt_propietario);
             this.Controls.Add(this.txt_producto);
-            this.Controls.Add(this.txt_codEntrada);
+            this.Controls.Add(this.txt_codSalida);
             this.Controls.Add(this.dtp_FechaPro);
             this.Controls.Add(this.cmb_propietario);
             this.Controls.Add(this.btn_aceparPro);
@@ -420,7 +426,8 @@
             this.Controls.Add(this.lbl_buscar);
             this.Controls.Add(this.pnl_titulo);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "ElliminarSalida";
+            this.Name = "EliminarSalida";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ElliminarSalida";
             this.pnl_titulo.ResumeLayout(false);
             this.pnl_titulo.PerformLayout();
@@ -446,7 +453,7 @@
         private System.Windows.Forms.Button btn_eliminar;
         private System.Windows.Forms.TextBox txt_propietario;
         private System.Windows.Forms.TextBox txt_producto;
-        private System.Windows.Forms.TextBox txt_codEntrada;
+        private System.Windows.Forms.TextBox txt_codSalida;
         private System.Windows.Forms.DateTimePicker dtp_FechaPro;
         private System.Windows.Forms.ComboBox cmb_propietario;
         private System.Windows.Forms.Button btn_aceparPro;

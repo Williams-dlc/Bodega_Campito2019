@@ -93,11 +93,11 @@
     <Compile Include="Ajustes\EliminarUsuario.Designer.cs">
       <DependentUpon>EliminarUsuario.cs</DependentUpon>
     </Compile>
-    <Compile Include="Ajustes\ElliminarSalida.cs">
+    <Compile Include="Ajustes\EliminarSalida.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Ajustes\ElliminarSalida.Designer.cs">
-      <DependentUpon>ElliminarSalida.cs</DependentUpon>
+    <Compile Include="Ajustes\EliminarSalida.Designer.cs">
+      <DependentUpon>EliminarSalida.cs</DependentUpon>
     </Compile>
     <Compile Include="Ajustes\NuevoProducto.cs">
       <SubType>Form</SubType>
@@ -201,8 +201,8 @@
     <EmbeddedResource Include="Ajustes\EliminarUsuario.resx">
       <DependentUpon>EliminarUsuario.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Ajustes\ElliminarSalida.resx">
-      <DependentUpon>ElliminarSalida.cs</DependentUpon>
+    <EmbeddedResource Include="Ajustes\EliminarSalida.resx">
+      <DependentUpon>EliminarSalida.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Ajustes\NuevoProducto.resx">
       <DependentUpon>NuevoProducto.cs</DependentUpon>
