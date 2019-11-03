@@ -81,6 +81,12 @@
     <Compile Include="Ajustes\EliminarEntrada.Designer.cs">
       <DependentUpon>EliminarEntrada.cs</DependentUpon>
     </Compile>
+    <Compile Include="Ajustes\EliminarPrestamo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ajustes\EliminarPrestamo.Designer.cs">
+      <DependentUpon>EliminarPrestamo.cs</DependentUpon>
+    </Compile>
     <Compile Include="Ajustes\EliminarProducto.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -194,6 +200,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Ajustes\EliminarEntrada.resx">
       <DependentUpon>EliminarEntrada.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ajustes\EliminarPrestamo.resx">
+      <DependentUpon>EliminarPrestamo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Ajustes\EliminarProducto.resx">
       <DependentUpon>EliminarProducto.cs</DependentUpon>

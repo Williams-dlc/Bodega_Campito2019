@@ -87,7 +87,8 @@ namespace Bodega.Ajustes
 
         private void btn_eliminarPrestamo_Click(object sender, EventArgs e)
         {
-            
+            EliminarPrestamo prestamo = new EliminarPrestamo();
+            prestamo.Show();
         }
 
         private void btn_eliminarDevolucion_Click(object sender, EventArgs e)
