@@ -160,3 +160,4 @@ C:\Users\Williams Cuesta\Source\Repos\Bodega_Campito2019\obj\Debug\Bodega.csproj
 C:\Users\Williams Cuesta\Source\Repos\Bodega_Campito2019\obj\Debug\Bodega.Ajustes.EliminarEntrada.resources
 C:\Users\Williams Cuesta\Source\Repos\Bodega_Campito2019\obj\Debug\Bodega.Ajustes.EliminarSalida.resources
 C:\Users\Williams Cuesta\Source\Repos\Bodega_Campito2019\obj\Debug\Bodega.Ajustes.EliminarPrestamo.resources
+C:\Users\Williams Cuesta\Source\Repos\Bodega_Campito2019\obj\Debug\Bodega.Ajustes.EliminarDevolucion.resources

@@ -93,6 +93,8 @@ namespace Bodega.Ajustes
 
         private void btn_eliminarDevolucion_Click(object sender, EventArgs e)
         {
+            EliminarDevolucion devolucion = new EliminarDevolucion();
+            devolucion.Show();
 
         }
     }

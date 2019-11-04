@@ -75,6 +75,12 @@
     <Compile Include="Ajustes\CambiarContraseña.Designer.cs">
       <DependentUpon>CambiarContraseña.cs</DependentUpon>
     </Compile>
+    <Compile Include="Ajustes\EliminarDevolucion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ajustes\EliminarDevolucion.Designer.cs">
+      <DependentUpon>EliminarDevolucion.cs</DependentUpon>
+    </Compile>
     <Compile Include="Ajustes\EliminarEntrada.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -197,6 +203,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Ajustes\CambiarContraseña.resx">
       <DependentUpon>CambiarContraseña.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ajustes\EliminarDevolucion.resx">
+      <DependentUpon>EliminarDevolucion.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Ajustes\EliminarEntrada.resx">
       <DependentUpon>EliminarEntrada.cs</DependentUpon>

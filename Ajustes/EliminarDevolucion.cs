@@ -11,10 +11,10 @@ using System.Data.Odbc;
 
 namespace Bodega.Ajustes
 {
-    public partial class EliminarPrestamo : Form
+    public partial class EliminarDevolucion : Form
     {
         string ConnStr = "Driver={MySQL ODBC 3.51 Driver};Server=localhost;Database=bodega_campito;uid=willi;pwd=1234";
-        public EliminarPrestamo()
+        public EliminarDevolucion()
         {
             InitializeComponent();
             dtp_fecha.Enabled = false;
@@ -29,17 +29,21 @@ namespace Bodega.Ajustes
 
             cmb_propietario.DataSource = CapaDatosBodega.llenarPropietario();
             cmb_propietario.ValueMember = "Nombre";
+
+            this.tt_distribuidor.SetToolTip(this.lbl_distribuidor, "Ingrese el nombre del distribuidor que realizo la dovolucion");
+            this.tt_distribuidor.SetToolTip(this.cmb_propietario, "Seleccione el nombre del distribuidor que realizo la dovolucion");
+            this.tt_distribuidor.SetToolTip(this.btn_propietario, "Seleccione el nombre del distribuidor que realizo la dovolucion");
         }
 
-        public void PrestamosCodigo() ////////////////////////////////////////////////procedimiento para mostrar disponibilidad de producto en bodega
+        public void DevCodigo() ////////////////////////////////////////////////procedimiento para mostrar disponibilidad de producto en bodega
 
         {
             DataTable tabla = new DataTable();
             using (OdbcConnection con = new OdbcConnection(ConnStr))
             {
                 con.Open();
-                OdbcDataAdapter cmd = new OdbcDataAdapter("select * from encabezadoPrestamo b INNER JOIN DetallePrestamo a ON b.idPrestamo=a.FK_EncPrestamo WHERE b.idprestamo='" + txt_codigo.Text + "' AND a.FK_encPrestamo= '" + txt_codigo.Text + "' AND a.estado=1", con);//llama a la tabla de inventario para ver stock
-                                                                                                                                                                                                    //OdbcDataReader queryResults = cmd.ExecuteReader();
+                OdbcDataAdapter cmd = new OdbcDataAdapter("select * from encabezadoDevoluciones b INNER JOIN DetalleDevoluciones a ON b.idDevoluciones=a.FK_EncDevoluciones WHERE b.idDevoluciones='" + txt_codigo.Text + "' AND a.FK_encDevoluciones= '" + txt_codigo.Text + "'   ", con);//llama a la tabla de inventario para ver stock
+                                                                                                                                                                                                                                                                          //OdbcDataReader queryResults = cmd.ExecuteReader();
                 cmd.Fill(tabla);
 
             }
@@ -48,15 +52,15 @@ namespace Bodega.Ajustes
 
         }
 
-        public void PrestamosFecha() ////////////////////////////////////////////////procedimiento para mostrar disponibilidad de producto en bodega
+        public void DevFecha() ////////////////////////////////////////////////procedimiento para mostrar disponibilidad de producto en bodega
 
         {
             DataTable tabla = new DataTable();
             using (OdbcConnection con = new OdbcConnection(ConnStr))
             {
                 con.Open();
-                OdbcDataAdapter cmd = new OdbcDataAdapter("select * from encabezadoPrestamo b INNER JOIN detallePrestamo a ON b.idPrestamo=a.FK_EncPrestamo WHERE b.fecha='" + dtp_fecha.Value.ToString("yyyyMMdd") + "' and estado=1", con);//llama a la tabla de inventario para ver stock
-                                                                                                                                                                                                                      //OdbcDataReader queryResults = cmd.ExecuteReader();
+                OdbcDataAdapter cmd = new OdbcDataAdapter("select * from encabezadoDevoluciones b INNER JOIN DetalleDevoluciones a ON b.idDevoluciones=a.FK_EncDevoluciones WHERE b.fecha='" + dtp_fecha.Value.ToString("yyyyMMdd") + "'", con);//llama a la tabla de inventario para ver stock
+                                                                                                                                                                                                                                            //OdbcDataReader queryResults = cmd.ExecuteReader();
                 cmd.Fill(tabla);
 
             }
@@ -65,15 +69,15 @@ namespace Bodega.Ajustes
 
         }
 
-        public void PrestamosPropietario() ////////////////////////////////////////////////procedimiento para mostrar disponibilidad de producto en bodega
+        public void DevPropietario() ////////////////////////////////////////////////procedimiento para mostrar disponibilidad de producto en bodega
 
         {
             DataTable tabla = new DataTable();
             using (OdbcConnection con = new OdbcConnection(ConnStr))
             {
                 con.Open();
-                OdbcDataAdapter cmd = new OdbcDataAdapter("select * from encabezadoPrestamo b INNER JOIN detallePrestamo a ON b.idPrestamo=a.FK_EncPrestamo WHERE b.fecha='" + dtp_fecha.Value.ToString("yyyyMMdd") + "' and b.FK_Propietario='" + cmb_propietario.Text.ToString() + "' and estado=1", con);//llama a la tabla de inventario para ver stock
-
+                OdbcDataAdapter cmd = new OdbcDataAdapter("select * from encabezadoDevoluciones b INNER JOIN DetalleDevoluciones a ON b.idDevoluciones=a.FK_EncDevoluciones WHERE b.fecha='" + dtp_fecha.Value.ToString("yyyyMMdd") + "' and b.FK_Prestador='" + cmb_propietario.Text.ToString() + "'", con);//llama a la tabla de inventario para ver stock
+                
                 cmd.Fill(tabla);
 
             }
@@ -120,7 +124,7 @@ namespace Bodega.Ajustes
 
         private void btn_aceptarDate_Click(object sender, EventArgs e)
         {
-            PrestamosFecha();
+            DevFecha();
         }
 
         private void btn_salir_Click(object sender, EventArgs e)
@@ -130,12 +134,12 @@ namespace Bodega.Ajustes
 
         private void btn_aceptarCod_Click(object sender, EventArgs e)
         {
-            PrestamosCodigo();
+            DevCodigo();
         }
 
         private void btn_aceparPro_Click(object sender, EventArgs e)
         {
-            PrestamosPropietario();
+            DevPropietario();
         }
 
         private void dgv_Entradas_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -163,7 +167,7 @@ namespace Bodega.Ajustes
             }
             else
             {
-                DialogResult result = MessageBox.Show("¿Desea eliminar el prestamo con el producto '" + txt_producto.Text + "' con la cantidad de '" + txt_cantidad.Text + " del propietario '" + txt_propietario.Text + "' y prestador '"+txt_prestador.Text+"''?", "Nuevo", MessageBoxButtons.YesNo);
+                DialogResult result = MessageBox.Show("¿Desea eliminar el prestamo con el producto '" + txt_producto.Text + "' con la cantidad de '" + txt_cantidad.Text + " del propietario '" + txt_propietario.Text + "' y prestador '" + txt_prestador.Text + "''?", "Nuevo", MessageBoxButtons.YesNo);
 
                 if (result == DialogResult.Yes)
                 {
@@ -171,37 +175,37 @@ namespace Bodega.Ajustes
                     {
                         OdbcConnection con = new OdbcConnection(ConnStr);//varibale para llamar la conexion ODBC
 
-                        OdbcCommand cmd1 = new OdbcCommand("DELETE FROM detallePrestamo WHERE Fk_Producto='" + txt_producto.Text + "' AND FK_EncPrestamo='" + txt_codPrestamo.Text + "' AND cantidad='" + txt_cantidad.Text + "' AND idDetallePrestamo='" + txt_codDetalle.Text + "' ", con);
+                        OdbcCommand cmd1 = new OdbcCommand("DELETE FROM detalleDevoluciones WHERE Fk_Producto='" + txt_producto.Text + "' AND FK_encdevoluciones='" + txt_codPrestamo.Text + "' AND cantidad='" + txt_cantidad.Text + "' AND idDetalleDevoluciones='" + txt_codDetalle.Text + "' ", con);
                         con.Open();//abre la conexion ;
                         cmd1.ExecuteNonQuery();
                         con.Close();//cierra la conexion
 
-                        OdbcCommand cmd3 = new OdbcCommand("DELETE FROM detallePrestamo_respaldo WHERE Fk_Producto='" + txt_producto.Text + "' AND FK_EncPrestamo_resp='" + txt_codPrestamo.Text + "' AND cantidad='" + txt_cantidad.Text + "' AND idDetallePrestamo_resp='" + txt_codDetalle.Text + "' ", con);
+                        OdbcCommand cmd3 = new OdbcCommand("DELETE FROM detalleDevoluciones_respaldo WHERE Fk_Producto='" + txt_producto.Text + "' AND FK_EncDevoluciones_resp='" + txt_codPrestamo.Text + "' AND cantidad='" + txt_cantidad.Text + "' AND idDetalleDevoluciones='" + txt_codDetalle.Text + "' ", con);
                         con.Open();//abre la conexion ;
                         cmd3.ExecuteNonQuery();
                         con.Close();//cierra la conexion
 
-                        OdbcCommand cmd4 = new OdbcCommand("UPDATE detalleinventario set cantidad=cantidad + '" + txt_cantidad.Text + "' WHERE Fk_Producto='" + txt_producto.Text + "' AND FK_Propietario='" + txt_propietario.Text + "'", con);
+                        OdbcCommand cmd4 = new OdbcCommand("UPDATE detalleinventario set cantidad=cantidad - '" + txt_cantidad.Text + "' WHERE Fk_Producto='" + txt_producto.Text + "' AND FK_Propietario='" + txt_propietario.Text + "'", con);
                         con.Open();//abre la conexion ;
                         cmd4.ExecuteNonQuery();
                         con.Close();//cierra la conexion       
 
-                        OdbcCommand cmd2 = new OdbcCommand("UPDATE detalleinventario set cantidad=cantidad - '" + txt_cantidad.Text + "' WHERE Fk_Producto='" + txt_producto.Text + "' AND FK_Propietario='" + txt_prestador.Text + "'", con);
+                        OdbcCommand cmd2 = new OdbcCommand("UPDATE detalleinventario set cantidad=cantidad + '" + txt_cantidad.Text + "' WHERE Fk_Producto='" + txt_producto.Text + "' AND FK_Propietario='" + txt_prestador.Text + "'", con);
                         con.Open();//abre la conexion ;
                         cmd2.ExecuteNonQuery();
                         con.Close();//cierra la conexion                  
 
                         if (btn_Fecha.Enabled == true && btn_codigo.Enabled == false && btn_propietario.Enabled == false)
                         {
-                            PrestamosFecha();
+                            DevFecha();
                         }
                         else if (btn_Fecha.Enabled == false && btn_codigo.Enabled == true && btn_propietario.Enabled == false)
                         {
-                            PrestamosCodigo();
+                            DevCodigo();
                         }
                         else if (btn_Fecha.Enabled == false && btn_codigo.Enabled == false && btn_propietario.Enabled == true)
                         {
-                            PrestamosPropietario();
+                            DevPropietario();
                         }
 
                         txt_codDetalle.Text = "";
