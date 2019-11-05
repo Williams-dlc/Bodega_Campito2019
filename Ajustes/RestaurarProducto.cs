@@ -53,5 +53,10 @@ namespace Bodega.Ajustes
         {
             this.Close();
         }
+
+        private void btn_cancelar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

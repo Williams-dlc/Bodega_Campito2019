@@ -65,6 +65,7 @@
             this.btn_cancelar.Tag = "3";
             this.btn_cancelar.Text = "Cancelar";
             this.btn_cancelar.UseVisualStyleBackColor = false;
+            this.btn_cancelar.Click += new System.EventHandler(this.btn_cancelar_Click);
             // 
             // btn_Aceptar
             // 
@@ -125,9 +126,9 @@
             this.lbl_titulo.ForeColor = System.Drawing.Color.White;
             this.lbl_titulo.Location = new System.Drawing.Point(3, 4);
             this.lbl_titulo.Name = "lbl_titulo";
-            this.lbl_titulo.Size = new System.Drawing.Size(129, 21);
+            this.lbl_titulo.Size = new System.Drawing.Size(161, 21);
             this.lbl_titulo.TabIndex = 0;
-            this.lbl_titulo.Text = "Eliminar Usuario";
+            this.lbl_titulo.Text = "Restaurar Producto";
             // 
             // RestaurarProducto
             // 

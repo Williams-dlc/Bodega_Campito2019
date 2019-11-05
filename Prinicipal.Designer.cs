@@ -306,7 +306,7 @@
             this.btn_ajustes.Name = "btn_ajustes";
             this.btn_ajustes.Size = new System.Drawing.Size(204, 45);
             this.btn_ajustes.TabIndex = 14;
-            this.btn_ajustes.Text = "Ajustes";
+            this.btn_ajustes.Text = "Configuracíon";
             this.btn_ajustes.UseVisualStyleBackColor = true;
             this.btn_ajustes.Click += new System.EventHandler(this.btn_ajustes_Click);
             // 
