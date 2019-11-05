@@ -262,6 +262,7 @@
             // 
             // cmb_propietario
             // 
+            this.cmb_propietario.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmb_propietario.FormattingEnabled = true;
             this.cmb_propietario.Location = new System.Drawing.Point(19, 106);
             this.cmb_propietario.Name = "cmb_propietario";
@@ -341,6 +342,7 @@
             // 
             // cmb_prestador
             // 
+            this.cmb_prestador.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmb_prestador.FormattingEnabled = true;
             this.cmb_prestador.Location = new System.Drawing.Point(278, 106);
             this.cmb_prestador.Name = "cmb_prestador";
@@ -390,6 +392,7 @@
             this.txt_detalle.Name = "txt_detalle";
             this.txt_detalle.Size = new System.Drawing.Size(120, 20);
             this.txt_detalle.TabIndex = 61;
+            this.txt_detalle.Visible = false;
             // 
             // btn_continuar
             // 
@@ -421,6 +424,7 @@
             // 
             // cmb_bodega
             // 
+            this.cmb_bodega.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmb_bodega.FormattingEnabled = true;
             this.cmb_bodega.Location = new System.Drawing.Point(498, 47);
             this.cmb_bodega.Name = "cmb_bodega";

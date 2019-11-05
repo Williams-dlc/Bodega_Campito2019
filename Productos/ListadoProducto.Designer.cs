@@ -152,6 +152,7 @@
             // 
             // cmb_propietario
             // 
+            this.cmb_propietario.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmb_propietario.FormattingEnabled = true;
             this.cmb_propietario.Location = new System.Drawing.Point(6, 25);
             this.cmb_propietario.Name = "cmb_propietario";
