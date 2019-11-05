@@ -101,7 +101,7 @@ namespace Bodega.Productos
             using (OdbcConnection con = new OdbcConnection(ConnStr))
             {
                 con.Open();
-                OdbcDataAdapter cmd = new OdbcDataAdapter("Select * from EncabezadoPrestamo a INNER JOIN DetallePrestamo b ON a.idPrestamo=b.FK_EncPrestamo AND b.Estado=1 and a.FK_Propietario='" + cmb_propietario.Text.ToString()+"'", con);//
+                OdbcDataAdapter cmd = new OdbcDataAdapter("Select idPrestamo AS 'ID', fecha, FK_Trabajador AS 'Trabajador', FK_Propietario AS 'Distribuidor', FK_Prestador AS 'Prestador', FK_Tipo_Bodega AS 'Bodega' from EncabezadoPrestamo a INNER JOIN DetallePrestamo b ON a.idPrestamo=b.FK_EncPrestamo AND b.Estado=1 and a.FK_Propietario='" + cmb_propietario.Text.ToString()+"'", con);//
               
                 cmd.Fill(tabla);
             }

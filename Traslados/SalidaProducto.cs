@@ -177,31 +177,36 @@ namespace Bodega.Traslados
                 dgb_pedido.DataSource = null;
                 dgb_pedido.Refresh();
             }
-            try
+            else
             {
-                OdbcConnection con = new OdbcConnection(ConnStr);//varibale para llamar la conexion ODBC
 
-                OdbcCommand cmd1 = new OdbcCommand("insert into DetallePedido values (NULL,'" + txt_cantidad.Text + "', '" + txt_detalle.Text + "', '" + txt_codProducto.Text + "')", con);
-                con.Open();//abre la conexion ;
-                cmd1.ExecuteNonQuery();
-                con.Close();//cierra la conexion
 
-                OdbcCommand cmd2 = new OdbcCommand("update detalleinventario set Cantidad='" + txt_disponible.Text + "'-'" + txt_cantidad.Text + "' where FK_Propietario='" + cmb_propietario.Text.ToString() + "' AND FK_producto='" + txt_codProducto.Text + " '", con);//elimina de stock lo solicitado
-                con.Open();//abre la conexion ;               
-                cmd2.ExecuteNonQuery();
-                con.Close();//cierra la conexion
+                try
+                {
+                    OdbcConnection con = new OdbcConnection(ConnStr);//varibale para llamar la conexion ODBC
 
-                txt_producto.Text = "";
-                txt_cantidad.Text = "";
-                txt_disponible.Text = "";
-                txt_codProducto.Text = "";
-                producto();
+                    OdbcCommand cmd1 = new OdbcCommand("insert into DetallePedido values (NULL,'" + txt_cantidad.Text + "', '" + txt_detalle.Text + "', '" + txt_codProducto.Text + "')", con);
+                    con.Open();//abre la conexion ;
+                    cmd1.ExecuteNonQuery();
+                    con.Close();//cierra la conexion
 
-                pedido();//LLenar el datagrid con los productos que se estan operando
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.ToString());
+                    OdbcCommand cmd2 = new OdbcCommand("update detalleinventario set Cantidad='" + txt_disponible.Text + "'-'" + txt_cantidad.Text + "' where FK_Propietario='" + cmb_propietario.Text.ToString() + "' AND FK_producto='" + txt_codProducto.Text + " '", con);//elimina de stock lo solicitado
+                    con.Open();//abre la conexion ;               
+                    cmd2.ExecuteNonQuery();
+                    con.Close();//cierra la conexion
+
+                    txt_producto.Text = "";
+                    txt_cantidad.Text = "";
+                    txt_disponible.Text = "";
+                    txt_codProducto.Text = "";
+                    producto();
+
+                    pedido();//LLenar el datagrid con los productos que se estan operando
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.ToString());
+                }
             }
         }
 

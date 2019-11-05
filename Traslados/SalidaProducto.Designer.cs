@@ -89,6 +89,7 @@
             // 
             // cmb_propietario
             // 
+            this.cmb_propietario.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmb_propietario.FormattingEnabled = true;
             this.cmb_propietario.Location = new System.Drawing.Point(224, 109);
             this.cmb_propietario.Name = "cmb_propietario";
@@ -341,6 +342,7 @@
             this.txt_detalle.Name = "txt_detalle";
             this.txt_detalle.Size = new System.Drawing.Size(199, 20);
             this.txt_detalle.TabIndex = 65;
+            this.txt_detalle.Visible = false;
             // 
             // lbl_bodega
             // 
@@ -354,6 +356,7 @@
             // 
             // cmb_bodega
             // 
+            this.cmb_bodega.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmb_bodega.FormattingEnabled = true;
             this.cmb_bodega.Location = new System.Drawing.Point(446, 109);
             this.cmb_bodega.Name = "cmb_bodega";
