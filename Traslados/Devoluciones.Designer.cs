@@ -157,6 +157,7 @@
             this.txt_detalle.Name = "txt_detalle";
             this.txt_detalle.Size = new System.Drawing.Size(120, 20);
             this.txt_detalle.TabIndex = 79;
+            this.txt_detalle.Visible = false;
             // 
             // txt_codigo
             // 
