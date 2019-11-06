@@ -42,6 +42,8 @@ namespace Bodega.Traslados
             txt_disponible.Enabled = false;
             btn_aceptar.Enabled = false;
             txt_codProducto.Enabled = false;
+
+            dgv_producto.Enabled = false;
         }
 
 
@@ -51,7 +53,7 @@ namespace Bodega.Traslados
             using (OdbcConnection con = new OdbcConnection(ConnStr))
             {
                 con.Open();
-                OdbcDataAdapter cmd = new OdbcDataAdapter("select * from producto", con);//llama a la tabla de inventario para ver stock
+                OdbcDataAdapter cmd = new OdbcDataAdapter("select idProducto, Name AS 'Nombre' from producto where estado=1", con);//llama a la tabla de inventario para ver stock
                                                                                               //OdbcDataReader queryResults = cmd.ExecuteReader();
                 cmd.Fill(tabla);
 
@@ -89,6 +91,7 @@ namespace Bodega.Traslados
                     btn_aceptar.Enabled = true;
                     btn_continuar.Enabled = false;
                     txt_codProducto.Enabled = true;
+                    dgv_producto.Enabled = true;
 
 
                 }
@@ -109,7 +112,7 @@ namespace Bodega.Traslados
             using (OdbcConnection con = new OdbcConnection(ConnStr))
             {
                 con.Open();
-                OdbcDataAdapter cmd = new OdbcDataAdapter("select FK_producto, cantidad, FK_Propietario from DetalleInventario where FK_Producto= '"+txt_codProducto.Text+"' AND FK_Propietario='"+cmb_propietario.Text.ToString()+"'", con);//llama a la tabla de inventario para ver stock
+                OdbcDataAdapter cmd = new OdbcDataAdapter("select FK_producto AS 'idProducto', cantidad, FK_Propietario AS 'Distribuidor' from DetalleInventario where FK_Producto= '"+txt_codProducto.Text+"' AND FK_Propietario='"+cmb_propietario.Text.ToString()+"'", con);//llama a la tabla de inventario para ver stock
                                                                                                                                       //OdbcDataReader queryResults = cmd.ExecuteReader();
                 cmd.Fill(tabla);
 
@@ -158,7 +161,7 @@ namespace Bodega.Traslados
             using (OdbcConnection con1 = new OdbcConnection(ConnStr))
             {
                 con1.Open();
-                OdbcDataAdapter cmd = new OdbcDataAdapter("select FK_producto, cantidad from Detallepedido where FK_EncPedido= '" + txt_detalle.Text + "'", con1);//llama a la tabla de inventario para ver stock
+                OdbcDataAdapter cmd = new OdbcDataAdapter("select FK_producto 'idProducto', cantidad from Detallepedido where FK_EncPedido= '" + txt_detalle.Text + "'", con1);//llama a la tabla de inventario para ver stock
                                                                                                                                                                   //OdbcDataReader queryResults = cmd.ExecuteReader();
                 cmd.Fill(tabla);
 
@@ -227,6 +230,7 @@ namespace Bodega.Traslados
             txt_cantidad.Enabled = false;
             btn_aceptar.Enabled = false;
             txt_codProducto.Enabled = false;
+            dgv_producto.Enabled = false;
         }
 
         private void btn_nuevo_Click(object sender, EventArgs e)

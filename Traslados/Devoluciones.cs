@@ -62,7 +62,7 @@ namespace Bodega.Traslados
             using (OdbcConnection con = new OdbcConnection(ConnStr))
             {
                 con.Open();
-                OdbcDataAdapter cmd = new OdbcDataAdapter("select a.FK_EncPrestamo, a.Cantidad, a.FK_Producto, a.estado from detalleprestamo a INNER JOIN encabezadoprestamo b ON b.idPrestamo=a.FK_EncPrestamo WHERE b.FK_Prestador='"+ cmb_prestador.Text.ToString() + "' AND b.FK_Propietario = '" +cmb_propietario.Text.ToString()+"' AND a.estado=1", con);//
+                OdbcDataAdapter cmd = new OdbcDataAdapter("select a.FK_EncPrestamo AS 'Codigo', a.Cantidad, a.FK_Producto AS 'idProducto', a.estado from detalleprestamo a INNER JOIN encabezadoprestamo b ON b.idPrestamo=a.FK_EncPrestamo WHERE b.FK_Prestador='"+ cmb_prestador.Text.ToString() + "' AND b.FK_Propietario = '" +cmb_propietario.Text.ToString()+"' AND a.estado=1", con);//
                                                                                               //OdbcDataReader queryResults = cmd.ExecuteReader();
                 cmd.Fill(tabla);
             }
@@ -77,7 +77,7 @@ namespace Bodega.Traslados
             using (OdbcConnection con = new OdbcConnection(ConnStr))
             {
                 con.Open();
-                OdbcDataAdapter cmd = new OdbcDataAdapter("select FK_producto, cantidad, FK_Propietario from DetalleInventario where FK_Producto= '" + txt_codProducto.Text + "' AND FK_Propietario='" + cmb_prestador.Text.ToString() + "'", con);//llama a la tabla de inventario para ver stock
+                OdbcDataAdapter cmd = new OdbcDataAdapter("select FK_producto AS 'idProducto', cantidad, FK_Propietario AS 'Distribuidor'from DetalleInventario where FK_Producto= '" + txt_codProducto.Text + "' AND FK_Propietario='" + cmb_prestador.Text.ToString() + "'", con);//llama a la tabla de inventario para ver stock
                                                                                                                                                                                                                                                   //OdbcDataReader queryResults = cmd.ExecuteReader();
                 cmd.Fill(tabla);
 
@@ -87,20 +87,7 @@ namespace Bodega.Traslados
 
         }
 
-        public void prestamo()////////////////////////////////////////////////Prestamos pendientes
-        {
-            DataTable tabla = new DataTable();
-            using (OdbcConnection con = new OdbcConnection(ConnStr))
-            {
-                con.Open();
-                OdbcDataAdapter cmd = new OdbcDataAdapter("select * from detallePrestamo", con);//llama a la tabla de inventario para ver stock
-                                                                                         //OdbcDataReader queryResults = cmd.ExecuteReader();
-                cmd.Fill(tabla);
-
-            }
-
-            dgv_productos.DataSource = tabla;
-        }
+        
 
         public void producto()
         {
@@ -108,7 +95,7 @@ namespace Bodega.Traslados
             using (OdbcConnection con = new OdbcConnection(ConnStr))
             {
                 con.Open();
-                OdbcDataAdapter cmd = new OdbcDataAdapter("select * from producto", con);//llama a la tabla de inventario para ver stock
+                OdbcDataAdapter cmd = new OdbcDataAdapter("select idProducto, Name AS 'Nombre' from producto where estado=1", con);//llama a la tabla de inventario para ver stock
                                                                                          //OdbcDataReader queryResults = cmd.ExecuteReader();
                 cmd.Fill(tabla);
 
@@ -260,11 +247,13 @@ namespace Bodega.Traslados
                     cmd3.ExecuteNonQuery();//ejecuta el query
                     con.Close();//cierra la conexion  //NO SE EJECUTARA ESTE DELETE PORQUE LO USA ENCABEZADO PRESTAMO RESPALDO
 
+                    MessageBox.Show("Se ha realizado la devolucion con exito", "Devolucion", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 
 
-                    
+
                     producto();
                     btn_nuevo.Enabled = true;
+                    btn_introducir.Enabled = false;
                 }
                 catch (Exception ex)
                 {
@@ -378,7 +367,7 @@ namespace Bodega.Traslados
 
         private void btn_cancelar_Click_1(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("¿Desea cancelar esta operación?", "Nuevo", MessageBoxButtons.YesNo);
+            DialogResult result = MessageBox.Show("¿Desea cancelar esta operación reciente?", "Nuevo", MessageBoxButtons.YesNo);
 
             if (result == DialogResult.Yes)
             {

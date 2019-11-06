@@ -76,7 +76,7 @@ namespace Bodega.Traslados
             using (OdbcConnection con = new OdbcConnection(ConnStr))
             {
                 con.Open();
-                OdbcDataAdapter cmd = new OdbcDataAdapter("select FK_producto, cantidad, FK_Propietario from DetalleInventario where FK_Producto= '" + txt_codProducto.Text + "' AND FK_Propietario='" + cmb_propietario.Text.ToString() + "'", con);//llama a la tabla de inventario para ver stock
+                OdbcDataAdapter cmd = new OdbcDataAdapter("select FK_producto AS 'Producto', cantidad AS 'Cantidad', FK_Propietario AS 'Distribuidor' from DetalleInventario where FK_Producto= '" + txt_codProducto.Text + "' AND FK_Propietario='" + cmb_propietario.Text.ToString() + "'", con);//llama a la tabla de inventario para ver stock
                                                                                                                                                                                                                                                    //OdbcDataReader queryResults = cmd.ExecuteReader();
                 cmd.Fill(tabla);
 
@@ -115,7 +115,7 @@ namespace Bodega.Traslados
                 {
                     con1.Open();
 
-                    OdbcDataAdapter cmd2 = new OdbcDataAdapter("select FK_producto, cantidad from DetalleEntrada where FK_EncEntrada= '" + txt_detalle.Text + "'", con1);//llama a la tabla de inventario para ver stock
+                    OdbcDataAdapter cmd2 = new OdbcDataAdapter("select FK_producto AS 'Producto', cantidad from DetalleEntrada where FK_EncEntrada= '" + txt_detalle.Text + "'", con1);//llama a la tabla de inventario para ver stock
                                                                                                                                                                       //OdbcDataReader queryResults = cmd.ExecuteReader();
                     cmd2.Fill(tabla);
 
@@ -173,7 +173,7 @@ namespace Bodega.Traslados
                 using (OdbcConnection con = new OdbcConnection(ConnStr))
                 {
                     con.Open();
-                    OdbcDataAdapter cmd = new OdbcDataAdapter("select * from producto", con);//llama a la tabla de inventario para ver stock
+                    OdbcDataAdapter cmd = new OdbcDataAdapter("select idProducto, name AS 'Nombre' from producto where estado=1", con);//llama a la tabla de inventario para ver stock
                                                                                                   //OdbcDataReader queryResults = cmd.ExecuteReader();
                     cmd.Fill(tabla);
 
@@ -359,7 +359,7 @@ namespace Bodega.Traslados
             using (OdbcConnection con = new OdbcConnection(ConnStr))
             {
                 con.Open();
-                OdbcDataAdapter cmd = new OdbcDataAdapter("select idProducto, Name from producto", con);//llama a la tabla de inventario para ver stock
+                OdbcDataAdapter cmd = new OdbcDataAdapter("select idProducto, Name AS 'Nombre' from producto where estado=1", con);//llama a la tabla de inventario para ver stock
                                                                                          //OdbcDataReader queryResults = cmd.ExecuteReader();
                 cmd.Fill(tabla);
 
