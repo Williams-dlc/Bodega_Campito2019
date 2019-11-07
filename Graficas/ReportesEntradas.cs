@@ -37,7 +37,18 @@ namespace Bodega.Reportes
             cmb_mes.Enabled = false;
             btn_aceptar.Enabled = false;
             btn_salidas.Enabled = false;
-           
+
+            if (rdb_Mes.Checked == true)
+            {
+                cmb_mes.Enabled = true;
+                cmb_year.Enabled = true;
+            }
+            else if (rdb_año.Checked == true)
+            {
+                cmb_mes.Enabled = false;
+                cmb_year.Enabled = true;
+            }
+
         }
 
         public void mes()

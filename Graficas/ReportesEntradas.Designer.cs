@@ -223,14 +223,14 @@
             "Octubre",
             "Noviembre",
             "Diciembre"});
-            this.cmb_mes.Location = new System.Drawing.Point(391, 88);
+            this.cmb_mes.Location = new System.Drawing.Point(391, 41);
             this.cmb_mes.Name = "cmb_mes";
             this.cmb_mes.Size = new System.Drawing.Size(121, 21);
             this.cmb_mes.TabIndex = 11;
             // 
             // txt_numero
             // 
-            this.txt_numero.Location = new System.Drawing.Point(518, 88);
+            this.txt_numero.Location = new System.Drawing.Point(518, 41);
             this.txt_numero.Name = "txt_numero";
             this.txt_numero.Size = new System.Drawing.Size(46, 20);
             this.txt_numero.TabIndex = 12;
@@ -337,7 +337,7 @@
             // cmb_year
             // 
             this.cmb_year.FormattingEnabled = true;
-            this.cmb_year.Location = new System.Drawing.Point(606, 88);
+            this.cmb_year.Location = new System.Drawing.Point(392, 109);
             this.cmb_year.Name = "cmb_year";
             this.cmb_year.Size = new System.Drawing.Size(121, 21);
             this.cmb_year.TabIndex = 16;
@@ -346,7 +346,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(387, 57);
+            this.label1.Location = new System.Drawing.Point(387, 10);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(53, 25);
             this.label1.TabIndex = 17;
@@ -356,7 +356,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(602, 57);
+            this.label2.Location = new System.Drawing.Point(388, 78);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(54, 25);
             this.label2.TabIndex = 18;
