@@ -201,3 +201,6 @@ C:\Users\WILLI\Source\Repos\Williams-dlc\Bodega_Campito2019\obj\Debug\Bodega.csp
 C:\Users\WILLI\Source\Repos\Williams-dlc\Bodega_Campito2019\obj\Debug\Bodega.csproj.CopyComplete
 C:\Users\WILLI\Source\Repos\Williams-dlc\Bodega_Campito2019\obj\Debug\Bodega.exe
 C:\Users\WILLI\Source\Repos\Williams-dlc\Bodega_Campito2019\obj\Debug\Bodega.pdb
+C:\Users\Williams Cuesta\Source\Repos\Bodega_Campito2019\bin\Debug\CircularProgressBar.dll
+C:\Users\Williams Cuesta\Source\Repos\Bodega_Campito2019\bin\Debug\WinFormAnimation.dll
+C:\Users\Williams Cuesta\Source\Repos\Bodega_Campito2019\obj\Debug\Bodega.Bienvenida.resources

@@ -570,6 +570,7 @@
             this.Controls.Add(this.txt_cantidad);
             this.Controls.Add(this.txt_producto);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Prestamo";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Prestamo";

@@ -93,13 +93,14 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Verdana", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Arial Rounded MT Bold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.DimGray;
-            this.label1.Location = new System.Drawing.Point(146, 32);
+            this.label1.Location = new System.Drawing.Point(109, 411);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(132, 32);
+            this.label1.Size = new System.Drawing.Size(133, 32);
             this.label1.TabIndex = 8;
             this.label1.Text = "BODEGA";
+            this.label1.Visible = false;
             // 
             // txt_contraseña
             // 
@@ -154,9 +155,9 @@
             // pictureBox3
             // 
             this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(76, 12);
+            this.pictureBox3.Location = new System.Drawing.Point(128, 2);
             this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(64, 60);
+            this.pictureBox3.Size = new System.Drawing.Size(114, 108);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox3.TabIndex = 16;
             this.pictureBox3.TabStop = false;
@@ -196,6 +197,7 @@
             this.Controls.Add(this.txt_contraseña);
             this.Controls.Add(this.txt_usuario);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Login";
             this.Opacity = 0.9D;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

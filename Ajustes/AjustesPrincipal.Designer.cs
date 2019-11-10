@@ -93,6 +93,7 @@
             this.btn_usuario.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_usuario.BackgroundImage")));
             this.btn_usuario.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btn_usuario.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.btn_usuario.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_usuario.Location = new System.Drawing.Point(83, 105);
             this.btn_usuario.Name = "btn_usuario";
             this.btn_usuario.Size = new System.Drawing.Size(82, 77);
@@ -117,6 +118,7 @@
             this.btn_producto.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_producto.BackgroundImage")));
             this.btn_producto.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btn_producto.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.btn_producto.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_producto.Location = new System.Drawing.Point(521, 105);
             this.btn_producto.Name = "btn_producto";
             this.btn_producto.Size = new System.Drawing.Size(82, 77);
@@ -151,6 +153,7 @@
             this.btn_eliminarUsuario.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_eliminarUsuario.BackgroundImage")));
             this.btn_eliminarUsuario.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btn_eliminarUsuario.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.btn_eliminarUsuario.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_eliminarUsuario.Location = new System.Drawing.Point(232, 105);
             this.btn_eliminarUsuario.Name = "btn_eliminarUsuario";
             this.btn_eliminarUsuario.Size = new System.Drawing.Size(82, 77);
@@ -175,6 +178,7 @@
             this.btn_EliminarProducto.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_EliminarProducto.BackgroundImage")));
             this.btn_EliminarProducto.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btn_EliminarProducto.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.btn_EliminarProducto.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_EliminarProducto.Location = new System.Drawing.Point(674, 105);
             this.btn_EliminarProducto.Name = "btn_EliminarProducto";
             this.btn_EliminarProducto.Size = new System.Drawing.Size(82, 77);
@@ -198,6 +202,7 @@
             this.btn_CambiarPass.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_CambiarPass.BackgroundImage")));
             this.btn_CambiarPass.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btn_CambiarPass.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.btn_CambiarPass.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_CambiarPass.Location = new System.Drawing.Point(373, 105);
             this.btn_CambiarPass.Name = "btn_CambiarPass";
             this.btn_CambiarPass.Size = new System.Drawing.Size(82, 77);
@@ -222,6 +227,7 @@
             this.btn_RestaurarProducto.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_RestaurarProducto.BackgroundImage")));
             this.btn_RestaurarProducto.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btn_RestaurarProducto.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.btn_RestaurarProducto.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_RestaurarProducto.Location = new System.Drawing.Point(83, 271);
             this.btn_RestaurarProducto.Name = "btn_RestaurarProducto";
             this.btn_RestaurarProducto.Size = new System.Drawing.Size(82, 77);
@@ -245,6 +251,7 @@
             this.btn_eliminarEntrada.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_eliminarEntrada.BackgroundImage")));
             this.btn_eliminarEntrada.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btn_eliminarEntrada.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.btn_eliminarEntrada.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_eliminarEntrada.Location = new System.Drawing.Point(232, 271);
             this.btn_eliminarEntrada.Name = "btn_eliminarEntrada";
             this.btn_eliminarEntrada.Size = new System.Drawing.Size(82, 77);
@@ -268,6 +275,7 @@
             this.btn_EliminarSalida.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_EliminarSalida.BackgroundImage")));
             this.btn_EliminarSalida.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btn_EliminarSalida.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.btn_EliminarSalida.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_EliminarSalida.Location = new System.Drawing.Point(373, 271);
             this.btn_EliminarSalida.Name = "btn_EliminarSalida";
             this.btn_EliminarSalida.Size = new System.Drawing.Size(82, 77);
@@ -291,6 +299,7 @@
             this.btn_eliminarPrestamo.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_eliminarPrestamo.BackgroundImage")));
             this.btn_eliminarPrestamo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btn_eliminarPrestamo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.btn_eliminarPrestamo.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_eliminarPrestamo.Location = new System.Drawing.Point(521, 271);
             this.btn_eliminarPrestamo.Name = "btn_eliminarPrestamo";
             this.btn_eliminarPrestamo.Size = new System.Drawing.Size(82, 77);
@@ -314,6 +323,7 @@
             this.btn_eliminarDevolucion.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_eliminarDevolucion.BackgroundImage")));
             this.btn_eliminarDevolucion.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btn_eliminarDevolucion.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.btn_eliminarDevolucion.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_eliminarDevolucion.Location = new System.Drawing.Point(679, 271);
             this.btn_eliminarDevolucion.Name = "btn_eliminarDevolucion";
             this.btn_eliminarDevolucion.Size = new System.Drawing.Size(82, 77);
@@ -347,6 +357,7 @@
             this.Controls.Add(this.btn_usuario);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "AjustesPrincipal";
             this.Text = "AjustesPrincipal";
             this.Load += new System.EventHandler(this.AjustesPrincipal_Load);

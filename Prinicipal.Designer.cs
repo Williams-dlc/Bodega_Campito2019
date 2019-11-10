@@ -484,6 +484,7 @@
             this.Controls.Add(this.menu);
             this.Controls.Add(this.pnl_titulo);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Prinicipal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Prinicipal";
