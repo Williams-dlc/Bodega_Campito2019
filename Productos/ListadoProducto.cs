@@ -57,7 +57,7 @@ namespace Bodega.Productos
             using (OdbcConnection con = new OdbcConnection(ConnStr))
             {
                 con.Open();
-                OdbcDataAdapter cmd = new OdbcDataAdapter("select * from producto", con);//llama a la tabla de inventario para ver stock
+                OdbcDataAdapter cmd = new OdbcDataAdapter("select * from producto where estado=1", con);//llama a la tabla de inventario para ver stock
                                                                                               //OdbcDataReader queryResults = cmd.ExecuteReader();
                 cmd.Fill(tabla);
 
@@ -72,7 +72,7 @@ namespace Bodega.Productos
             using (OdbcConnection con = new OdbcConnection(ConnStr))
             {
                 con.Open();
-                OdbcDataAdapter cmd = new OdbcDataAdapter("select FK_producto, cantidad, FK_Propietario from DetalleInventario  where FK_Producto='" + txt_codProducto.Text + "'", con);//llama a la tabla de inventario para ver stock   a INNER JOIN producto b on a.FK_producto=b.idProducto
+                OdbcDataAdapter cmd = new OdbcDataAdapter("select FK_producto AS 'Producto', cantidad, FK_Propietario AS 'Distribuidor' from DetalleInventario  where FK_Producto='" + txt_codProducto.Text + "'", con);//llama a la tabla de inventario para ver stock   a INNER JOIN producto b on a.FK_producto=b.idProducto
                                                                                                                                                                                    //OdbcDataReader queryResults = cmd.ExecuteReader();
                 cmd.Fill(tabla);
 

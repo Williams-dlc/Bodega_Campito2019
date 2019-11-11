@@ -101,7 +101,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(362, 283);
+            this.label4.Location = new System.Drawing.Point(378, 283);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(92, 42);
             this.label4.TabIndex = 24;
@@ -140,7 +140,7 @@
             // 
             // txt_cantidad
             // 
-            this.txt_cantidad.Location = new System.Drawing.Point(460, 297);
+            this.txt_cantidad.Location = new System.Drawing.Point(488, 297);
             this.txt_cantidad.Name = "txt_cantidad";
             this.txt_cantidad.Size = new System.Drawing.Size(198, 20);
             this.txt_cantidad.TabIndex = 20;
@@ -194,7 +194,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(28, 333);
+            this.label7.Location = new System.Drawing.Point(18, 283);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(161, 22);
             this.label7.TabIndex = 32;
@@ -227,7 +227,7 @@
             this.btn_aceptar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_aceptar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_aceptar.ForeColor = System.Drawing.Color.Silver;
-            this.btn_aceptar.Location = new System.Drawing.Point(678, 254);
+            this.btn_aceptar.Location = new System.Drawing.Point(692, 288);
             this.btn_aceptar.Name = "btn_aceptar";
             this.btn_aceptar.Size = new System.Drawing.Size(146, 35);
             this.btn_aceptar.TabIndex = 29;
@@ -252,7 +252,7 @@
             this.dgv_producto.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgv_producto.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_producto.EnableHeadersVisualStyles = false;
-            this.dgv_producto.Location = new System.Drawing.Point(32, 364);
+            this.dgv_producto.Location = new System.Drawing.Point(14, 308);
             this.dgv_producto.Name = "dgv_producto";
             this.dgv_producto.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -267,7 +267,7 @@
             dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.DeepSkyBlue;
             this.dgv_producto.RowsDefaultCellStyle = dataGridViewCellStyle3;
-            this.dgv_producto.Size = new System.Drawing.Size(332, 150);
+            this.dgv_producto.Size = new System.Drawing.Size(332, 206);
             this.dgv_producto.TabIndex = 28;
             this.dgv_producto.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_producto_CellDoubleClick);
             // 
@@ -433,7 +433,7 @@
             // 
             this.lbl_disponible.AutoSize = true;
             this.lbl_disponible.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_disponible.Location = new System.Drawing.Point(16, 283);
+            this.lbl_disponible.Location = new System.Drawing.Point(379, 227);
             this.lbl_disponible.Name = "lbl_disponible";
             this.lbl_disponible.Size = new System.Drawing.Size(91, 42);
             this.lbl_disponible.TabIndex = 72;
@@ -441,7 +441,7 @@
             // 
             // txt_disponible
             // 
-            this.txt_disponible.Location = new System.Drawing.Point(134, 297);
+            this.txt_disponible.Location = new System.Drawing.Point(488, 244);
             this.txt_disponible.Name = "txt_disponible";
             this.txt_disponible.Size = new System.Drawing.Size(200, 20);
             this.txt_disponible.TabIndex = 71;

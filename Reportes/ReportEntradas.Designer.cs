@@ -347,6 +347,7 @@
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgv_Entradas.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.dgv_Entradas.RowHeadersVisible = false;
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.DeepSkyBlue;
             this.dgv_Entradas.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dgv_Entradas.Size = new System.Drawing.Size(762, 302);
