@@ -116,11 +116,15 @@ namespace Bodega
                     var validLogin = user.LoginUser(txt_usuario.Text, txt_contraseña.Text);
                     if (validLogin == true)
                     {
+                        this.Hide();
+                        Bienvenida bienvenida = new Bienvenida();
+                        bienvenida.ShowDialog();
+
                         Prinicipal mainMenu = new Prinicipal();
                         mainMenu.Show();
                         mainMenu.FormClosed += logout;
 
-                        this.Hide();
+                        
                     }
                     else
                     {
