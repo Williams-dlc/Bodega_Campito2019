@@ -14,3 +14,9 @@ C:\Users\Williams Cuesta\Source\Repos\Bodega_Campito2019\Common\bin\Debug\Common
 C:\Users\Williams Cuesta\Source\Repos\Bodega_Campito2019\Common\obj\Debug\Common.csprojResolveAssemblyReference.cache
 C:\Users\Williams Cuesta\Source\Repos\Bodega_Campito2019\Common\obj\Debug\Common.dll
 C:\Users\Williams Cuesta\Source\Repos\Bodega_Campito2019\Common\obj\Debug\Common.pdb
+C:\Users\WILLI\Source\Repos\Williams-dlc\Bodega_Campito2019\Common\bin\Debug\Common.dll
+C:\Users\WILLI\Source\Repos\Williams-dlc\Bodega_Campito2019\Common\bin\Debug\Common.pdb
+C:\Users\WILLI\Source\Repos\Williams-dlc\Bodega_Campito2019\Common\obj\Debug\Common.csprojAssemblyReference.cache
+C:\Users\WILLI\Source\Repos\Williams-dlc\Bodega_Campito2019\Common\obj\Debug\Common.csproj.CoreCompileInputs.cache
+C:\Users\WILLI\Source\Repos\Williams-dlc\Bodega_Campito2019\Common\obj\Debug\Common.dll
+C:\Users\WILLI\Source\Repos\Williams-dlc\Bodega_Campito2019\Common\obj\Debug\Common.pdb

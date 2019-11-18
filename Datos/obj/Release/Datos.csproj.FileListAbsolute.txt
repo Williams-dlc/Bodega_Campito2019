@@ -1,0 +1,2 @@
+C:\Users\WILLI\Source\Repos\Williams-dlc\Bodega_Campito2019\Datos\obj\Release\Datos.csprojAssemblyReference.cache
+C:\Users\WILLI\Source\Repos\Williams-dlc\Bodega_Campito2019\Datos\obj\Release\Datos.csproj.CoreCompileInputs.cache

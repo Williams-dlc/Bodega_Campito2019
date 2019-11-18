@@ -38,3 +38,14 @@ C:\Users\Williams Cuesta\Source\Repos\Bodega_Campito2019\Dominio\bin\Debug\Datos
 C:\Users\Williams Cuesta\Source\Repos\Bodega_Campito2019\Dominio\obj\Debug\Dominio.csprojResolveAssemblyReference.cache
 C:\Users\Williams Cuesta\Source\Repos\Bodega_Campito2019\Dominio\obj\Debug\Dominio.dll
 C:\Users\Williams Cuesta\Source\Repos\Bodega_Campito2019\Dominio\obj\Debug\Dominio.pdb
+C:\Users\WILLI\Source\Repos\Williams-dlc\Bodega_Campito2019\Dominio\bin\Debug\Dominio.dll
+C:\Users\WILLI\Source\Repos\Williams-dlc\Bodega_Campito2019\Dominio\bin\Debug\Dominio.pdb
+C:\Users\WILLI\Source\Repos\Williams-dlc\Bodega_Campito2019\Dominio\bin\Debug\Common.dll
+C:\Users\WILLI\Source\Repos\Williams-dlc\Bodega_Campito2019\Dominio\bin\Debug\Datos.dll
+C:\Users\WILLI\Source\Repos\Williams-dlc\Bodega_Campito2019\Dominio\bin\Debug\Common.pdb
+C:\Users\WILLI\Source\Repos\Williams-dlc\Bodega_Campito2019\Dominio\bin\Debug\Datos.pdb
+C:\Users\WILLI\Source\Repos\Williams-dlc\Bodega_Campito2019\Dominio\obj\Debug\Dominio.csprojAssemblyReference.cache
+C:\Users\WILLI\Source\Repos\Williams-dlc\Bodega_Campito2019\Dominio\obj\Debug\Dominio.csproj.CoreCompileInputs.cache
+C:\Users\WILLI\Source\Repos\Williams-dlc\Bodega_Campito2019\Dominio\obj\Debug\Dominio.csproj.CopyComplete
+C:\Users\WILLI\Source\Repos\Williams-dlc\Bodega_Campito2019\Dominio\obj\Debug\Dominio.dll
+C:\Users\WILLI\Source\Repos\Williams-dlc\Bodega_Campito2019\Dominio\obj\Debug\Dominio.pdb

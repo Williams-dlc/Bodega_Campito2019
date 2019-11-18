@@ -1,0 +1,5 @@
+C:\Users\WILLI\Source\Repos\Williams-dlc\Bodega_Campito2019\Common\bin\Release\Common.dll
+C:\Users\WILLI\Source\Repos\Williams-dlc\Bodega_Campito2019\Common\bin\Release\Common.pdb
+C:\Users\WILLI\Source\Repos\Williams-dlc\Bodega_Campito2019\Common\obj\Release\Common.csproj.CoreCompileInputs.cache
+C:\Users\WILLI\Source\Repos\Williams-dlc\Bodega_Campito2019\Common\obj\Release\Common.dll
+C:\Users\WILLI\Source\Repos\Williams-dlc\Bodega_Campito2019\Common\obj\Release\Common.pdb
