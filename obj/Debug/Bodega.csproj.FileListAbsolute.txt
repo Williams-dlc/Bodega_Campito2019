@@ -167,11 +167,9 @@ C:\Users\WILLI\Source\Repos\Williams-dlc\Bodega_Campito2019\bin\Debug\Bodega.pdb
 C:\Users\WILLI\Source\Repos\Williams-dlc\Bodega_Campito2019\bin\Debug\Common.dll
 C:\Users\WILLI\Source\Repos\Williams-dlc\Bodega_Campito2019\bin\Debug\Datos.dll
 C:\Users\WILLI\Source\Repos\Williams-dlc\Bodega_Campito2019\bin\Debug\Dominio.dll
-C:\Users\WILLI\Source\Repos\Williams-dlc\Bodega_Campito2019\bin\Debug\Google.Protobuf.dll
 C:\Users\WILLI\Source\Repos\Williams-dlc\Bodega_Campito2019\bin\Debug\Common.pdb
 C:\Users\WILLI\Source\Repos\Williams-dlc\Bodega_Campito2019\bin\Debug\Datos.pdb
 C:\Users\WILLI\Source\Repos\Williams-dlc\Bodega_Campito2019\bin\Debug\Dominio.pdb
-C:\Users\WILLI\Source\Repos\Williams-dlc\Bodega_Campito2019\bin\Debug\MySql.Data.xml
 C:\Users\WILLI\Source\Repos\Williams-dlc\Bodega_Campito2019\obj\Debug\Bodega.csprojAssemblyReference.cache
 C:\Users\WILLI\Source\Repos\Williams-dlc\Bodega_Campito2019\obj\Debug\Bodega.Ajustes.AjustesPrincipal.resources
 C:\Users\WILLI\Source\Repos\Williams-dlc\Bodega_Campito2019\obj\Debug\Bodega.Ajustes.CambiarContraseña.resources
