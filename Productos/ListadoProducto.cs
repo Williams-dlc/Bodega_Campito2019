@@ -19,7 +19,7 @@ namespace Bodega.Productos
         public ListadoProducto()
         {
             InitializeComponent();
-            dgv_productos.DataSource = CapaDatosBodega.llenarInventario();
+            dgv_productos.DataSource = CapaDatosBodega.llenarInventario2();
             gbx_Producto.Visible = false;
 
             cmb_propietario.DataSource = CapaDatosBodega.llenarPropietario();
@@ -45,7 +45,10 @@ namespace Bodega.Productos
             }
 
             dgv_productos.DataSource = tabla;
-
+            dgv_productos.Columns[0].Visible = false;//columna de id producto
+            dgv_productos.Columns[2].Visible = false;//columnas de encabezados
+            dgv_productos.Columns[3].Visible = false;//columnas de encabezados
+            dgv_productos.Columns[4].Visible = false;//columnas de encabezados
         }
 
         private void button2_Click(object sender, EventArgs e)

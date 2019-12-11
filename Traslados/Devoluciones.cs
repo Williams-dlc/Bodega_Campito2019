@@ -200,75 +200,81 @@ namespace Bodega.Traslados
 
         private void btn_introducir_Click(object sender, EventArgs e)
         {
-            int disponible = Convert.ToInt32(txt_disponible.Text);
-            int cantidad = Convert.ToInt32(txt_cantidad.Text);
-            if (disponible<cantidad)
-            {
-                MessageBox.Show("No hay suficiente producto para hacer la devolución", "Error de disponibilidad", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            if (txt_codProducto.Text==txt_ProductoPrestamo.Text && txt_cantidad.Text==txt_CantidadPrestamo.Text) {
-                try
-                {
-                    OdbcConnection con = new OdbcConnection(ConnStr);//varibale para llamar la conexion ODBC
-
-                    OdbcCommand cmd1 = new OdbcCommand("insert into DetalleDevoluciones values (NULL,'" + txt_cantidad.Text + "', '" + txt_detalle.Text + "', '" + txt_codProducto.Text + "')", con);
-                    con.Open();//abre la conexion ;
-                    cmd1.ExecuteNonQuery();
-                    con.Close();//cierra la conexion
-
-                    OdbcCommand cmd5 = new OdbcCommand("insert into DetalleDevoluciones_respaldo values (NULL,'" + txt_cantidad.Text + "', '" + txt_detalle.Text + "', '" + txt_codProducto.Text + "')", con);
-                    con.Open();//abre la conexion ;
-                    cmd5.ExecuteNonQuery();
-                    con.Close();//cierra la conexion
-
-                    OdbcCommand cmd2 = new OdbcCommand("update detalleinventario set Cantidad='" + txt_disponible.Text + "'-'" + txt_cantidad.Text + "' where FK_Propietario='" + cmb_prestador.Text.ToString() + "' AND FK_producto='" + txt_producto.Text + " '", con);
-                    con.Open();//abre la conexion ;               
-                    cmd2.ExecuteNonQuery();
-                    con.Close();//cierra la conexion
-
-                    OdbcCommand cmd = new OdbcCommand("update detalleinventario set Cantidad= Cantidad + '" + txt_cantidad.Text + "' where FK_Propietario='" + cmb_propietario.Text.ToString() + "' AND FK_producto='" + txt_codProducto.Text + " '", con);
-                    con.Open();//abre la conexion 
-                    cmd.ExecuteNonQuery();//ejecuta el query
-                    con.Close();//cierra la conexion
-
-                    OdbcCommand cmd6 = new OdbcCommand("update detalleinventario set Cantidad='" + txt_disponible.Text + "'-'" + txt_cantidad.Text + "' where FK_Propietario='" + cmb_prestador.Text.ToString() + "' AND FK_producto='" + txt_codProducto.Text + " '", con);
-                    con.Open();//abre la conexion ;               
-                    cmd6.ExecuteNonQuery();
-                    con.Close();//cierra la conexion
-
-                    OdbcCommand cmd4 = new OdbcCommand("update detalleprestamo set estado=0 where fk_encprestamo= '" + txt_idPrestamo.Text + "' and fk_producto= '" + txt_ProductoPrestamo.Text + "'", con);
-                    con.Open();//abre la conexion 
-                    cmd4.ExecuteNonQuery();//ejecuta el query
-                    con.Close();//cierra la conexion
-
-
-                    OdbcCommand cmd3 = new OdbcCommand("update detalleprestamo_respaldo set estado=0 where fk_encprestamo_resp= '" + txt_idPrestamo.Text + "' and fk_producto= '" + txt_ProductoPrestamo.Text + "'", con);
-                    con.Open();//abre la conexion 
-                    cmd3.ExecuteNonQuery();//ejecuta el query
-                    con.Close();//cierra la conexion  //NO SE EJECUTARA ESTE DELETE PORQUE LO USA ENCABEZADO PRESTAMO RESPALDO
-
-                    MessageBox.Show("Se ha realizado la devolucion con exito", "Devolucion", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-
-
-
-                    producto();
-                    btn_nuevo.Enabled = true;
-                    btn_introducir.Enabled = false;
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.ToString());
-
-                }
-            }
+            if (txt_codProducto.Text == "" || txt_cantidad.Text == "" || txt_disponible.Text == "")
+                MessageBox.Show("llene todos los campos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             else
             {
-                MessageBox.Show("El campo de producto o de cantidad no coinciden con el prestamo seleccionado, por favor inserte de nuevo los datos del producto", "Error de campos", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                txt_codProducto.Text = "";
-                txt_producto.Text = "";
-                txt_cantidad.Text = "";
-                txt_disponible.Text = "";
+                int disponible = Convert.ToInt32(txt_disponible.Text);
+                int cantidad = Convert.ToInt32(txt_cantidad.Text);
+                if (disponible < cantidad)
+                {
+                    MessageBox.Show("No hay suficiente producto para hacer la devolución", "Error de disponibilidad", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                if (txt_codProducto.Text == txt_ProductoPrestamo.Text && txt_cantidad.Text == txt_CantidadPrestamo.Text)
+                {
+                    try
+                    {
+                        OdbcConnection con = new OdbcConnection(ConnStr);//varibale para llamar la conexion ODBC
 
+                        OdbcCommand cmd1 = new OdbcCommand("insert into DetalleDevoluciones values (NULL,'" + txt_cantidad.Text + "', '" + txt_detalle.Text + "', '" + txt_codProducto.Text + "','" + txt_comentario.Text + "')", con);
+                        con.Open();//abre la conexion ;
+                        cmd1.ExecuteNonQuery();
+                        con.Close();//cierra la conexion
+
+                        OdbcCommand cmd5 = new OdbcCommand("insert into DetalleDevoluciones_respaldo values (NULL,'" + txt_cantidad.Text + "', '" + txt_detalle.Text + "', '" + txt_codProducto.Text + "','" + txt_comentario.Text + "')", con);
+                        con.Open();//abre la conexion ;
+                        cmd5.ExecuteNonQuery();
+                        con.Close();//cierra la conexion
+
+                        OdbcCommand cmd2 = new OdbcCommand("update detalleinventario set Cantidad='" + txt_disponible.Text + "'-'" + txt_cantidad.Text + "' where FK_Propietario='" + cmb_prestador.Text.ToString() + "' AND FK_producto='" + txt_producto.Text + " '", con);
+                        con.Open();//abre la conexion ;               
+                        cmd2.ExecuteNonQuery();
+                        con.Close();//cierra la conexion
+
+                        OdbcCommand cmd = new OdbcCommand("update detalleinventario set Cantidad= Cantidad + '" + txt_cantidad.Text + "' where FK_Propietario='" + cmb_propietario.Text.ToString() + "' AND FK_producto='" + txt_codProducto.Text + " '", con);
+                        con.Open();//abre la conexion 
+                        cmd.ExecuteNonQuery();//ejecuta el query
+                        con.Close();//cierra la conexion
+
+                        OdbcCommand cmd6 = new OdbcCommand("update detalleinventario set Cantidad='" + txt_disponible.Text + "'-'" + txt_cantidad.Text + "' where FK_Propietario='" + cmb_prestador.Text.ToString() + "' AND FK_producto='" + txt_codProducto.Text + " '", con);
+                        con.Open();//abre la conexion ;               
+                        cmd6.ExecuteNonQuery();
+                        con.Close();//cierra la conexion
+
+                        OdbcCommand cmd4 = new OdbcCommand("update detalleprestamo set estado=0 where fk_encprestamo= '" + txt_idPrestamo.Text + "' and fk_producto= '" + txt_ProductoPrestamo.Text + "'", con);
+                        con.Open();//abre la conexion 
+                        cmd4.ExecuteNonQuery();//ejecuta el query
+                        con.Close();//cierra la conexion
+
+
+                        OdbcCommand cmd3 = new OdbcCommand("update detalleprestamo_respaldo set estado=0 where fk_encprestamo_resp= '" + txt_idPrestamo.Text + "' and fk_producto= '" + txt_ProductoPrestamo.Text + "'", con);
+                        con.Open();//abre la conexion 
+                        cmd3.ExecuteNonQuery();//ejecuta el query
+                        con.Close();//cierra la conexion  //NO SE EJECUTARA ESTE DELETE PORQUE LO USA ENCABEZADO PRESTAMO RESPALDO
+
+                        MessageBox.Show("Se ha realizado la devolucion con exito", "Devolucion", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+
+
+
+                        producto();
+                        btn_nuevo.Enabled = true;
+                        btn_introducir.Enabled = false;
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.ToString());
+
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("El campo de producto o de cantidad no coinciden con el prestamo seleccionado, por favor inserte de nuevo los datos del producto", "Error de campos", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    txt_codProducto.Text = "";
+                    txt_producto.Text = "";
+                    txt_cantidad.Text = "";
+                    txt_disponible.Text = "";
+
+                }
             }
         }
 
@@ -297,6 +303,7 @@ namespace Bodega.Traslados
             txt_disponible.Enabled = false;
             cmb_tipoBodega.Enabled = false;
             btn_introducir.Enabled = false;
+            txt_comentario.Text = "";
         }
 
         private void btn_nuevo_Click(object sender, EventArgs e)

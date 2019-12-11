@@ -70,9 +70,9 @@ namespace Bodega.Traslados
 
         private void btn_continuar_Click(object sender, EventArgs e)
         {
-            if (txt_codigo.Text == "" || txt_encargado.Text == "" || cmb_propietario.SelectedIndex == -1 || cmb_bodega.SelectedIndex == -1)
+            if (txt_codigo.Text == "" || txt_encargado.Text == "" || cmb_propietario.SelectedIndex == -1 || cmb_bodega.SelectedIndex == -1 || txt_Recibio.Text=="")
             {
-                MessageBox.Show("llene todos los campos");//lanza mensaje
+                MessageBox.Show("llene todos los campos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
@@ -81,7 +81,7 @@ namespace Bodega.Traslados
                     OdbcConnection con = new OdbcConnection(ConnStr);//varibale para llamar la conexion ODBC
 
 
-                    OdbcCommand cmd = new OdbcCommand("insert into encabezadopedido values ('" + txt_codigo.Text + "','" + dtp_fecha.Value.ToString("yyyyMMdd") + "', '" + cmb_propietario.Text.ToString() + "', '" + txt_encargado.Text + "', '" + cmb_bodega.Text.ToString() + "')", con);
+                    OdbcCommand cmd = new OdbcCommand("insert into encabezadopedido values ('" + txt_codigo.Text + "','" + dtp_fecha.Value.ToString("yyyyMMdd") + "', '" + cmb_propietario.Text.ToString() + "', '" + txt_encargado.Text + "', '" + cmb_bodega.Text.ToString() + "', '"+txt_Recibio.Text+"')", con);
                     con.Open();//abre la conexion 
                     cmd.ExecuteNonQuery();//ejecuta el query
                     con.Close();//cierra la conexion
@@ -172,43 +172,48 @@ namespace Bodega.Traslados
 
         private void btn_aceptar_Click(object sender, EventArgs e)
         {
-            int disponible = Convert.ToInt32(txt_disponible.Text);
-            int cantidad = Convert.ToInt32(txt_cantidad.Text);
-            if (disponible < cantidad)
-            {
-                MessageBox.Show("No hay suficiente producto para hacer la salida de producto", "Error de disponibilidad", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                dgb_pedido.DataSource = null;
-                dgb_pedido.Refresh();
-            }
+            if (txt_codProducto.Text == "" || txt_cantidad.Text == "" || txt_disponible.Text == "")
+                MessageBox.Show("llene todos los campos","Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
             else
             {
-
-
-                try
+                int disponible = Convert.ToInt32(txt_disponible.Text);
+                int cantidad = Convert.ToInt32(txt_cantidad.Text);
+                if (disponible < cantidad)
                 {
-                    OdbcConnection con = new OdbcConnection(ConnStr);//varibale para llamar la conexion ODBC
-
-                    OdbcCommand cmd1 = new OdbcCommand("insert into DetallePedido values (NULL,'" + txt_cantidad.Text + "', '" + txt_detalle.Text + "', '" + txt_codProducto.Text + "')", con);
-                    con.Open();//abre la conexion ;
-                    cmd1.ExecuteNonQuery();
-                    con.Close();//cierra la conexion
-
-                    OdbcCommand cmd2 = new OdbcCommand("update detalleinventario set Cantidad='" + txt_disponible.Text + "'-'" + txt_cantidad.Text + "' where FK_Propietario='" + cmb_propietario.Text.ToString() + "' AND FK_producto='" + txt_codProducto.Text + " '", con);//elimina de stock lo solicitado
-                    con.Open();//abre la conexion ;               
-                    cmd2.ExecuteNonQuery();
-                    con.Close();//cierra la conexion
-
-                    txt_producto.Text = "";
-                    txt_cantidad.Text = "";
-                    txt_disponible.Text = "";
-                    txt_codProducto.Text = "";
-                    producto();
-
-                    pedido();//LLenar el datagrid con los productos que se estan operando
+                    MessageBox.Show("No hay suficiente producto para hacer la salida de producto", "Error de disponibilidad", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    dgb_pedido.DataSource = null;
+                    dgb_pedido.Refresh();
                 }
-                catch (Exception ex)
+                else
                 {
-                    MessageBox.Show(ex.ToString());
+                    try
+                    {
+                        OdbcConnection con = new OdbcConnection(ConnStr);//varibale para llamar la conexion ODBC
+
+                        OdbcCommand cmd1 = new OdbcCommand("insert into DetallePedido values (NULL,'" + txt_cantidad.Text + "', '" + txt_detalle.Text + "', '" + txt_codProducto.Text + "','" + txt_comentario.Text + "')", con);
+                        con.Open();//abre la conexion ;
+                        cmd1.ExecuteNonQuery();
+                        con.Close();//cierra la conexion
+
+                        OdbcCommand cmd2 = new OdbcCommand("update detalleinventario set Cantidad='" + txt_disponible.Text + "'-'" + txt_cantidad.Text + "' where FK_Propietario='" + cmb_propietario.Text.ToString() + "' AND FK_producto='" + txt_codProducto.Text + " '", con);//elimina de stock lo solicitado
+                        con.Open();//abre la conexion ;               
+                        cmd2.ExecuteNonQuery();
+                        con.Close();//cierra la conexion
+
+                        txt_producto.Text = "";
+                        txt_cantidad.Text = "";
+                        txt_disponible.Text = "";
+                        txt_codProducto.Text = "";
+                        txt_comentario.Text = "";
+                        producto();
+
+                        pedido();//LLenar el datagrid con los productos que se estan operando
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.ToString());
+                    }
+
                 }
             }
         }
@@ -221,6 +226,7 @@ namespace Bodega.Traslados
             txt_codigo.Text = Convert.ToString(numero_generado);
 
             txt_detalle.Text = "";
+            txt_Recibio.Text = "";
             dgb_pedido.DataSource = null;
             dgb_pedido.Refresh();
 
@@ -231,6 +237,7 @@ namespace Bodega.Traslados
             btn_aceptar.Enabled = false;
             txt_codProducto.Enabled = false;
             dgv_producto.Enabled = false;
+            txt_comentario.Text = "";
         }
 
         private void btn_nuevo_Click(object sender, EventArgs e)
@@ -302,6 +309,7 @@ namespace Bodega.Traslados
             txt_codProducto.Text = "";
             txt_cantidad.Text = "";
             txt_disponible.Text = "";
+            txt_comentario.Text = "";
             producto();
         }
 

@@ -90,43 +90,47 @@ namespace Bodega.Traslados
 
         private void btn_aceptar_Click(object sender, EventArgs e)
         {
-            
-            try
+            if (txt_codProducto.Text == "" || txt_cantidad.Text == "" || txt_disponible.Text == "")
+                MessageBox.Show("llene todos los campos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            else
             {
-                OdbcConnection con = new OdbcConnection(ConnStr);//varibale para llamar la conexion ODBC
-                OdbcCommand cmd = new OdbcCommand("insert into detalleentrada values (null, '" + txt_cantidad.Text + "','" + txt_codigo.Text + "','" + txt_codProducto.Text + "')", con);
-                con.Open();//abre la conexion ;
-                cmd.ExecuteNonQuery();
-                con.Close();//cierra la conexion
-
-                OdbcCommand cmd1 = new OdbcCommand("update detalleinventario set Cantidad= Cantidad + '" + txt_cantidad.Text + "' where FK_Propietario='" + cmb_propietario.Text.ToString() + "' AND FK_producto='" + txt_codProducto.Text + " '", con);
-                con.Open();//abre la conexion ;
-                cmd1.ExecuteNonQuery();
-                con.Close();//cierra la conexion
-                //INSERT INTO detalleinventario (idDetalleInventario, FK_EncaDetalle, Fk_Producto, Cantidad, FK_Propietario) SELECT * FROM (SELECT '13','3','104','50','Jorge') AS tmp WHERE NOT EXISTS (SELECT Fk_Producto FROM detalleinventario WHERE Fk_Producto=104) LIMIT 1
-                OdbcCommand cmd3 = new OdbcCommand("INSERT INTO detalleinventario (idDetalleInventario, FK_EncaDetalle, Fk_Producto, Cantidad, FK_Propietario) SELECT * FROM (SELECT null,'"+txt_codigo.Text+"','"+txt_codProducto.Text+"','"+txt_cantidad.Text+ "','" + cmb_propietario.Text.ToString() + "') AS tmp WHERE NOT EXISTS (SELECT Fk_Producto FROM detalleinventario WHERE Fk_Producto='"+txt_codProducto.Text+"' and fk_propietario='"+cmb_propietario.Text.ToString()+"') ", con);
-                con.Open();//abre la conexion ;
-                cmd3.ExecuteNonQuery();
-                con.Close();//cierra la conexion
-
-                
-                DataTable tabla = new DataTable();
-                using (OdbcConnection con1 = new OdbcConnection(ConnStr))
+                try
                 {
-                    con1.Open();
+                    OdbcConnection con = new OdbcConnection(ConnStr);//varibale para llamar la conexion ODBC
+                    OdbcCommand cmd = new OdbcCommand("insert into detalleentrada values (null, '" + txt_cantidad.Text + "','" + txt_codigo.Text + "','" + txt_codProducto.Text + "','" + txt_comentario.Text + "')", con);
+                    con.Open();//abre la conexion ;
+                    cmd.ExecuteNonQuery();
+                    con.Close();//cierra la conexion
 
-                    OdbcDataAdapter cmd2 = new OdbcDataAdapter("select FK_producto AS 'Producto', cantidad from DetalleEntrada where FK_EncEntrada= '" + txt_detalle.Text + "'", con1);//llama a la tabla de inventario para ver stock
-                                                                                                                                                                      //OdbcDataReader queryResults = cmd.ExecuteReader();
-                    cmd2.Fill(tabla);
+                    OdbcCommand cmd1 = new OdbcCommand("update detalleinventario set Cantidad= Cantidad + '" + txt_cantidad.Text + "' where FK_Propietario='" + cmb_propietario.Text.ToString() + "' AND FK_producto='" + txt_codProducto.Text + " '", con);
+                    con.Open();//abre la conexion ;
+                    cmd1.ExecuteNonQuery();
+                    con.Close();//cierra la conexion
+                    //INSERT INTO detalleinventario (idDetalleInventario, FK_EncaDetalle, Fk_Producto, Cantidad, FK_Propietario) SELECT * FROM (SELECT '13','3','104','50','Jorge') AS tmp WHERE NOT EXISTS (SELECT Fk_Producto FROM detalleinventario WHERE Fk_Producto=104) LIMIT 1
+                    OdbcCommand cmd3 = new OdbcCommand("INSERT INTO detalleinventario (idDetalleInventario, FK_EncaDetalle, Fk_Producto, Cantidad, FK_Propietario) SELECT * FROM (SELECT null,'" + txt_codigo.Text + "','" + txt_codProducto.Text + "','" + txt_cantidad.Text + "','" + cmb_propietario.Text.ToString() + "') AS tmp WHERE NOT EXISTS (SELECT Fk_Producto FROM detalleinventario WHERE Fk_Producto='" + txt_codProducto.Text + "' and fk_propietario='" + cmb_propietario.Text.ToString() + "') ", con);
+                    con.Open();//abre la conexion ;
+                    cmd3.ExecuteNonQuery();
+                    con.Close();//cierra la conexion
+
+
+                    DataTable tabla = new DataTable();
+                    using (OdbcConnection con1 = new OdbcConnection(ConnStr))
+                    {
+                        con1.Open();
+
+                        OdbcDataAdapter cmd2 = new OdbcDataAdapter("select FK_producto AS 'Producto', cantidad from DetalleEntrada where FK_EncEntrada= '" + txt_detalle.Text + "'", con1);//llama a la tabla de inventario para ver stock
+                                                                                                                                                                                           //OdbcDataReader queryResults = cmd.ExecuteReader();
+                        cmd2.Fill(tabla);
+
+                    }
+
+                    dgb_pedido.DataSource = tabla;
 
                 }
-
-                dgb_pedido.DataSource = tabla;
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.ToString());
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.ToString());
+                }
             }
         }
 
