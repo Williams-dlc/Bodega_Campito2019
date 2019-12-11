@@ -43,6 +43,8 @@ namespace Bodega.Traslados
             cmb_propietario.DataSource = CapaDatosBodega.llenarPropietario();
             cmb_propietario.ValueMember = "Nombre";
 
+           
+
             cmb_tipoBodega.DataSource = CapaDatosBodega.llenarBodega();
             cmb_tipoBodega.ValueMember = "tipo_bodega";
 

@@ -27,8 +27,79 @@ namespace Bodega.Reportes
             btn_aceparPro.Enabled = false;
             dtp_FechaPro.Enabled = false;
 
+            cmb_mes.Enabled = false;
+            cmb_year.Enabled = false;
+            cmb_propietario2.Enabled = false;
+            btn_aceptarMes.Enabled = false;
+
             cmb_propietario.DataSource = CapaDatosBodega.llenarPropietario();
             cmb_propietario.ValueMember = "Nombre";
+
+            cmb_propietario2.DataSource = CapaDatosBodega.llenarPropietario();
+            cmb_propietario2.ValueMember = "Nombre";
+
+            years();
+        }
+
+        public void mes()
+        {
+            if (cmb_mes.Text.ToString() == "Enero")
+            {
+                txt_numero.Text = "1";
+            }
+            else if (cmb_mes.Text.ToString() == "Febrero")
+            {
+                txt_numero.Text = "2";
+            }
+            else if (cmb_mes.Text.ToString() == "Marzo")
+            {
+                txt_numero.Text = "3";
+            }
+            else if (cmb_mes.Text.ToString() == "Abril")
+            {
+                txt_numero.Text = "4";
+            }
+            else if (cmb_mes.Text.ToString() == "Mayo")
+            {
+                txt_numero.Text = "5";
+            }
+            else if (cmb_mes.Text.ToString() == "Junio")
+            {
+                txt_numero.Text = "6";
+            }
+            else if (cmb_mes.Text.ToString() == "Julio")
+            {
+                txt_numero.Text = "7";
+            }
+            else if (cmb_mes.Text.ToString() == "Agosto")
+            {
+                txt_numero.Text = "8";
+            }
+            else if (cmb_mes.Text.ToString() == "Septiembre")
+            {
+                txt_numero.Text = "9";
+            }
+            else if (cmb_mes.Text.ToString() == "Octubre")
+            {
+                txt_numero.Text = "10";
+            }
+            else if (cmb_mes.Text.ToString() == "Noviembre")
+            {
+                txt_numero.Text = "11";
+            }
+            else if (cmb_mes.Text.ToString() == "Diciembre")
+            {
+                txt_numero.Text = "12";
+            }
+        }
+
+        public void years()
+        {
+            for (int i = 2019; i < 2050; i++)
+            {
+                cmb_year.Items.Add(i.ToString());
+            }
+
         }
 
         public void SalidasCodigo() ////////////////////////////////////////////////procedimiento para mostrar disponibilidad de producto en bodega
@@ -96,6 +167,13 @@ namespace Bodega.Reportes
             btn_imprimir.Visible = true;
             btn_imprimirCod.Visible = false;
             btn_imprimirPropietario.Visible = false;
+            btn_imprimirMensual.Visible = false;
+
+            cmb_mes.Enabled = false;
+            cmb_year.Enabled = false;
+            cmb_propietario2.Enabled = false;
+            btn_aceptarMes.Enabled = false;
+
         }
 
         private void btn_codigo_Click(object sender, EventArgs e)
@@ -109,9 +187,15 @@ namespace Bodega.Reportes
             dtp_fecha.Enabled = false;
             btn_aceptarDate.Enabled = false;
 
+            cmb_mes.Enabled = false;
+            cmb_year.Enabled = false;
+            cmb_propietario2.Enabled = false;
+            btn_aceptarMes.Enabled = false;
+
             btn_imprimir.Visible = false;
             btn_imprimirCod.Visible = true;
             btn_imprimirPropietario.Visible = false;
+            btn_imprimirMensual.Visible = false;
         }
 
         private void btn_propietario_Click(object sender, EventArgs e)
@@ -125,9 +209,15 @@ namespace Bodega.Reportes
             txt_codigo.Enabled = false;
             btn_aceptarCod.Enabled = false;
 
+            cmb_mes.Enabled = false;
+            cmb_year.Enabled = false;
+            cmb_propietario2.Enabled = false;
+            btn_aceptarMes.Enabled = false;
+
             btn_imprimir.Visible = false;
             btn_imprimirCod.Visible = false;
             btn_imprimirPropietario.Visible = true;
+            btn_imprimirMensual.Visible = false;
         }
 
         private void btn_aceptarCod_Click(object sender, EventArgs e)
@@ -229,6 +319,80 @@ namespace Bodega.Reportes
             e.Graphics.DrawImage(objicon, 30, 30);
 
             string titulo = lbl_titulo.Text + "\n De " + cmb_propietario.Text.ToString() + " del " + dtp_FechaPro.Value.ToString("dd/MM/yyyy");
+
+            e.Graphics.DrawString(titulo, new Font("Century Gothic", 20, FontStyle.Bold), Brushes.Black, new Point(175, 50));
+        }
+
+        public void Salidas_Mensual()
+        {
+            mes();
+            DataTable tabla = new DataTable();
+            using (OdbcConnection con = new OdbcConnection(ConnStr))
+            {
+                con.Open();
+                OdbcDataAdapter cmd = new OdbcDataAdapter("SELECT a.fk_encPedido, a.fk_Producto, SUM(Cantidad) AS 'Cantidad' FROM detallepedido a INNER JOIN encabezadopedido b ON a.FK_encPedido=b.idPedido AND b.FK_Usuario='" + cmb_propietario2.Text.ToString() + "' AND b.Fecha BETWEEN '" + cmb_year.Text.ToString() + "-" + txt_numero.Text + "-1' AND '" + cmb_year.Text.ToString() + "-" + txt_numero.Text + "-30' GROUP BY Fk_Producto", con);//llama a la tabla de inventario para ver stock
+                                                                                                                                                                                                                                                                                                                                                                                                                                                       //OdbcDataReader queryResults = cmd.ExecuteReader();
+                                                                                                                                                                                                                                                                                                                                                                                                                                                       //SELECT YEAR(Fecha), SUM(Cantidad) as total, '"+cmb_propietario.Text.ToString()+"' from encabezadoentrada a INNER JOIN detalleentrada b on a.idEntrada = b.FK_encEntrada
+                                                                                                                                                                                                                                                                                                                                                                                                                                                       //"select * from detalleInventario where FK_Propietario =  '"+cmb_propietario.Text.ToString()+"' and Fecha=MONTH(text)"
+                cmd.Fill(tabla);
+
+            }
+
+            dgv_Entradas.DataSource = tabla;
+
+
+        }
+
+        private void btn_aceptarMes_Click(object sender, EventArgs e)
+        {
+            Salidas_Mensual();
+            dgv_Entradas.Columns[0].Visible = false;//columna de id producto
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            cmb_mes.Enabled = true;
+            cmb_year.Enabled = true;
+            cmb_propietario2.Enabled = true;
+            btn_aceptarMes.Enabled = true;
+
+            txt_codigo.Enabled = false;
+            btn_aceptarCod.Enabled = false;
+            cmb_propietario.Enabled = false;
+            btn_aceparPro.Enabled = false;
+            dtp_FechaPro.Enabled = false;
+            dtp_fecha.Enabled = false;
+            btn_aceptarDate.Enabled = false;
+
+
+            btn_imprimir.Visible = false;
+            btn_imprimirCod.Visible = false;
+            btn_imprimirPropietario.Visible = false;
+            btn_imprimirMensual.Visible = true;
+        }
+
+        private void btn_imprimirMensual_Click(object sender, EventArgs e)
+        {
+            prt_preview.Document = prt_docMensual;
+            prt_preview.ShowDialog();
+        }
+
+        private void prt_docMensual_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        {
+            int height = dgv_Entradas.Height;
+            dgv_Entradas.Height = dgv_Entradas.RowCount * dgv_Entradas.RowTemplate.Height * 2;//Imprimir el tama;o del datagridview con todos los resultados 
+            Bitmap objbmp = new Bitmap(this.dgv_Entradas.Width, this.dgv_Entradas.Height);
+            dgv_Entradas.DrawToBitmap(objbmp, new Rectangle(0, 0, this.dgv_Entradas.Width, this.dgv_Entradas.Height));
+            dgv_Entradas.Height = height;
+
+            e.Graphics.DrawImage(objbmp, 20, 150);
+
+            Bitmap objicon = new Bitmap(95, 95);
+            pictureBox2.DrawToBitmap(objicon, new Rectangle(0, 0, 200, 200));
+
+            e.Graphics.DrawImage(objicon, 30, 30);
+
+            string titulo = lbl_titulo.Text + "\n De " + cmb_propietario2.Text.ToString() + " del mes de " + cmb_mes.Text.ToString()+ " del año " +cmb_year.Text.ToString();
 
             e.Graphics.DrawString(titulo, new Font("Century Gothic", 20, FontStyle.Bold), Brushes.Black, new Point(175, 50));
         }

@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ReportSalidas));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lbl_titulo = new System.Windows.Forms.Label();
@@ -57,6 +57,15 @@
             this.prt_doc = new System.Drawing.Printing.PrintDocument();
             this.prt_preview = new System.Windows.Forms.PrintPreviewDialog();
             this.dgv_Entradas = new System.Windows.Forms.DataGridView();
+            this.cmb_year = new System.Windows.Forms.ComboBox();
+            this.cmb_propietario2 = new System.Windows.Forms.ComboBox();
+            this.btn_aceptarMes = new System.Windows.Forms.Button();
+            this.txt_numero = new System.Windows.Forms.TextBox();
+            this.cmb_mes = new System.Windows.Forms.ComboBox();
+            this.lbl_mes = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.btn_imprimirMensual = new System.Windows.Forms.Panel();
+            this.prt_docMensual = new System.Drawing.Printing.PrintDocument();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -118,7 +127,7 @@
             this.btn_aceparPro.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_aceparPro.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_aceparPro.ForeColor = System.Drawing.Color.Silver;
-            this.btn_aceparPro.Location = new System.Drawing.Point(682, 217);
+            this.btn_aceparPro.Location = new System.Drawing.Point(682, 240);
             this.btn_aceparPro.Name = "btn_aceparPro";
             this.btn_aceparPro.Size = new System.Drawing.Size(84, 31);
             this.btn_aceparPro.TabIndex = 32;
@@ -136,7 +145,7 @@
             this.btn_aceptarCod.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_aceptarCod.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_aceptarCod.ForeColor = System.Drawing.Color.Silver;
-            this.btn_aceptarCod.Location = new System.Drawing.Point(385, 217);
+            this.btn_aceptarCod.Location = new System.Drawing.Point(470, 240);
             this.btn_aceptarCod.Name = "btn_aceptarCod";
             this.btn_aceptarCod.Size = new System.Drawing.Size(84, 31);
             this.btn_aceptarCod.TabIndex = 31;
@@ -147,7 +156,7 @@
             // 
             // txt_codigo
             // 
-            this.txt_codigo.Location = new System.Drawing.Point(365, 176);
+            this.txt_codigo.Location = new System.Drawing.Point(451, 176);
             this.txt_codigo.Name = "txt_codigo";
             this.txt_codigo.Size = new System.Drawing.Size(121, 20);
             this.txt_codigo.TabIndex = 30;
@@ -162,7 +171,7 @@
             this.btn_aceptarDate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_aceptarDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_aceptarDate.ForeColor = System.Drawing.Color.Silver;
-            this.btn_aceptarDate.Location = new System.Drawing.Point(61, 214);
+            this.btn_aceptarDate.Location = new System.Drawing.Point(56, 240);
             this.btn_aceptarDate.Name = "btn_aceptarDate";
             this.btn_aceptarDate.Size = new System.Drawing.Size(84, 31);
             this.btn_aceptarDate.TabIndex = 29;
@@ -192,7 +201,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(393, 73);
+            this.label1.Location = new System.Drawing.Point(479, 73);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(64, 18);
             this.label1.TabIndex = 26;
@@ -229,7 +238,7 @@
             this.btn_codigo.FlatAppearance.BorderSize = 0;
             this.btn_codigo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_codigo.Image = ((System.Drawing.Image)(resources.GetObject("btn_codigo.Image")));
-            this.btn_codigo.Location = new System.Drawing.Point(391, 94);
+            this.btn_codigo.Location = new System.Drawing.Point(477, 94);
             this.btn_codigo.Name = "btn_codigo";
             this.btn_codigo.Size = new System.Drawing.Size(67, 61);
             this.btn_codigo.TabIndex = 23;
@@ -278,7 +287,7 @@
             // 
             this.pictureBox2.BackColor = System.Drawing.Color.White;
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(797, 439);
+            this.pictureBox2.Location = new System.Drawing.Point(797, 277);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(95, 94);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -326,38 +335,149 @@
             this.dgv_Entradas.BackgroundColor = System.Drawing.Color.White;
             this.dgv_Entradas.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgv_Entradas.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.DeepSkyBlue;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_Entradas.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.DeepSkyBlue;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_Entradas.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dgv_Entradas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_Entradas.EnableHeadersVisualStyles = false;
-            this.dgv_Entradas.Location = new System.Drawing.Point(20, 264);
+            this.dgv_Entradas.Location = new System.Drawing.Point(20, 277);
             this.dgv_Entradas.Name = "dgv_Entradas";
             this.dgv_Entradas.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.DeepSkyBlue;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_Entradas.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.DeepSkyBlue;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_Entradas.RowHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.dgv_Entradas.RowHeadersVisible = false;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.DeepSkyBlue;
-            this.dgv_Entradas.RowsDefaultCellStyle = dataGridViewCellStyle3;
-            this.dgv_Entradas.Size = new System.Drawing.Size(762, 323);
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.DeepSkyBlue;
+            this.dgv_Entradas.RowsDefaultCellStyle = dataGridViewCellStyle6;
+            this.dgv_Entradas.Size = new System.Drawing.Size(762, 310);
             this.dgv_Entradas.TabIndex = 40;
+            // 
+            // cmb_year
+            // 
+            this.cmb_year.FormattingEnabled = true;
+            this.cmb_year.Location = new System.Drawing.Point(276, 186);
+            this.cmb_year.Name = "cmb_year";
+            this.cmb_year.Size = new System.Drawing.Size(121, 21);
+            this.cmb_year.TabIndex = 47;
+            // 
+            // cmb_propietario2
+            // 
+            this.cmb_propietario2.FormattingEnabled = true;
+            this.cmb_propietario2.Location = new System.Drawing.Point(276, 213);
+            this.cmb_propietario2.Name = "cmb_propietario2";
+            this.cmb_propietario2.Size = new System.Drawing.Size(121, 21);
+            this.cmb_propietario2.TabIndex = 46;
+            // 
+            // btn_aceptarMes
+            // 
+            this.btn_aceptarMes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.btn_aceptarMes.FlatAppearance.BorderSize = 0;
+            this.btn_aceptarMes.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
+            this.btn_aceptarMes.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btn_aceptarMes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_aceptarMes.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_aceptarMes.ForeColor = System.Drawing.Color.Silver;
+            this.btn_aceptarMes.Location = new System.Drawing.Point(288, 240);
+            this.btn_aceptarMes.Name = "btn_aceptarMes";
+            this.btn_aceptarMes.Size = new System.Drawing.Size(84, 31);
+            this.btn_aceptarMes.TabIndex = 45;
+            this.btn_aceptarMes.Tag = "3";
+            this.btn_aceptarMes.Text = "Aceptar";
+            this.btn_aceptarMes.UseVisualStyleBackColor = false;
+            this.btn_aceptarMes.Click += new System.EventHandler(this.btn_aceptarMes_Click);
+            // 
+            // txt_numero
+            // 
+            this.txt_numero.Location = new System.Drawing.Point(396, 135);
+            this.txt_numero.Name = "txt_numero";
+            this.txt_numero.Size = new System.Drawing.Size(46, 20);
+            this.txt_numero.TabIndex = 44;
+            this.txt_numero.Visible = false;
+            // 
+            // cmb_mes
+            // 
+            this.cmb_mes.FormattingEnabled = true;
+            this.cmb_mes.Items.AddRange(new object[] {
+            "Enero",
+            "Febrero",
+            "Marzo",
+            "Abril",
+            "Mayo",
+            "Junio",
+            "Julio",
+            "Agosto",
+            "Septiembre",
+            "Octubre",
+            "Noviembre",
+            "Diciembre"});
+            this.cmb_mes.Location = new System.Drawing.Point(276, 161);
+            this.cmb_mes.Name = "cmb_mes";
+            this.cmb_mes.Size = new System.Drawing.Size(121, 21);
+            this.cmb_mes.TabIndex = 43;
+            // 
+            // lbl_mes
+            // 
+            this.lbl_mes.AutoSize = true;
+            this.lbl_mes.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_mes.Location = new System.Drawing.Point(319, 73);
+            this.lbl_mes.Name = "lbl_mes";
+            this.lbl_mes.Size = new System.Drawing.Size(38, 18);
+            this.lbl_mes.TabIndex = 42;
+            this.lbl_mes.Text = "Mes";
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.MediumSeaGreen;
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
+            this.button1.Location = new System.Drawing.Point(304, 94);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(67, 61);
+            this.button1.TabIndex = 41;
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // btn_imprimirMensual
+            // 
+            this.btn_imprimirMensual.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_imprimirMensual.BackgroundImage")));
+            this.btn_imprimirMensual.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btn_imprimirMensual.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.btn_imprimirMensual.Location = new System.Drawing.Point(796, 523);
+            this.btn_imprimirMensual.Name = "btn_imprimirMensual";
+            this.btn_imprimirMensual.Size = new System.Drawing.Size(42, 38);
+            this.btn_imprimirMensual.TabIndex = 38;
+            this.btn_imprimirMensual.Visible = false;
+            this.btn_imprimirMensual.Click += new System.EventHandler(this.btn_imprimirMensual_Click);
+            // 
+            // prt_docMensual
+            // 
+            this.prt_docMensual.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.prt_docMensual_PrintPage);
             // 
             // ReportSalidas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(850, 615);
+            this.Controls.Add(this.btn_imprimirMensual);
+            this.Controls.Add(this.cmb_year);
+            this.Controls.Add(this.cmb_propietario2);
+            this.Controls.Add(this.btn_aceptarMes);
+            this.Controls.Add(this.txt_numero);
+            this.Controls.Add(this.cmb_mes);
+            this.Controls.Add(this.lbl_mes);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.dgv_Entradas);
             this.Controls.Add(this.btn_imprimirPropietario);
             this.Controls.Add(this.btn_imprimirCod);
@@ -417,5 +537,14 @@
         private System.Drawing.Printing.PrintDocument prt_doc;
         private System.Windows.Forms.PrintPreviewDialog prt_preview;
         private System.Windows.Forms.DataGridView dgv_Entradas;
+        private System.Windows.Forms.ComboBox cmb_year;
+        private System.Windows.Forms.ComboBox cmb_propietario2;
+        private System.Windows.Forms.Button btn_aceptarMes;
+        private System.Windows.Forms.TextBox txt_numero;
+        private System.Windows.Forms.ComboBox cmb_mes;
+        private System.Windows.Forms.Label lbl_mes;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Panel btn_imprimirMensual;
+        private System.Drawing.Printing.PrintDocument prt_docMensual;
     }
 }
