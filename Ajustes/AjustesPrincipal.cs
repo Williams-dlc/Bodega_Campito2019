@@ -97,5 +97,10 @@ namespace Bodega.Ajustes
             devolucion.Show();
 
         }
+
+        private void btn_eliminarEntrada_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

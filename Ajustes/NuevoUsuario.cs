@@ -17,8 +17,23 @@ namespace Bodega.Ajustes
         public NuevoUsuario()
         {
             InitializeComponent();
-            cmb_perfil.DataSource = CapaDatosBodega.llenarPerfil();
+            cmb_perfil.DataSource = CapaDatosBodega.llenarPerfil2();
             cmb_perfil.ValueMember = "tipo";
+
+            personalizado();
+        }
+
+        void personalizado()
+        {
+            if (cmb_perfil.Text.ToString() == "Personalizado")
+            {
+                chb_produtos.Enabled = true;
+                chb_traslados.Enabled = true;
+                chb_reportes.Enabled = true;
+                chb_graficas.Enabled = true;
+                chb_confAdmin.Enabled = true;
+                chb_confTrabajador.Enabled = true;
+            }
         }
 
         private void label2_Click(object sender, EventArgs e)
@@ -55,35 +70,128 @@ namespace Bodega.Ajustes
 
         private void btn_aceptar_Click(object sender, EventArgs e)
         {
-            if (txt_contraseña.Text == "")
+            if (txt_contraseña.Text == "" || txt_usuario.Text=="" || cmb_perfil.SelectedIndex==-1)
                 MessageBox.Show("Llenar todos los campos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             else
             {
-                try
+                if (cmb_perfil.Text.ToString() == "Administrador" || cmb_perfil.Text.ToString() == "Trabajador")
                 {
+                    try
+                    {
+                        OdbcConnection con = new OdbcConnection(ConnStr);//varibale para llamar la conexion ODBC
+                        OdbcCommand cmd1 = new OdbcCommand("insert into usuario values ('" + txt_usuario.Text + "',null,null,'" + txt_contraseña.Text + "','" + cmb_perfil.Text.ToString() + "',1)", con);
+                        con.Open();//abre la conexion 
+                        cmd1.ExecuteNonQuery();//ejecuta el query
+                        con.Close();//cierra la conexion
+
+                        OdbcConnection con2 = new OdbcConnection(ConnStr);//varibale para llamar la conexion ODBC
+                        OdbcCommand cmd2 = new OdbcCommand("insert into Trabajador values ('" + txt_usuario.Text + "','" + txt_usuario.Text + "')", con2);
+                        con2.Open();//abre la conexion 
+                        cmd2.ExecuteNonQuery();//ejecuta el query
+                        con2.Close();//cierra la conexion*/
+
+                        MessageBox.Show("Usuario creado exitosamente", "Usuario creado", MessageBoxButtons.OK);
+
+                        txt_contraseña.Text = "";
+                        txt_usuario.Text = "";
+                    }
+                    catch (Exception ex)
+                    {
+                        //MessageBox.Show("El nombre de usuario ya esta en uso, utilice otro nombre", "Error al crear", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show(ex.ToString());
+                    }
+                }else if (cmb_perfil.Text.ToString()== "Personalizado")
+                {
+                    chb_produtos.Enabled = true;
+                    chb_traslados.Enabled = true;
+                    chb_reportes.Enabled = true;
+                    chb_graficas.Enabled = true;
+                    chb_confAdmin.Enabled = true;
+                    chb_confTrabajador.Enabled = true;
+
                     OdbcConnection con = new OdbcConnection(ConnStr);//varibale para llamar la conexion ODBC
-                    OdbcCommand cmd1 = new OdbcCommand("insert into usuario values ('" + txt_usuario.Text + "',null,null,'" + txt_contraseña.Text + "','" + cmb_perfil.Text.ToString() + "',1)", con);
+                    OdbcCommand cmd = new OdbcCommand("insert into usuario values ('" + txt_usuario.Text + "',null,null,'" + txt_contraseña.Text + "','" + cmb_perfil.Text.ToString() + "',1)", con);
                     con.Open();//abre la conexion 
-                    cmd1.ExecuteNonQuery();//ejecuta el query
+                    cmd.ExecuteNonQuery();//ejecuta el query
                     con.Close();//cierra la conexion
 
-                    OdbcConnection con2 = new OdbcConnection(ConnStr);//varibale para llamar la conexion ODBC
-                    OdbcCommand cmd2 = new OdbcCommand("insert into Trabajador values ('"+txt_usuario.Text+"','"+txt_usuario.Text+"')", con2);
-                    con2.Open();//abre la conexion 
-                    cmd2.ExecuteNonQuery();//ejecuta el query
-                    con2.Close();//cierra la conexion*/
+                    OdbcConnection con3 = new OdbcConnection(ConnStr);//varibale para llamar la conexion ODBC
+                    OdbcCommand cmd3 = new OdbcCommand("insert into Trabajador values ('" + txt_usuario.Text + "','" + txt_usuario.Text + "')", con3);
+                    con3.Open();//abre la conexion 
+                    cmd3.ExecuteNonQuery();//ejecuta el query
+                    con3.Close();//cierra la conexion*/
 
+                    OdbcConnection con1 = new OdbcConnection(ConnStr);//varibale para llamar la conexion ODBC
+                    OdbcCommand cmd1 = new OdbcCommand("insert into Perfil values ('" + cmb_perfil.Text.ToString() + txt_usuario.Text + "',0,0,0,0,0,0,2)", con1);
+                    con1.Open();//abre la conexion 
+                    cmd1.ExecuteNonQuery();//ejecuta el query
+                    con1.Close();//cierra la conexion*/
                     MessageBox.Show("Usuario creado exitosamente", "Usuario creado", MessageBoxButtons.OK);
 
-                    txt_contraseña.Text = "";
-                    txt_usuario.Text = "";
-                }
-                catch (Exception ex)
-                {
-                    //MessageBox.Show("El nombre de usuario ya esta en uso, utilice otro nombre", "Error al crear", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    MessageBox.Show(ex.ToString());
+                    if (chb_produtos.Checked == true) {
+                        OdbcConnection con2 = new OdbcConnection(ConnStr);//varibale para llamar la conexion ODBC
+                        OdbcCommand cmd2 = new OdbcCommand("update Perfil set Productos = '1' where Tipo='" + cmb_perfil.Text.ToString() + txt_usuario.Text + "' ", con2);
+                        con2.Open();//abre la conexion 
+                        cmd2.ExecuteNonQuery();//ejecuta el query
+                        con2.Close();//cierra la conexion*/
+                    }
+
+                    if (chb_traslados.Checked == true)
+                    {
+                        OdbcConnection con2 = new OdbcConnection(ConnStr);//varibale para llamar la conexion ODBC
+                        OdbcCommand cmd2 = new OdbcCommand("update Perfil set Traslados = '1' where Tipo='" + cmb_perfil.Text.ToString() + txt_usuario.Text + "' ", con2);
+                        con2.Open();//abre la conexion 
+                        cmd2.ExecuteNonQuery();//ejecuta el query
+                        con2.Close();//cierra la conexion*/
+                    }
+
+                    if (chb_reportes.Checked==true)
+                    {
+                        OdbcConnection con2 = new OdbcConnection(ConnStr);//varibale para llamar la conexion ODBC
+                        OdbcCommand cmd2 = new OdbcCommand("update Perfil set Reportes = '1' where Tipo='" + cmb_perfil.Text.ToString() + txt_usuario.Text + "' ", con2);
+                        con2.Open();//abre la conexion 
+                        cmd2.ExecuteNonQuery();//ejecuta el query
+                        con2.Close();//cierra la conexion*/
+                    }
+
+                    if (chb_graficas.Checked == true)
+                    {
+                        OdbcConnection con2 = new OdbcConnection(ConnStr);//varibale para llamar la conexion ODBC
+                        OdbcCommand cmd2 = new OdbcCommand("update Perfil set Graficas = '1' where Tipo='" + cmb_perfil.Text.ToString() + txt_usuario.Text + "' ", con2);
+                        con2.Open();//abre la conexion 
+                        cmd2.ExecuteNonQuery();//ejecuta el query
+                        con2.Close();//cierra la conexion*/
+                    }
+
+                    if (chb_confAdmin.Checked == true)
+                    {
+                        OdbcConnection con2 = new OdbcConnection(ConnStr);//varibale para llamar la conexion ODBC
+                        OdbcCommand cmd2 = new OdbcCommand("update Perfil set Configuracion1 = '1' where Tipo='" + cmb_perfil.Text.ToString() + txt_usuario.Text + "' ", con2);
+                        con2.Open();//abre la conexion 
+                        cmd2.ExecuteNonQuery();//ejecuta el query
+                        con2.Close();//cierra la conexion*/
+                    }
+
+                    if (chb_confTrabajador.Checked == true)
+                    {
+                        OdbcConnection con2 = new OdbcConnection(ConnStr);//varibale para llamar la conexion ODBC
+                        OdbcCommand cmd2 = new OdbcCommand("update Perfil set Configuracion2 = '1' where Tipo='" + cmb_perfil.Text.ToString() + txt_usuario.Text + "' ", con2);
+                        con2.Open();//abre la conexion 
+                        cmd2.ExecuteNonQuery();//ejecuta el query
+                        con2.Close();//cierra la conexion*/
+                    }
                 }
             }
+        }
+
+        private void NuevoUsuario_Load(object sender, EventArgs e)
+        {
+            personalizado();
+        }
+
+        private void cmb_perfil_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            personalizado();
         }
     }
 }

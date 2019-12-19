@@ -14,12 +14,11 @@ namespace Bodega
 {
     public partial class Prinicipal : Form
     {
+        
         public Prinicipal()
         {
             InitializeComponent();
             btn_reportes.Location = new Point(22, 289);
-
-
         }
 
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
@@ -159,11 +158,91 @@ namespace Bodega
                 btn_reportes.Visible = false;
                 pnl_graficas.Visible = false;
                 btn_chart.Visible = false;
+                btn_ajustes.Visible = false;
+                pnl_ajustes.Visible = false;
             }
 
             if (UserLoginCache.Perfil == Cargos.Administrador)
             {
-               
+                
+                btn_ajustesTrabajador.Visible = false;
+            }
+
+            if (UserLoginCache.Perfil == Cargos.Personalizado+UserLoginCache.username)
+            {
+                
+                lbl_perfil.Text = Convert.ToString(UserLoginCache.Perfil+"mas");
+
+                if (UserLoginCache.Productos == privilegios.Productos)
+                {
+                    pnl_productos.Visible = true;
+                    btn_producto.Visible = true;
+
+                }
+                else
+                {
+                    pnl_productos.Visible = false;
+                    btn_producto.Visible = false;
+                }
+
+                if (UserLoginCache.Traslados == privilegios.Traslados)
+                {
+                    pnl_traslados.Visible = true;
+                    btn_traslados.Visible = true;
+
+                }
+                else
+                {
+                    pnl_traslados.Visible = false;
+                    btn_traslados.Visible = false;
+                }
+
+                if (UserLoginCache.Reportes == privilegios.Reportes)
+                {
+                    pnl_reportes.Visible = true;
+                    btn_reportes.Visible = true;
+
+                }
+                else
+                {
+                    pnl_reportes.Visible = false;
+                    btn_reportes.Visible =false;
+                }
+
+                if (UserLoginCache.Graficas == privilegios.Graficas)
+                {
+                    pnl_graficas.Visible = true;
+                    btn_chart.Visible = true;
+
+                }
+                else
+                {
+                    pnl_graficas.Visible = false;
+                    btn_chart.Visible = false;
+                }
+
+                if (UserLoginCache.Configuracion1 == privilegios.Configuracion1)
+                {
+                    pnl_ajustes.Visible = true;
+                    btn_ajustes.Visible = true;
+                }
+                else
+                {
+                    pnl_ajustes.Visible = false;
+                    btn_ajustes.Visible = false;
+                }
+
+                if (UserLoginCache.Configuracion2 == privilegios.Configuracion2)
+                {
+                    pnl_ajustes.Visible = true;
+                    btn_ajustesTrabajador.Visible = true;
+                }
+                else
+                {
+                    pnl_ajustes.Visible = false;
+                    btn_ajustesTrabajador.Visible = false;
+                }
+
             }
         }
 
@@ -213,7 +292,14 @@ namespace Bodega
 
         private void btn_ajustes_Click(object sender, EventArgs e)
         {
+            
             abrirFormHijo(new Ajustes.AjustesPrincipal());
+        }
+
+        private void btn_ajustesTrabajador_Click(object sender, EventArgs e)
+        {
+
+            abrirFormHijo(new Ajustes.AjustesTrabajador());
         }
     }
 }

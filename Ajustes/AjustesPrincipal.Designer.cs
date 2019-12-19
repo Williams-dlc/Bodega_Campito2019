@@ -257,6 +257,7 @@
             this.btn_eliminarEntrada.Size = new System.Drawing.Size(82, 77);
             this.btn_eliminarEntrada.TabIndex = 13;
             this.btn_eliminarEntrada.Click += new System.EventHandler(this.btn_eliminarEntrada_Click);
+            this.btn_eliminarEntrada.Paint += new System.Windows.Forms.PaintEventHandler(this.btn_eliminarEntrada_Paint);
             // 
             // label6
             // 

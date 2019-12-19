@@ -10,5 +10,8 @@ namespace Common.Cache
     {
         public const string Administrador = "Administrador";
         public const string Trabajador = "Trabajador";
+        public const string Personalizado = "Personalizado";
     }
+
+    
 }

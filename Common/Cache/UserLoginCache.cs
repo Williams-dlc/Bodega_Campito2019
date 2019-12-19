@@ -13,6 +13,14 @@ namespace Common.Cache
         public static string Correo { set; get; }
         public static string Perfil { set; get; }
         public static string estado { set; get; }
+
+        public static Int32 Productos { set; get; }
+        public static Int32 Traslados { set; get; }
+        public static Int32 Reportes { set; get; }
+        public static Int32 Graficas { set; get; }
+        public static Int32 Configuracion1 { set; get; }
+        public static Int32 Configuracion2 { set; get; }
+
     }
 
     public static class AñadirProducto

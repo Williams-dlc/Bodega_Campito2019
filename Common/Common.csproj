@@ -41,7 +41,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Cache\Cargos.cs" />
+    <Compile Include="Cache\privilegios.cs" />
     <Compile Include="Cache\UserLoginCache.cs" />
+    <Compile Include="Cache\userPermisoCache.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

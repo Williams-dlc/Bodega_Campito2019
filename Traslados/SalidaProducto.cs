@@ -9,6 +9,9 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.Odbc;
 using Common.Cache;
+using System.Drawing.Printing;
+using CrystalDecisions.CrystalReports.Engine;
+using CrystalDecisions.Shared;
 
 namespace Bodega.Traslados
 {
@@ -359,6 +362,49 @@ namespace Bodega.Traslados
 
                 }
             }
+        }
+
+        public void facturaSalida()
+        {
+            DataTable tabla = new DataTable();
+            using (OdbcConnection con1 = new OdbcConnection(ConnStr))
+            {
+                con1.Open();
+                OdbcDataAdapter cmd = new OdbcDataAdapter("select e.idpedido, e.fecha, e.fk_usuario, e.fk_trabajador, e.fk_tipo_bodega, e.recibio, d.fk_EncPedido, d.cantidad, d.fk_Producto, d.comentario, p.idProducto, p.name from encabezadopedido e, detallepedido d, producto p where e.idpedido=1311539069 and d.fk_encpedido=1311539069 and p.idProducto= d.Fk_Producto", con1);//llama a la tabla de inventario para ver stock
+                                                                                                                                                                               //OdbcDataReader queryResults = cmd.ExecuteReader();
+                cmd.Fill(tabla);
+            }
+            dgv_factura.DataSource = tabla;
+        }
+
+        private void btn_imprimirMensual_Click(object sender, EventArgs e)
+        {
+            /*prt_doc = new PrintDocument();
+            PrinterSettings ps = new PrinterSettings();
+            prt_doc.PrinterSettings = ps;
+            prt_doc.PrintPage += Imprimir;
+            prt_doc.Print();*/
+            facturaSalida();
+
+            Facturas.FactSalida factura = new Facturas.FactSalida();
+            factura.Show();
+
+            /*ReportDocument oRep = new ReportDocument();
+            ParameterField pf = new ParameterField();
+            ParameterFields pfs = new ParameterFields();
+            ParameterDiscreteValue pdv = new ParameterDiscreteValue();
+
+            pf.Name = "select e.idpedido, e.fecha, e.fk_usuario, e.fk_trabajador, e.fk_tipo_bodega, e.recibio, d.fk_EncPedido, d.cantidad, d.fk_Producto, d.comentario, p.idProducto, p.name from encabezadopedido e, detallepedido d, producto p where e.idpedido='"+txt_codigo.Text+"' and d.fk_encpedido='"+txt_codigo.Text+"' and p.idProducto= d.Fk_Producto";
+            //pdv.Value = ;
+            pf.CurrentValues.Add(pdv);
+            pfs.Add(pf);*/
+            
+        }
+
+        private void Imprimir(object sender, PrintPageEventArgs e)
+        {
+            
+
         }
     }
 }

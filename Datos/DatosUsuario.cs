@@ -23,13 +23,14 @@ namespace Datos
                 using (OdbcCommand cmd = new OdbcCommand())
                 {
                     cmd.Connection = connection;
-                    cmd.CommandText = "SELECT * FROM usuario where Nombre='"+user+"' AND contraseña='"+pass+ "' and estado=1";
-                    
+                    //cmd.CommandText = "SELECT * FROM usuario where Nombre='"+user+"' AND contraseña='"+pass+ "' and estado=1";
+                    cmd.CommandText = "SELECT u.nombre, u.telefono, u.correo, u.contraseña, u.fk_perfil, u.estado, p.tipo, p.productos, p.traslados, p.reportes, p.graficas, p.configuracion1, p.configuracion2, p. estado FROM usuario u, perfil p where u.Nombre='" + user + "' AND u.contraseña='" + pass + "' and u.estado=1 and u.fk_perfil=p.tipo";
                     cmd.Parameters.AddWithValue("?user", user);
                     cmd.Parameters.AddWithValue("?pass", pass);
 
                     cmd.CommandType = CommandType.Text;
                     OdbcDataReader reader = cmd.ExecuteReader();
+
                     if (reader.HasRows)
                     {
                         //user2 = (reader["Nombre"].ToString());
@@ -37,10 +38,15 @@ namespace Datos
                         while (reader.Read())
                         {
                             UserLoginCache.username = reader.GetString(0);
-                            //UserLoginCache.Telefono = reader.GetInt32(1);
                             //UserLoginCache.Correo = reader.GetString(2);
                             UserLoginCache.Perfil = reader.GetString(4);
                             UserLoginCache.estado = reader.GetString(5);
+                            UserLoginCache.Productos = reader.GetInt32(7);
+                            UserLoginCache.Traslados = reader.GetInt32(8);
+                            UserLoginCache.Reportes = reader.GetInt32(9);
+                            UserLoginCache.Graficas = reader.GetInt32(10);
+                            UserLoginCache.Configuracion1 = reader.GetInt32(11);
+                            UserLoginCache.Configuracion2 = reader.GetInt32(12);
 
                         }
                         

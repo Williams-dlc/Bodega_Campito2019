@@ -32,9 +32,11 @@ namespace Bodega
         public static string pedido = "select * from DetalleInventario";
         public static string prestador = "select * from prestador";
         public static string perfil = "select * from perfil";
+        public static string perfil2 = "select * from perfil where estado=1";
         public static string usuario = "select * from usuario";
         public static string usuario2 = "select * from usuario where estado=1";
         public static string inventario2 = "select fk_producto AS 'Codigo de producto', cantidad AS 'Cantidad disponible', fk_propietario as 'Propietario de producto' from DetalleInventario";
+        
 
         public static DataTable llenarProductoInactivo()
         {
@@ -94,6 +96,24 @@ namespace Bodega
         {
             DataTable tmp = new DataTable();
             OdbcDataAdapter msj = new OdbcDataAdapter(perfil, cnx);
+            try
+            {
+                cnx.Open();
+                msj.Fill(tmp);
+                cnx.Close();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+            }
+            finally { cnx.Close(); }
+            return tmp;
+        }
+
+        public static DataTable llenarPerfil2()
+        {
+            DataTable tmp = new DataTable();
+            OdbcDataAdapter msj = new OdbcDataAdapter(perfil2, cnx);
             try
             {
                 cnx.Open();

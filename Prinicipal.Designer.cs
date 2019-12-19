@@ -45,7 +45,7 @@
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel8 = new System.Windows.Forms.Panel();
             this.btn_chart = new System.Windows.Forms.Button();
-            this.panel2 = new System.Windows.Forms.Panel();
+            this.pnl_ajustes = new System.Windows.Forms.Panel();
             this.btn_ajustes = new System.Windows.Forms.Button();
             this.lbl_perfil1 = new System.Windows.Forms.Label();
             this.lbl_usuario1 = new System.Windows.Forms.Label();
@@ -61,6 +61,7 @@
             this.pnl_productos = new System.Windows.Forms.Panel();
             this.btn_producto = new System.Windows.Forms.Button();
             this.panelContenedor = new System.Windows.Forms.Panel();
+            this.btn_ajustesTrabajador = new System.Windows.Forms.Button();
             this.pnl_titulo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btn_minizar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_salir)).BeginInit();
@@ -110,11 +111,12 @@
             // menu
             // 
             this.menu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.menu.Controls.Add(this.btn_ajustesTrabajador);
             this.menu.Controls.Add(this.pnl_subreportes);
             this.menu.Controls.Add(this.pnl_graficas);
             this.menu.Controls.Add(this.pnl_subTraslados);
             this.menu.Controls.Add(this.btn_chart);
-            this.menu.Controls.Add(this.panel2);
+            this.menu.Controls.Add(this.pnl_ajustes);
             this.menu.Controls.Add(this.btn_ajustes);
             this.menu.Controls.Add(this.lbl_perfil1);
             this.menu.Controls.Add(this.lbl_usuario1);
@@ -285,13 +287,13 @@
             this.btn_chart.UseVisualStyleBackColor = true;
             this.btn_chart.Click += new System.EventHandler(this.btn_chart_Click);
             // 
-            // panel2
+            // pnl_ajustes
             // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(144)))), ((int)(((byte)(176)))));
-            this.panel2.Location = new System.Drawing.Point(0, 528);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(16, 45);
-            this.panel2.TabIndex = 13;
+            this.pnl_ajustes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(144)))), ((int)(((byte)(176)))));
+            this.pnl_ajustes.Location = new System.Drawing.Point(0, 528);
+            this.pnl_ajustes.Name = "pnl_ajustes";
+            this.pnl_ajustes.Size = new System.Drawing.Size(16, 45);
+            this.pnl_ajustes.TabIndex = 13;
             // 
             // btn_ajustes
             // 
@@ -475,6 +477,23 @@
             this.panelContenedor.TabIndex = 2;
             this.panelContenedor.Paint += new System.Windows.Forms.PaintEventHandler(this.panelContenedor_Paint);
             // 
+            // btn_ajustesTrabajador
+            // 
+            this.btn_ajustesTrabajador.FlatAppearance.BorderSize = 0;
+            this.btn_ajustesTrabajador.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(192)))), ((int)(((byte)(227)))));
+            this.btn_ajustesTrabajador.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_ajustesTrabajador.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_ajustesTrabajador.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.btn_ajustesTrabajador.Image = ((System.Drawing.Image)(resources.GetObject("btn_ajustesTrabajador.Image")));
+            this.btn_ajustesTrabajador.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_ajustesTrabajador.Location = new System.Drawing.Point(18, 528);
+            this.btn_ajustesTrabajador.Name = "btn_ajustesTrabajador";
+            this.btn_ajustesTrabajador.Size = new System.Drawing.Size(204, 45);
+            this.btn_ajustesTrabajador.TabIndex = 17;
+            this.btn_ajustesTrabajador.Text = "Configuracíon";
+            this.btn_ajustesTrabajador.UseVisualStyleBackColor = true;
+            this.btn_ajustesTrabajador.Click += new System.EventHandler(this.btn_ajustesTrabajador_Click);
+            // 
             // Prinicipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -531,9 +550,10 @@
         private System.Windows.Forms.Label lbl_usuario;
         private System.Windows.Forms.Label lbl_perfil1;
         private System.Windows.Forms.Label lbl_usuario1;
-        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel pnl_ajustes;
         private System.Windows.Forms.Button btn_ajustes;
         private System.Windows.Forms.Panel pnl_graficas;
         private System.Windows.Forms.Button btn_chart;
+        private System.Windows.Forms.Button btn_ajustesTrabajador;
     }
 }

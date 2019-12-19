@@ -41,6 +41,12 @@
             this.btn_cancelar = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.cmb_perfil = new System.Windows.Forms.ComboBox();
+            this.chb_produtos = new System.Windows.Forms.CheckBox();
+            this.chb_traslados = new System.Windows.Forms.CheckBox();
+            this.chb_reportes = new System.Windows.Forms.CheckBox();
+            this.chb_graficas = new System.Windows.Forms.CheckBox();
+            this.chb_confAdmin = new System.Windows.Forms.CheckBox();
+            this.chb_confTrabajador = new System.Windows.Forms.CheckBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btn_salir)).BeginInit();
             this.SuspendLayout();
@@ -52,14 +58,14 @@
             this.panel1.Controls.Add(this.label1);
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(376, 31);
+            this.panel1.Size = new System.Drawing.Size(406, 31);
             this.panel1.TabIndex = 0;
             // 
             // btn_salir
             // 
             this.btn_salir.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_salir.Image = ((System.Drawing.Image)(resources.GetObject("btn_salir.Image")));
-            this.btn_salir.Location = new System.Drawing.Point(333, 3);
+            this.btn_salir.Location = new System.Drawing.Point(374, 3);
             this.btn_salir.Name = "btn_salir";
             this.btn_salir.Size = new System.Drawing.Size(27, 27);
             this.btn_salir.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -137,7 +143,7 @@
             this.btn_aceptar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_aceptar.ForeColor = System.Drawing.Color.Silver;
             this.btn_aceptar.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btn_aceptar.Location = new System.Drawing.Point(151, 230);
+            this.btn_aceptar.Location = new System.Drawing.Point(142, 324);
             this.btn_aceptar.Name = "btn_aceptar";
             this.btn_aceptar.Size = new System.Drawing.Size(94, 30);
             this.btn_aceptar.TabIndex = 36;
@@ -156,7 +162,7 @@
             this.btn_cancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_cancelar.ForeColor = System.Drawing.Color.Silver;
             this.btn_cancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btn_cancelar.Location = new System.Drawing.Point(266, 230);
+            this.btn_cancelar.Location = new System.Drawing.Point(266, 324);
             this.btn_cancelar.Name = "btn_cancelar";
             this.btn_cancelar.Size = new System.Drawing.Size(94, 30);
             this.btn_cancelar.TabIndex = 37;
@@ -183,12 +189,91 @@
             this.cmb_perfil.Name = "cmb_perfil";
             this.cmb_perfil.Size = new System.Drawing.Size(220, 21);
             this.cmb_perfil.TabIndex = 39;
+            this.cmb_perfil.SelectedIndexChanged += new System.EventHandler(this.cmb_perfil_SelectedIndexChanged);
+            // 
+            // chb_produtos
+            // 
+            this.chb_produtos.AutoSize = true;
+            this.chb_produtos.Enabled = false;
+            this.chb_produtos.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chb_produtos.Location = new System.Drawing.Point(16, 224);
+            this.chb_produtos.Name = "chb_produtos";
+            this.chb_produtos.Size = new System.Drawing.Size(107, 25);
+            this.chb_produtos.TabIndex = 40;
+            this.chb_produtos.Text = "Productos";
+            this.chb_produtos.UseVisualStyleBackColor = true;
+            // 
+            // chb_traslados
+            // 
+            this.chb_traslados.AutoSize = true;
+            this.chb_traslados.Enabled = false;
+            this.chb_traslados.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chb_traslados.Location = new System.Drawing.Point(16, 278);
+            this.chb_traslados.Name = "chb_traslados";
+            this.chb_traslados.Size = new System.Drawing.Size(100, 25);
+            this.chb_traslados.TabIndex = 41;
+            this.chb_traslados.Text = "Traslados";
+            this.chb_traslados.UseVisualStyleBackColor = true;
+            // 
+            // chb_reportes
+            // 
+            this.chb_reportes.AutoSize = true;
+            this.chb_reportes.Enabled = false;
+            this.chb_reportes.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chb_reportes.Location = new System.Drawing.Point(142, 224);
+            this.chb_reportes.Name = "chb_reportes";
+            this.chb_reportes.Size = new System.Drawing.Size(98, 25);
+            this.chb_reportes.TabIndex = 42;
+            this.chb_reportes.Text = "Reportes";
+            this.chb_reportes.UseVisualStyleBackColor = true;
+            // 
+            // chb_graficas
+            // 
+            this.chb_graficas.AutoSize = true;
+            this.chb_graficas.Enabled = false;
+            this.chb_graficas.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chb_graficas.Location = new System.Drawing.Point(142, 278);
+            this.chb_graficas.Name = "chb_graficas";
+            this.chb_graficas.Size = new System.Drawing.Size(94, 25);
+            this.chb_graficas.TabIndex = 43;
+            this.chb_graficas.Text = "Graficas";
+            this.chb_graficas.UseVisualStyleBackColor = true;
+            // 
+            // chb_confAdmin
+            // 
+            this.chb_confAdmin.AutoSize = true;
+            this.chb_confAdmin.Enabled = false;
+            this.chb_confAdmin.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chb_confAdmin.Location = new System.Drawing.Point(255, 213);
+            this.chb_confAdmin.Name = "chb_confAdmin";
+            this.chb_confAdmin.Size = new System.Drawing.Size(133, 44);
+            this.chb_confAdmin.TabIndex = 44;
+            this.chb_confAdmin.Text = "Configuración\r\nAdministrador";
+            this.chb_confAdmin.UseVisualStyleBackColor = true;
+            // 
+            // chb_confTrabajador
+            // 
+            this.chb_confTrabajador.AutoSize = true;
+            this.chb_confTrabajador.Enabled = false;
+            this.chb_confTrabajador.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chb_confTrabajador.Location = new System.Drawing.Point(255, 267);
+            this.chb_confTrabajador.Name = "chb_confTrabajador";
+            this.chb_confTrabajador.Size = new System.Drawing.Size(140, 46);
+            this.chb_confTrabajador.TabIndex = 45;
+            this.chb_confTrabajador.Text = "Configuración\r\nTrabajador";
+            this.chb_confTrabajador.UseVisualStyleBackColor = true;
             // 
             // NuevoUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(375, 272);
+            this.ClientSize = new System.Drawing.Size(405, 366);
+            this.Controls.Add(this.chb_confTrabajador);
+            this.Controls.Add(this.chb_confAdmin);
+            this.Controls.Add(this.chb_graficas);
+            this.Controls.Add(this.chb_reportes);
+            this.Controls.Add(this.chb_traslados);
+            this.Controls.Add(this.chb_produtos);
             this.Controls.Add(this.cmb_perfil);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.btn_cancelar);
@@ -204,6 +289,7 @@
             this.Name = "NuevoUsuario";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "NuevoUsuario";
+            this.Load += new System.EventHandler(this.NuevoUsuario_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btn_salir)).EndInit();
@@ -226,5 +312,11 @@
         private System.Windows.Forms.Button btn_cancelar;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ComboBox cmb_perfil;
+        private System.Windows.Forms.CheckBox chb_produtos;
+        private System.Windows.Forms.CheckBox chb_traslados;
+        private System.Windows.Forms.CheckBox chb_reportes;
+        private System.Windows.Forms.CheckBox chb_graficas;
+        private System.Windows.Forms.CheckBox chb_confAdmin;
+        private System.Windows.Forms.CheckBox chb_confTrabajador;
     }
 }

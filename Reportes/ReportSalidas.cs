@@ -373,6 +373,7 @@ namespace Bodega.Reportes
 
         private void btn_imprimirMensual_Click(object sender, EventArgs e)
         {
+           
             prt_preview.Document = prt_docMensual;
             prt_preview.ShowDialog();
         }

@@ -11,10 +11,13 @@ namespace Dominio
     public class UsuarioModel
     {
         DatosUsuario datosUser = new DatosUsuario();
+        DatosUsuario permisoUser=new DatosUsuario();
         public bool LoginUser(string user, string pass)
         {
             return datosUser.login(user, pass);
         }
+
+        
 
         public bool AñadirProduc(string id, string nombre)
         {
