@@ -153,13 +153,10 @@ namespace Bodega
             //MANEJO DE PERMISOS DE USUARIO
             if (UserLoginCache.Perfil == Cargos.Trabajador)
             {
-                pnl_reportes.Visible = false;
-                pnl_subreportes.Visible = false;
-                btn_reportes.Visible = false;
+                
                 pnl_graficas.Visible = false;
                 btn_chart.Visible = false;
                 btn_ajustes.Visible = false;
-                pnl_ajustes.Visible = false;
             }
 
             if (UserLoginCache.Perfil == Cargos.Administrador)
@@ -170,8 +167,8 @@ namespace Bodega
 
             if (UserLoginCache.Perfil == Cargos.Personalizado+UserLoginCache.username)
             {
-                
-                lbl_perfil.Text = Convert.ToString(UserLoginCache.Perfil+"mas");
+
+                lbl_perfil.Text = "Personalizado";
 
                 if (UserLoginCache.Productos == privilegios.Productos)
                 {

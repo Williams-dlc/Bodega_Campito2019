@@ -109,8 +109,14 @@ namespace Bodega.Ajustes
                     chb_confAdmin.Enabled = true;
                     chb_confTrabajador.Enabled = true;
 
+                    OdbcConnection con1 = new OdbcConnection(ConnStr);//varibale para llamar la conexion ODBC
+                    OdbcCommand cmd1 = new OdbcCommand("insert into Perfil values ('" + cmb_perfil.Text.ToString() + txt_usuario.Text + "',0,0,0,0,0,0,2)", con1);
+                    con1.Open();//abre la conexion 
+                    cmd1.ExecuteNonQuery();//ejecuta el query
+                    con1.Close();//cierra la conexion*/
+
                     OdbcConnection con = new OdbcConnection(ConnStr);//varibale para llamar la conexion ODBC
-                    OdbcCommand cmd = new OdbcCommand("insert into usuario values ('" + txt_usuario.Text + "',null,null,'" + txt_contraseña.Text + "','" + cmb_perfil.Text.ToString() + "',1)", con);
+                    OdbcCommand cmd = new OdbcCommand("insert into usuario values ('" + txt_usuario.Text + "',null,null,'" + txt_contraseña.Text + "','" + cmb_perfil.Text.ToString() + ""+txt_usuario.Text+"',1)", con);
                     con.Open();//abre la conexion 
                     cmd.ExecuteNonQuery();//ejecuta el query
                     con.Close();//cierra la conexion
@@ -121,11 +127,7 @@ namespace Bodega.Ajustes
                     cmd3.ExecuteNonQuery();//ejecuta el query
                     con3.Close();//cierra la conexion*/
 
-                    OdbcConnection con1 = new OdbcConnection(ConnStr);//varibale para llamar la conexion ODBC
-                    OdbcCommand cmd1 = new OdbcCommand("insert into Perfil values ('" + cmb_perfil.Text.ToString() + txt_usuario.Text + "',0,0,0,0,0,0,2)", con1);
-                    con1.Open();//abre la conexion 
-                    cmd1.ExecuteNonQuery();//ejecuta el query
-                    con1.Close();//cierra la conexion*/
+                    
                     MessageBox.Show("Usuario creado exitosamente", "Usuario creado", MessageBoxButtons.OK);
 
                     if (chb_produtos.Checked == true) {

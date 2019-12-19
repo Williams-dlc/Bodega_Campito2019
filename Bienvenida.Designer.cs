@@ -105,11 +105,12 @@
             this.lbl_user.AutoSize = true;
             this.lbl_user.Font = new System.Drawing.Font("Century Gothic", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_user.ForeColor = System.Drawing.Color.Turquoise;
-            this.lbl_user.Location = new System.Drawing.Point(377, 152);
+            this.lbl_user.Location = new System.Drawing.Point(486, 156);
             this.lbl_user.Name = "lbl_user";
             this.lbl_user.Size = new System.Drawing.Size(81, 39);
             this.lbl_user.TabIndex = 50;
             this.lbl_user.Text = "User";
+            this.lbl_user.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.lbl_user.Click += new System.EventHandler(this.label2_Click);
             // 
             // timer1

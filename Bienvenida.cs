@@ -50,7 +50,7 @@ namespace Bodega
 
         private void Bienvenida_Load(object sender, EventArgs e)
         {
-            lbl_user.Text =UserLoginCache.Perfil+" "+ UserLoginCache.username;
+            lbl_user.Text =UserLoginCache.username;
             this.Opacity = 0.0;
             circularProgressBar1.Value = 0;
             circularProgressBar1.Minimum = 0;
