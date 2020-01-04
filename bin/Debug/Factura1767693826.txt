@@ -1,0 +1,7 @@
+Codigo: 1767693826
+Encargado: willian
+Fecha: martes, 24 de diciembre de 2019
+Recibio: aaa
+
+	Producto	Cantidad
+	104		10	

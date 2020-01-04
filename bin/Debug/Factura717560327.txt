@@ -1,0 +1,7 @@
+Codigo: 717560327
+Encargado: willian
+Fecha: martes, 24 de diciembre de 2019
+Recibio: aaaa
+
+Producto	Cantidad
+	101		5	

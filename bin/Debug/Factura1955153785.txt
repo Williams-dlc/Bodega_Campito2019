@@ -1,0 +1,19 @@
+Codigo: 1955153785
+Encargado: willian
+Fecha: jueves, 26 de diciembre de 2019
+Propietario Producto: Jorge
+Recibio: batman
+
+Producto
+Harina Dura
+1
+Harina Suave
+1
+Azucar
+1
+Manteca
+1
+Levadura
+1
+
+26/12/2019 20:19:42

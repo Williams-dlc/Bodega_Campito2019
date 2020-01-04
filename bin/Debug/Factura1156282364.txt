@@ -1,0 +1,7 @@
+Codigo: 1156282364
+Encargado: willian
+Fecha: jueves, 26 de diciembre de 2019
+Recibio: aaa
+
+Producto\tCantidad
+Azucar\t1\t

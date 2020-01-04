@@ -71,6 +71,7 @@
             this.btn_delete = new System.Windows.Forms.Button();
             this.label10 = new System.Windows.Forms.Label();
             this.txt_comentario = new System.Windows.Forms.TextBox();
+            this.btn_imprimirMensual = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_productos)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -395,7 +396,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(419, 350);
+            this.label8.Location = new System.Drawing.Point(415, 350);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(168, 21);
             this.label8.TabIndex = 76;
@@ -417,7 +418,7 @@
             this.dgb_pedido.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dgb_pedido.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgb_pedido.EnableHeadersVisualStyles = false;
-            this.dgb_pedido.Location = new System.Drawing.Point(423, 371);
+            this.dgb_pedido.Location = new System.Drawing.Point(419, 371);
             this.dgb_pedido.Name = "dgb_pedido";
             this.dgb_pedido.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -507,7 +508,7 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(419, 234);
+            this.label10.Location = new System.Drawing.Point(415, 234);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(152, 17);
             this.label10.TabIndex = 102;
@@ -516,18 +517,30 @@
             // txt_comentario
             // 
             this.txt_comentario.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_comentario.Location = new System.Drawing.Point(423, 254);
+            this.txt_comentario.Location = new System.Drawing.Point(419, 254);
             this.txt_comentario.MaxLength = 250;
             this.txt_comentario.Multiline = true;
             this.txt_comentario.Name = "txt_comentario";
             this.txt_comentario.Size = new System.Drawing.Size(272, 93);
             this.txt_comentario.TabIndex = 101;
             // 
+            // btn_imprimirMensual
+            // 
+            this.btn_imprimirMensual.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_imprimirMensual.BackgroundImage")));
+            this.btn_imprimirMensual.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btn_imprimirMensual.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.btn_imprimirMensual.Location = new System.Drawing.Point(801, 484);
+            this.btn_imprimirMensual.Name = "btn_imprimirMensual";
+            this.btn_imprimirMensual.Size = new System.Drawing.Size(42, 38);
+            this.btn_imprimirMensual.TabIndex = 103;
+            this.btn_imprimirMensual.Click += new System.EventHandler(this.btn_imprimirMensual_Click);
+            // 
             // EntradaProducto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(850, 615);
+            this.Controls.Add(this.btn_imprimirMensual);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.txt_comentario);
             this.Controls.Add(this.btn_delete);
@@ -606,5 +619,6 @@
         private System.Windows.Forms.Button btn_delete;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox txt_comentario;
+        private System.Windows.Forms.Panel btn_imprimirMensual;
     }
 }

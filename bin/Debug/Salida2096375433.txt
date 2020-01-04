@@ -1,0 +1,13 @@
+***SALIDA DE PRODUCTO***
+
+Codigo: 2096375433
+Encargado: willian
+Fecha: jueves, 2 de enero de 2020
+Propietario Producto: Jorge
+Recibio: batman
+
+Producto
+Harina Dura
+5
+
+2/01/2020 14:20:06

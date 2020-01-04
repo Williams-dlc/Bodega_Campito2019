@@ -1,0 +1,14 @@
+***Prestamo DE PRODUCTO***
+
+Codigo: 1232735958
+Encargado: willian
+Fecha: jueves, 2 de enero de 2020
+Propietario Producto: Karin
+Prestador: Jorge
+Recibio: batman
+
+Producto
+Harina Dura
+5
+
+2/01/2020 14:52:35

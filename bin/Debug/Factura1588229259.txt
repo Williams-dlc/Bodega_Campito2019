@@ -1,0 +1,7 @@
+Codigo: 1588229259
+Encargado: willian
+Fecha: martes, 24 de diciembre de 2019
+Recibio: rrr
+
+Producto	Cantidad
+	104		1	

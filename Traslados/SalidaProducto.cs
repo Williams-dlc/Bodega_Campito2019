@@ -12,6 +12,9 @@ using Common.Cache;
 using System.Drawing.Printing;
 using CrystalDecisions.CrystalReports.Engine;
 using CrystalDecisions.Shared;
+using System.IO;
+using System.Text;
+using System.Diagnostics;
 
 namespace Bodega.Traslados
 {
@@ -164,7 +167,7 @@ namespace Bodega.Traslados
             using (OdbcConnection con1 = new OdbcConnection(ConnStr))
             {
                 con1.Open();
-                OdbcDataAdapter cmd = new OdbcDataAdapter("select FK_producto 'idProducto', cantidad from Detallepedido where FK_EncPedido= '" + txt_detalle.Text + "'", con1);//llama a la tabla de inventario para ver stock
+                OdbcDataAdapter cmd = new OdbcDataAdapter("select  p.name, d.Cantidad from detallepedido d, producto p where FK_EncPedido = '" + txt_detalle.Text + "' and p.idProducto=d.Fk_Producto", con1);//llama a la tabla de inventario para ver stock
                                                                                                                                                                   //OdbcDataReader queryResults = cmd.ExecuteReader();
                 cmd.Fill(tabla);
 
@@ -366,45 +369,150 @@ namespace Bodega.Traslados
 
         public void facturaSalida()
         {
-            DataTable tabla = new DataTable();
-            using (OdbcConnection con1 = new OdbcConnection(ConnStr))
-            {
-                con1.Open();
-                OdbcDataAdapter cmd = new OdbcDataAdapter("select e.idpedido, e.fecha, e.fk_usuario, e.fk_trabajador, e.fk_tipo_bodega, e.recibio, d.fk_EncPedido, d.cantidad, d.fk_Producto, d.comentario, p.idProducto, p.name from encabezadopedido e, detallepedido d, producto p where e.idpedido=1311539069 and d.fk_encpedido=1311539069 and p.idProducto= d.Fk_Producto", con1);//llama a la tabla de inventario para ver stock
-                                                                                                                                                                               //OdbcDataReader queryResults = cmd.ExecuteReader();
-                cmd.Fill(tabla);
-            }
-            dgv_factura.DataSource = tabla;
+            
+            Facturas.FactSalida salida = new Facturas.FactSalida();
+            salida.ShowDialog();
+
+            
+            
         }
+
+        public static string FormatedSpace(string val, int fixedLen)
+
+        {
+            int len = 0;
+            string retVal = string.Empty;
+            try
+
+            {
+                len = val.Length;
+                retVal = val;
+                for (int cnt = 0; cnt < fixedLen - len - 1; cnt++)               
+{
+
+                    retVal = retVal + " ";
+                }
+
+            }
+            catch (Exception)
+
+            {
+                throw;
+
+            }
+            return retVal;
+
+        }
+
+        private Font verdana10Font;
+        private StreamReader reader;
 
         private void btn_imprimirMensual_Click(object sender, EventArgs e)
         {
-            /*prt_doc = new PrintDocument();
-            PrinterSettings ps = new PrinterSettings();
-            prt_doc.PrinterSettings = ps;
-            prt_doc.PrintPage += Imprimir;
-            prt_doc.Print();*/
-            facturaSalida();
+           
+            StreamWriter file = new StreamWriter("Salida"+txt_codigo.Text+".txt");
+            file.WriteLine("***SALIDA DE PRODUCTO***");
+            file.WriteLine("");
+            file.WriteLine("Codigo: "+txt_codigo.Text);
+            file.WriteLine("Encargado: " + txt_encargado.Text);
+            file.WriteLine("Fecha: " + dtp_fecha.Text.ToString());
+            file.WriteLine("Propietario Producto: " + cmb_propietario.Text.ToString());
+            file.WriteLine("Recibio: " + txt_Recibio.Text);
+            file.WriteLine("");
+            file.WriteLine("Producto");
 
-            Facturas.FactSalida factura = new Facturas.FactSalida();
-            factura.Show();
+            DataTable table = new DataTable();
+            for (int i = 0; i < dgb_pedido.Rows.Count - 1; i++)
+            {
+                for (int j=0;j<dgb_pedido.Columns.Count; j++)
+                {
+                    file.Write(dgb_pedido.Rows[i].Cells[j].Value.ToString()+"\n");
+                }
+                //file.WriteLine("");
+            }
+            file.WriteLine("\r\r");
+            file.WriteLine(DateTime.Now.ToString());
+            //MessageBox.Show("Imprimiendo factura");
+            file.Close();
 
-            /*ReportDocument oRep = new ReportDocument();
-            ParameterField pf = new ParameterField();
-            ParameterFields pfs = new ParameterFields();
-            ParameterDiscreteValue pdv = new ParameterDiscreteValue();
+            reader = new StreamReader("Salida"+txt_codigo.Text+".txt");
+            //Create a Verdana font with size 10  
+            verdana10Font = new Font("Verdana", 9);
+            //Create a PrintDocument object  
+            PrintDocument pd = new PrintDocument();
+            //Add PrintPage event handler  
+            pd.PrintPage += new PrintPageEventHandler(this.PrintTextFileHandler);
+            //Call Print Method  
+            pd.Print();
+            //Close the reader  
+            if (reader != null)
+                reader.Close();
 
-            pf.Name = "select e.idpedido, e.fecha, e.fk_usuario, e.fk_trabajador, e.fk_tipo_bodega, e.recibio, d.fk_EncPedido, d.cantidad, d.fk_Producto, d.comentario, p.idProducto, p.name from encabezadopedido e, detallepedido d, producto p where e.idpedido='"+txt_codigo.Text+"' and d.fk_encpedido='"+txt_codigo.Text+"' and p.idProducto= d.Fk_Producto";
-            //pdv.Value = ;
-            pf.CurrentValues.Add(pdv);
-            pfs.Add(pf);*/
-            
+            /*ProcessStartInfo info = new ProcessStartInfo();
+            info.Verb = "print";                          // Seleccionar el programa para imprimir PDF por defecto
+            info.FileName = "Factura" + txt_codigo.Text + ".txt";         // Ruta hacia el fichero que quieres imprimir
+            info.CreateNoWindow = true;                   // Hacerlo sin mostrar ventana
+            info.WindowStyle = ProcessWindowStyle.Hidden; // Y de forma oculta
+            //System.Diagnostics.Process.Start("Factura" + txt_codigo.Text + ".txt");
+
+            Process p = new Process();
+            p.StartInfo = info;
+            p.Start();  // Lanza el proceso
+
+            //p.WaitForInputIdle();
+            //System.Threading.Thread.Sleep(3000);          // Espera 3 segundos*/
+            //if (false == p.CloseMainWindow())
+            // p.Kill();
+        }
+
+        private void PrintTextFileHandler(object sender, PrintPageEventArgs ppeArgs)
+        {
+            //Get the Graphics object  
+            Graphics g = ppeArgs.Graphics;
+            float linesPerPage = 0;
+            float yPos = 0;
+            int count = 0;
+            //Read margins from PrintPageEventArgs  
+            float leftMargin = 0;
+            float topMargin = ppeArgs.MarginBounds.Top;
+            string line = null;
+            //Calculate the lines per page on the basis of the height of the page and the height of the font  
+            linesPerPage = ppeArgs.MarginBounds.Height / verdana10Font.GetHeight(g);
+            //Now read lines one by one, using StreamReader  
+            while (count < linesPerPage && ((line = reader.ReadLine()) != null))
+            {
+                //Calculate the starting position  
+                yPos = topMargin + (count * verdana10Font.GetHeight(g));
+                //Draw text  
+                g.DrawString(line, verdana10Font, Brushes.Black, leftMargin, yPos, new StringFormat());
+                //Move to next line  
+                count++;
+            }
+            //If PrintPageEventArgs has more pages to print  
+            if (line != null)
+            {
+                ppeArgs.HasMorePages = true;
+            }
+            else
+            {
+                ppeArgs.HasMorePages = false;
+            }
         }
 
         private void Imprimir(object sender, PrintPageEventArgs e)
         {
             
 
+        }
+
+        private void dgv_factura_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void prt_doc_PrintPage(object sender, PrintPageEventArgs e)
+        {
+            
         }
     }
 }

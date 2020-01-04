@@ -1,0 +1,12 @@
+***ENTRADA DE PRODUCTO***
+
+Codigo: 1707779145
+Encargado: willian
+Fecha: jueves, 2 de enero de 2020
+Propietario Producto: Jorge
+
+Producto
+Harina Dura
+100
+
+2/01/2020 14:35:32

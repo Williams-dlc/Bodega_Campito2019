@@ -8,8 +8,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.Odbc;
-using System.Data;
 using Common.Cache;
+using System.Drawing.Printing;
+using CrystalDecisions.CrystalReports.Engine;
+using CrystalDecisions.Shared;
+using System.IO;
+using System.Diagnostics;
 
 namespace Bodega.Traslados
 {
@@ -88,6 +92,21 @@ namespace Bodega.Traslados
 
         }
 
+        public void pedido()
+        {
+            DataTable tabla = new DataTable();
+            using (OdbcConnection con1 = new OdbcConnection(ConnStr))
+            {
+                con1.Open();
+                OdbcDataAdapter cmd = new OdbcDataAdapter("select  p.name, d.Cantidad from detallepedido d, producto p where FK_EncPedido = '" + txt_detalle.Text + "' and p.idProducto=d.Fk_Producto", con1);//llama a la tabla de inventario para ver stock
+                                                                                                                                                                                                              //OdbcDataReader queryResults = cmd.ExecuteReader();
+                cmd.Fill(tabla);
+
+            }
+
+            dgb_pedido.DataSource = tabla;
+        }
+
 
 
         private void btn_aceptar_Click(object sender, EventArgs e)
@@ -115,12 +134,12 @@ namespace Bodega.Traslados
                     con.Close();//cierra la conexion
 
 
-                    DataTable tabla = new DataTable();
+                   DataTable tabla = new DataTable();
                     using (OdbcConnection con1 = new OdbcConnection(ConnStr))
                     {
                         con1.Open();
 
-                        OdbcDataAdapter cmd2 = new OdbcDataAdapter("select FK_producto AS 'Producto', cantidad from DetalleEntrada where FK_EncEntrada= '" + txt_detalle.Text + "'", con1);//llama a la tabla de inventario para ver stock
+                        OdbcDataAdapter cmd2 = new OdbcDataAdapter("select p.name, d.Cantidad from detalleentrada d, producto p where FK_EncEntrada= '" + txt_detalle.Text + "' and p.idProducto=d.Fk_Producto ", con1);//ver salida de producto
                                                                                                                                                                                            //OdbcDataReader queryResults = cmd.ExecuteReader();
                         cmd2.Fill(tabla);
 
@@ -439,6 +458,81 @@ namespace Bodega.Traslados
         private void txt_deleteCod_TextChanged(object sender, EventArgs e)
         {
 
+        }
+        private Font verdana10Font;
+        private StreamReader reader;
+        private void btn_imprimirMensual_Click(object sender, EventArgs e)
+        {
+            StreamWriter file = new StreamWriter("Entrada" + txt_codigo.Text + ".txt");
+            file.WriteLine("***ENTRADA DE PRODUCTO***");
+            file.WriteLine("");
+            file.WriteLine("Codigo: " + txt_codigo.Text);
+            file.WriteLine("Encargado: " + txt_encargado.Text);
+            file.WriteLine("Fecha: " + dtp_fecha.Text.ToString());
+            file.WriteLine("Propietario Producto: " + cmb_propietario.Text.ToString());
+            file.WriteLine("");
+            file.WriteLine("Producto");
+
+            DataTable table = new DataTable();
+            for (int i = 0; i < dgb_pedido.Rows.Count - 1; i++)
+            {
+                for (int j = 0; j < dgb_pedido.Columns.Count; j++)
+                {
+                    file.Write(dgb_pedido.Rows[i].Cells[j].Value.ToString() + "\n");
+                }
+                //file.WriteLine("");
+            }
+            file.WriteLine("\r\r");
+            file.WriteLine(DateTime.Now.ToString());
+            //MessageBox.Show("Imprimiendo factura");
+            file.Close();
+
+            reader = new StreamReader("Entrada" + txt_codigo.Text + ".txt");
+            //Create a Verdana font with size 10  
+            verdana10Font = new Font("Verdana", 9);
+            //Create a PrintDocument object  
+            PrintDocument pd = new PrintDocument();
+            //Add PrintPage event handler  
+            pd.PrintPage += new PrintPageEventHandler(this.PrintTextFileHandler);
+            //Call Print Method  
+            pd.Print();
+            //Close the reader  
+            if (reader != null)
+                reader.Close();
+        }
+
+        private void PrintTextFileHandler(object sender, PrintPageEventArgs ppeArgs)
+        {
+            //Get the Graphics object  
+            Graphics g = ppeArgs.Graphics;
+            float linesPerPage = 0;
+            float yPos = 0;
+            int count = 0;
+            //Read margins from PrintPageEventArgs  
+            float leftMargin = 0;
+            float topMargin = ppeArgs.MarginBounds.Top;
+            string line = null;
+            //Calculate the lines per page on the basis of the height of the page and the height of the font  
+            linesPerPage = ppeArgs.MarginBounds.Height / verdana10Font.GetHeight(g);
+            //Now read lines one by one, using StreamReader  
+            while (count < linesPerPage && ((line = reader.ReadLine()) != null))
+            {
+                //Calculate the starting position  
+                yPos = topMargin + (count * verdana10Font.GetHeight(g));
+                //Draw text  
+                g.DrawString(line, verdana10Font, Brushes.Black, leftMargin, yPos, new StringFormat());
+                //Move to next line  
+                count++;
+            }
+            //If PrintPageEventArgs has more pages to print  
+            if (line != null)
+            {
+                ppeArgs.HasMorePages = true;
+            }
+            else
+            {
+                ppeArgs.HasMorePages = false;
+            }
         }
     }
 }

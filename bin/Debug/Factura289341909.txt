@@ -1,0 +1,7 @@
+Codigo: 289341909
+Encargado: willian
+Fecha: martes, 24 de diciembre de 2019
+Recibio: batman
+
+Producto	Cantidad
+102	5	

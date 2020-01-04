@@ -1,0 +1,8 @@
+Codigo: 1032139530
+Encargado: willian
+Fecha: jueves, 26 de diciembre de 2019
+Recibio: eeee
+
+Producto	Cantidad
+//Harina Dura	1	
+26/12/2019 19:09:08

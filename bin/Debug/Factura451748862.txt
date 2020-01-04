@@ -1,0 +1,19 @@
+Codigo: 451748862
+Encargado: willian
+Fecha: jueves, 26 de diciembre de 2019
+Propietario Producto: Jorge
+Recibio: batman
+
+Producto
+Harina Dura1
+
+Harina Suave1
+
+Azucar1
+
+Manteca1
+
+Levadura1
+
+
+26/12/2019 20:18:22

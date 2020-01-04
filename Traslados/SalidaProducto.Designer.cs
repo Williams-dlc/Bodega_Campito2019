@@ -35,9 +35,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label6 = new System.Windows.Forms.Label();
             this.cmb_propietario = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -79,13 +76,12 @@
             this.label9 = new System.Windows.Forms.Label();
             this.btn_imprimirMensual = new System.Windows.Forms.Panel();
             this.prt_doc = new System.Drawing.Printing.PrintDocument();
-            this.dgv_factura = new System.Windows.Forms.DataGridView();
+            this.prt_preview = new System.Windows.Forms.PrintPreviewDialog();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_producto)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgb_pedido)).BeginInit();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_factura)).BeginInit();
             this.SuspendLayout();
             // 
             // label6
@@ -572,45 +568,25 @@
             this.btn_imprimirMensual.TabIndex = 95;
             this.btn_imprimirMensual.Click += new System.EventHandler(this.btn_imprimirMensual_Click);
             // 
-            // dgv_factura
+            // prt_doc
             // 
-            this.dgv_factura.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgv_factura.BackgroundColor = System.Drawing.Color.White;
-            this.dgv_factura.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_factura.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
-            this.dgv_factura.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_factura.EnableHeadersVisualStyles = false;
-            this.dgv_factura.Location = new System.Drawing.Point(12, 273);
-            this.dgv_factura.Name = "dgv_factura";
-            this.dgv_factura.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_factura.RowHeadersDefaultCellStyle = dataGridViewCellStyle8;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.DeepSkyBlue;
-            this.dgv_factura.RowsDefaultCellStyle = dataGridViewCellStyle9;
-            this.dgv_factura.Size = new System.Drawing.Size(826, 224);
-            this.dgv_factura.TabIndex = 96;
+            this.prt_doc.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.prt_doc_PrintPage);
+            // 
+            // prt_preview
+            // 
+            this.prt_preview.AutoScrollMargin = new System.Drawing.Size(0, 0);
+            this.prt_preview.AutoScrollMinSize = new System.Drawing.Size(0, 0);
+            this.prt_preview.ClientSize = new System.Drawing.Size(400, 300);
+            this.prt_preview.Enabled = true;
+            this.prt_preview.Icon = ((System.Drawing.Icon)(resources.GetObject("prt_preview.Icon")));
+            this.prt_preview.Name = "prt_preview";
+            this.prt_preview.Visible = false;
             // 
             // SalidaProducto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(850, 615);
-            this.Controls.Add(this.dgv_factura);
             this.Controls.Add(this.btn_imprimirMensual);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.txt_comentario);
@@ -646,7 +622,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgb_pedido)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_factura)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -695,6 +670,6 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Panel btn_imprimirMensual;
         private System.Drawing.Printing.PrintDocument prt_doc;
-        private System.Windows.Forms.DataGridView dgv_factura;
+        private System.Windows.Forms.PrintPreviewDialog prt_preview;
     }
 }

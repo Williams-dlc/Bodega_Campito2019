@@ -1,0 +1,14 @@
+Codigo: 386706309
+Encargado: willian
+Fecha: jueves, 26 de diciembre de 2019
+Propietario Producto: Jorge
+Recibio: batman
+
+Producto
+	Harina Dura		1	
+	Harina Suave		10	
+	Azucar		8	
+	Manteca		11	
+	Levadura		6	
+
+26/12/2019 20:14:59

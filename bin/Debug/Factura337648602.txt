@@ -1,0 +1,8 @@
+Codigo: 337648602
+Encargado: willian
+Fecha: jueves, 26 de diciembre de 2019
+Recibio: ccc
+
+Producto    Cantidad
+Levadura   1   
+Azucar   1   

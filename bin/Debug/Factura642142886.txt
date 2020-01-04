@@ -1,0 +1,7 @@
+Codigo: 642142886
+Encargado: willian
+Fecha: martes, 24 de diciembre de 2019
+Recibio: ironman
+
+	Producto	Cantidad
+	100		1	
