@@ -329,7 +329,7 @@
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(64, 18);
             this.label3.TabIndex = 73;
-            this.label3.Text = "Codigo";
+            this.label3.Text = "Código";
             // 
             // lbl_fecha
             // 

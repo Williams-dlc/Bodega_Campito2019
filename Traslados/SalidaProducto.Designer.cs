@@ -339,7 +339,7 @@
             this.lbl_codigo.Name = "lbl_codigo";
             this.lbl_codigo.Size = new System.Drawing.Size(142, 21);
             this.lbl_codigo.TabIndex = 63;
-            this.lbl_codigo.Text = "Codigo de salida";
+            this.lbl_codigo.Text = "Código de salida";
             this.lbl_codigo.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // txt_detalle
@@ -506,7 +506,7 @@
             this.btn_prestamo.Name = "btn_prestamo";
             this.btn_prestamo.Size = new System.Drawing.Size(224, 47);
             this.btn_prestamo.TabIndex = 83;
-            this.btn_prestamo.Text = "Realizar prestamo";
+            this.btn_prestamo.Text = "Realizar préstamo";
             this.btn_prestamo.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btn_prestamo.UseVisualStyleBackColor = false;
             this.btn_prestamo.Click += new System.EventHandler(this.btn_prestamo_Click);

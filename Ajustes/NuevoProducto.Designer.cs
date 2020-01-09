@@ -104,7 +104,7 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(331, 21);
             this.label2.TabIndex = 45;
-            this.label2.Text = "Ingrese el codigo que tendra el producto";
+            this.label2.Text = "Ingrese el código que tendra el producto";
             this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // txt_codigo

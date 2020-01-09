@@ -488,7 +488,7 @@ namespace Bodega.Traslados
             file.WriteLine("Encargado: " + txt_encargado.Text);
             file.WriteLine("Fecha: " + dtp_fecha.Text.ToString());
             file.WriteLine("Propietario Producto: " + cmb_propietario.Text.ToString());
-            file.WriteLine("Devolvio: " + cmb_prestador.Text.ToString());
+            file.WriteLine("Devolvio: " + cmb_prestador.Text.ToString() );
             file.WriteLine("");
             file.WriteLine("Producto");
 
