@@ -133,6 +133,8 @@ namespace Bodega.Reportes
             }
 
             dgv_Entradas.DataSource = tabla;
+            dgv_Entradas.Columns[5].Visible = false;
+            dgv_Entradas.Columns[7].Visible = false;
 
         }
 
