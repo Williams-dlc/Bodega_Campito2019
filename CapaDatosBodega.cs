@@ -35,8 +35,8 @@ namespace Bodega
         public static string perfil2 = "select * from perfil where estado=1";
         public static string usuario = "select * from usuario";
         public static string usuario2 = "select * from usuario where estado=1";
-        public static string inventario2 = "select fk_producto AS 'Codigo de producto', cantidad AS 'Cantidad disponible', fk_propietario as 'Propietario de producto' from DetalleInventario";
-        
+        //public static string inventario2 = "select fk_producto AS 'Codigo de producto', cantidad AS 'Cantidad disponible', fk_propietario as 'Propietario de producto' from DetalleInventario";
+        public static string inventario2 = "select d.fk_producto AS 'Codigo de producto', p.name as 'Producto', d.cantidad AS 'Cantidad disponible', d.fk_propietario as 'Propietario de producto' from DetalleInventario d, producto p WHERE p.idProducto=d.Fk_Producto";
 
         public static DataTable llenarProductoInactivo()
         {

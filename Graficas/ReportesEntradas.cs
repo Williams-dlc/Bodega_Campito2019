@@ -138,13 +138,13 @@ namespace Bodega.Reportes
         {
             mes();
             grf_Barras.Series["Series1"].LegendText = cmb_propietario.Text.ToString();
-            grf_Barras.Series["Series1"].XValueMember = "FK_Producto";
+            grf_Barras.Series["Series1"].XValueMember = "name";
             grf_Barras.Series["Series1"].YValueMembers = "Cantidad";
             DataTable tabla = new DataTable();
             using (OdbcConnection con = new OdbcConnection(ConnStr))
             {
                 con.Open();
-                OdbcDataAdapter cmd = new OdbcDataAdapter("SELECT a.fk_encEntrada, a.fk_Producto, SUM(Cantidad) AS 'Cantidad' FROM detalleentrada a INNER JOIN encabezadoentrada b ON a.FK_encEntrada=b.idEntrada AND b.FK_Distribuidor='" + cmb_propietario.Text.ToString()+ "' AND b.Fecha BETWEEN '" + cmb_year.Text.ToString() + "-" + txt_numero.Text+ "-1' AND '" + cmb_year.Text.ToString() + "-" + txt_numero.Text + "-30' GROUP BY Fk_Producto", con);//llama a la tabla de inventario para ver stock
+                OdbcDataAdapter cmd = new OdbcDataAdapter("SELECT d.fk_encEntrada, p.name, SUM(Cantidad) AS 'Cantidad' from detalleentrada d, producto p, encabezadoentrada b where d.FK_encEntrada=b.idEntrada AND b.FK_Distribuidor='" + cmb_propietario.Text.ToString() + "' AND b.Fecha BETWEEN '" + cmb_year.Text.ToString() + "-" + txt_numero.Text + "-1' AND '" + cmb_year.Text.ToString() + "-" + txt_numero.Text + "-30' and p.idProducto=d.Fk_Producto GROUP BY Fk_Producto", con);//llama a la tabla de inventario para ver stock
                                                                                                                                                                //OdbcDataReader queryResults = cmd.ExecuteReader();
                                                                                                                                                                 //SELECT YEAR(Fecha), SUM(Cantidad) as total, '"+cmb_propietario.Text.ToString()+"' from encabezadoentrada a INNER JOIN detalleentrada b on a.idEntrada = b.FK_encEntrada
                                                                                                                                                                 //"select * from detalleInventario where FK_Propietario =  '"+cmb_propietario.Text.ToString()+"' and Fecha=MONTH(text)"
@@ -161,14 +161,14 @@ namespace Bodega.Reportes
         {
             mes();
             grf_pie.Series["Series1"].IsValueShownAsLabel = true;
-            grf_pie.Series["Series1"].XValueMember = "FK_Producto";
+            grf_pie.Series["Series1"].XValueMember = "name";
             grf_pie.Series["Series1"].YValueMembers = "Cantidad";
             grf_pie.Series["Series1"].Points.AddXY("FK_Producto","Cantidad");
             DataTable tabla = new DataTable();
             using (OdbcConnection con = new OdbcConnection(ConnStr))
             {
                 con.Open();
-                OdbcDataAdapter cmd = new OdbcDataAdapter("SELECT a.fk_encEntrada, a.fk_Producto, SUM(Cantidad) AS 'Cantidad' FROM detalleentrada a INNER JOIN encabezadoentrada b ON a.FK_encEntrada=b.idEntrada AND b.FK_Distribuidor='" + cmb_propietario.Text.ToString() + "' AND b.Fecha BETWEEN '" + cmb_year.Text.ToString() + "-" + txt_numero.Text + "-1' AND '" + cmb_year.Text.ToString() + "-" + txt_numero.Text + "-30' GROUP BY Fk_Producto", con);//llama a la tabla de inventario para ver stock
+                OdbcDataAdapter cmd = new OdbcDataAdapter("SELECT d.fk_encEntrada, p.name, SUM(d.Cantidad) AS 'Cantidad' from detalleentrada d, producto p, encabezadoentrada b where d.FK_encEntrada=b.idEntrada AND b.FK_Distribuidor='" + cmb_propietario.Text.ToString() + "' AND b.Fecha BETWEEN '" + cmb_year.Text.ToString() + "-" + txt_numero.Text + "-1' AND '" + cmb_year.Text.ToString() + "-" + txt_numero.Text + "-30' and p.idProducto=d.Fk_Producto GROUP BY Fk_Producto", con);//llama a la tabla de inventario para ver stock
                                                                                                                                                                                      //OdbcDataReader queryResults = cmd.ExecuteReader();
                                                                                                                                                                                      //SELECT YEAR(Fecha), SUM(Cantidad) as total, '"+cmb_propietario.Text.ToString()+"' from encabezadoentrada a INNER JOIN detalleentrada b on a.idEntrada = b.FK_encEntrada
                                                                                                                                                                                      //"select * from detalleInventario where FK_Propietario =  '"+cmb_propietario.Text.ToString()+"' and Fecha=MONTH(text)"
@@ -183,13 +183,13 @@ namespace Bodega.Reportes
         {
 
             grf_Barras.Series["Series1"].LegendText = cmb_propietario.Text.ToString();
-            grf_Barras.Series["Series1"].XValueMember = "FK_Producto";
+            grf_Barras.Series["Series1"].XValueMember = "name";
             grf_Barras.Series["Series1"].YValueMembers = "Cantidad";
             DataTable tabla = new DataTable();
             using (OdbcConnection con = new OdbcConnection(ConnStr))
             {
                 con.Open();
-                OdbcDataAdapter cmd = new OdbcDataAdapter("SELECT a.fk_encEntrada, a.fk_Producto, SUM(Cantidad) AS 'Cantidad' FROM detalleentrada a INNER JOIN encabezadoentrada b ON a.FK_encEntrada=b.idEntrada AND b.FK_Distribuidor='" + cmb_propietario.Text.ToString() + "' AND YEAR('"+cmb_year.Text.ToString()+"-1-1') GROUP BY Fk_Producto", con);//llama a la tabla de inventario para ver stock
+                OdbcDataAdapter cmd = new OdbcDataAdapter("SELECT d.fk_encEntrada, p.name, SUM(d.Cantidad) AS 'Cantidad' from detalleentrada d, producto p, encabezadoentrada b where d.FK_encEntrada=b.idEntrada AND b.FK_Distribuidor='" + cmb_propietario.Text.ToString() + "' AND b.Fecha BETWEEN '" + cmb_year.Text.ToString() + "-1-1' AND '" + cmb_year.Text.ToString() + "-12-31' and p.idProducto=d.Fk_Producto GROUP BY Fk_Producto", con);//llama a la tabla de inventario para ver stock
                                                                                                                                                                                      //OdbcDataReader queryResults = cmd.ExecuteReader();
                                                                                                                                                                                      //SELECT YEAR(Fecha), SUM(Cantidad) as total, '"+cmb_propietario.Text.ToString()+"' from encabezadoentrada a INNER JOIN detalleentrada b on a.idEntrada = b.FK_encEntrada
                                                                                                                                                                                      //"select * from detalleInventario where FK_Propietario =  '"+cmb_propietario.Text.ToString()+"' and Fecha=MONTH(text)"
@@ -206,14 +206,14 @@ namespace Bodega.Reportes
         {
 
             grf_pie.Series["Series1"].IsValueShownAsLabel = true;
-            grf_pie.Series["Series1"].XValueMember = "FK_Producto";
+            grf_pie.Series["Series1"].XValueMember = "name";
             grf_pie.Series["Series1"].YValueMembers = "Cantidad";
-            grf_pie.Series["Series1"].Points.AddXY("FK_Producto", "Cantidad");
+            grf_pie.Series["Series1"].Points.AddXY("name", "Cantidad");
             DataTable tabla = new DataTable();
             using (OdbcConnection con = new OdbcConnection(ConnStr))
             {
                 con.Open();
-                OdbcDataAdapter cmd = new OdbcDataAdapter("SELECT a.fk_encEntrada, a.fk_Producto, SUM(Cantidad) AS 'Cantidad' FROM detalleentrada a INNER JOIN encabezadoentrada b ON a.FK_encEntrada=b.idEntrada AND b.FK_Distribuidor='" + cmb_propietario.Text.ToString() + "' AND YEAR('" + cmb_year.Text.ToString() + "-1-1') GROUP BY Fk_Producto", con);//llama a la tabla de inventario para ver stock
+                OdbcDataAdapter cmd = new OdbcDataAdapter("SELECT d.fk_encEntrada, p.name, SUM(d.Cantidad) AS 'Cantidad' from detalleentrada d, producto p, encabezadoentrada b where d.FK_encEntrada=b.idEntrada AND b.FK_Distribuidor='" + cmb_propietario.Text.ToString() + "' AND b.Fecha BETWEEN '" + cmb_year.Text.ToString() + "-1-1' AND '" + cmb_year.Text.ToString() + "-12-31' and p.idProducto=d.Fk_Producto GROUP BY Fk_Producto", con);//llama a la tabla de inventario para ver stock
                                                                                                                                                                                      //OdbcDataReader queryResults = cmd.ExecuteReader();
                                                                                                                                                                                      //SELECT YEAR(Fecha), SUM(Cantidad) as total, '"+cmb_propietario.Text.ToString()+"' from encabezadoentrada a INNER JOIN detalleentrada b on a.idEntrada = b.FK_encEntrada
                                                                                                                                                                                      //"select * from detalleInventario where FK_Propietario =  '"+cmb_propietario.Text.ToString()+"' and Fecha=MONTH(text)"
@@ -229,13 +229,13 @@ namespace Bodega.Reportes
         {
             mes();
             grf_barrasSalidas.Series["Series1"].LegendText = cmb_propietario.Text.ToString();
-            grf_barrasSalidas.Series["Series1"].XValueMember = "FK_Producto";
+            grf_barrasSalidas.Series["Series1"].XValueMember = "Producto";
             grf_barrasSalidas.Series["Series1"].YValueMembers = "Cantidad";
             DataTable tabla = new DataTable();
             using (OdbcConnection con = new OdbcConnection(ConnStr))
             {
                 con.Open();
-                OdbcDataAdapter cmd = new OdbcDataAdapter("SELECT a.fk_encPedido, a.fk_Producto, SUM(Cantidad) AS 'Cantidad' FROM detallepedido a INNER JOIN encabezadopedido b ON a.FK_encPedido=b.idPedido AND b.FK_Usuario='" + cmb_propietario.Text.ToString() + "' AND b.Fecha BETWEEN '" + cmb_year.Text.ToString() + "-" + txt_numero.Text + "-1' AND '" + cmb_year.Text.ToString() + "-" + txt_numero.Text + "-30' GROUP BY Fk_Producto", con);//llama a la tabla de inventario para ver stock
+                OdbcDataAdapter cmd = new OdbcDataAdapter("SELECT d.FK_EncPedido as 'Codigo', p.name as 'Producto', SUM(d.Cantidad) AS 'Cantidad' from detallepedido d, producto p, encabezadopedido b where d.FK_EncPedido=b.idPedido AND b.FK_Usuario='" + cmb_propietario.Text.ToString() + "' AND b.Fecha BETWEEN '" + cmb_year.Text.ToString() + "-" + txt_numero.Text + "-1' AND '" + cmb_year.Text.ToString() + "-" + txt_numero.Text + "-30' and p.idProducto=d.Fk_Producto GROUP BY Fk_Producto", con);//llama a la tabla de inventario para ver stock
                                                                                                                                                                                                                                                                                                                                                                                                      //OdbcDataReader queryResults = cmd.ExecuteReader();
                                                                                                                                                                                                                                                                                                                                                                                                      //SELECT YEAR(Fecha), SUM(Cantidad) as total, '"+cmb_propietario.Text.ToString()+"' from encabezadoentrada a INNER JOIN detalleentrada b on a.idEntrada = b.FK_encEntrada
                                                                                                                                                                                                                                                                                                                                                                                                      //"select * from detalleInventario where FK_Propietario =  '"+cmb_propietario.Text.ToString()+"' and Fecha=MONTH(text)"
@@ -252,14 +252,14 @@ namespace Bodega.Reportes
         {
             mes();
             grf_pieSalidas.Series["Series1"].IsValueShownAsLabel = true;
-            grf_pieSalidas.Series["Series1"].XValueMember = "FK_Producto";
+            grf_pieSalidas.Series["Series1"].XValueMember = "Producto";
             grf_pieSalidas.Series["Series1"].YValueMembers = "Cantidad";
-            grf_pieSalidas.Series["Series1"].Points.AddXY("FK_Producto", "Cantidad");
+            grf_pieSalidas.Series["Series1"].Points.AddXY("Producto", "Cantidad");
             DataTable tabla = new DataTable();
             using (OdbcConnection con = new OdbcConnection(ConnStr))
             {
                 con.Open();
-                OdbcDataAdapter cmd = new OdbcDataAdapter("SELECT a.fk_encPedido, a.fk_Producto, SUM(Cantidad) AS 'Cantidad' FROM detallepedido a INNER JOIN encabezadopedido b ON a.FK_encPedido=b.idPedido AND b.FK_Usuario='" + cmb_propietario.Text.ToString() + "' AND b.Fecha BETWEEN '" + cmb_year.Text.ToString() + "-" + txt_numero.Text + "-1' AND '" + cmb_year.Text.ToString() + "-" + txt_numero.Text + "-30' GROUP BY Fk_Producto", con);//llama a la tabla de inventario para ver stock
+                OdbcDataAdapter cmd = new OdbcDataAdapter("SELECT d.FK_EncPedido as 'Codigo', p.name as 'Producto', SUM(d.Cantidad) AS 'Cantidad' from detallepedido d, producto p, encabezadopedido b where d.FK_EncPedido=b.idPedido AND b.FK_Usuario='" + cmb_propietario.Text.ToString() + "' AND b.Fecha BETWEEN '" + cmb_year.Text.ToString() + "-" + txt_numero.Text + "-1' AND '" + cmb_year.Text.ToString() + "-" + txt_numero.Text + "-30' and p.idProducto=d.Fk_Producto GROUP BY Fk_Producto", con);//llama a la tabla de inventario para ver stock
                                                                                                                                                                                                                                                                                                                                                                                                      //OdbcDataReader queryResults = cmd.ExecuteReader();
                                                                                                                                                                                                                                                                                                                                                                                                      //SELECT YEAR(Fecha), SUM(Cantidad) as total, '"+cmb_propietario.Text.ToString()+"' from encabezadoentrada a INNER JOIN detalleentrada b on a.idEntrada = b.FK_encEntrada
                                                                                                                                                                                                                                                                                                                                                                                                      //"select * from detalleInventario where FK_Propietario =  '"+cmb_propietario.Text.ToString()+"' and Fecha=MONTH(text)"
@@ -274,13 +274,13 @@ namespace Bodega.Reportes
         {
 
             grf_barrasSalidas.Series["Series1"].LegendText = cmb_propietario.Text.ToString();
-            grf_barrasSalidas.Series["Series1"].XValueMember = "FK_Producto";
+            grf_barrasSalidas.Series["Series1"].XValueMember = "Producto";
             grf_barrasSalidas.Series["Series1"].YValueMembers = "Cantidad";
             DataTable tabla = new DataTable();
             using (OdbcConnection con = new OdbcConnection(ConnStr))
             {
                 con.Open();
-                OdbcDataAdapter cmd = new OdbcDataAdapter("SELECT a.fk_encPedido, a.fk_Producto, SUM(Cantidad) AS 'Cantidad' FROM detallepedido a INNER JOIN encabezadoPedido b ON a.FK_encPedido=b.idPedido AND b.FK_Usuario='" + cmb_propietario.Text.ToString() + "' AND YEAR('" + cmb_year.Text.ToString() + "-1-1') GROUP BY Fk_Producto", con);//llama a la tabla de inventario para ver stock
+                OdbcDataAdapter cmd = new OdbcDataAdapter("SELECT d.FK_EncPedido as 'Codigo', p.name as 'Producto', SUM(d.Cantidad) AS 'Cantidad' from detallepedido d, producto p, encabezadopedido b where d.FK_EncPedido=b.idPedido AND b.FK_Usuario='" + cmb_propietario.Text.ToString() + "' AND b.Fecha BETWEEN '" + cmb_year.Text.ToString() + "-01-1' AND '" + cmb_year.Text.ToString() + "-12-31' and p.idProducto=d.Fk_Producto GROUP BY Fk_Producto", con);//llama a la tabla de inventario para ver stock
                                                                                                                                                                                                                                                                                                                          //OdbcDataReader queryResults = cmd.ExecuteReader();
                                                                                                                                                                                                                                                                                                                          //SELECT YEAR(Fecha), SUM(Cantidad) as total, '"+cmb_propietario.Text.ToString()+"' from encabezadoentrada a INNER JOIN detalleentrada b on a.idEntrada = b.FK_encEntrada
                                                                                                                                                                                                                                                                                                                          //"select * from detalleInventario where FK_Propietario =  '"+cmb_propietario.Text.ToString()+"' and Fecha=MONTH(text)"
@@ -297,14 +297,14 @@ namespace Bodega.Reportes
         {
 
             grf_pieSalidas.Series["Series1"].IsValueShownAsLabel = true;
-            grf_pieSalidas.Series["Series1"].XValueMember = "FK_Producto";
+            grf_pieSalidas.Series["Series1"].XValueMember = "Producto";
             grf_pieSalidas.Series["Series1"].YValueMembers = "Cantidad";
             grf_pieSalidas.Series["Series1"].Points.AddXY("FK_Producto", "Cantidad");
             DataTable tabla = new DataTable();
             using (OdbcConnection con = new OdbcConnection(ConnStr))
             {
                 con.Open();
-                OdbcDataAdapter cmd = new OdbcDataAdapter("SELECT a.fk_encPedido, a.fk_Producto, SUM(Cantidad) AS 'Cantidad' FROM detallepedido a INNER JOIN encabezadoPedido b ON a.FK_encPedido=b.idPedido AND b.FK_Usuario='" + cmb_propietario.Text.ToString() + "' AND YEAR('" + cmb_year.Text.ToString() + "-1-1') GROUP BY Fk_Producto", con);//llama a la tabla de inventario para ver stock
+                OdbcDataAdapter cmd = new OdbcDataAdapter("SELECT d.FK_EncPedido as 'Codigo', p.name as 'Producto', SUM(d.Cantidad) AS 'Cantidad' from detallepedido d, producto p, encabezadopedido b where d.FK_EncPedido=b.idPedido AND b.FK_Usuario='" + cmb_propietario.Text.ToString() + "' AND b.Fecha BETWEEN '" + cmb_year.Text.ToString() + "-01-1' AND '" + cmb_year.Text.ToString() + "-12-31' and p.idProducto=d.Fk_Producto GROUP BY Fk_Producto", con);//llama a la tabla de inventario para ver stock
                                                                                                                                                                                                                                                                                                                          //OdbcDataReader queryResults = cmd.ExecuteReader();
                                                                                                                                                                                                                                                                                                                          //SELECT YEAR(Fecha), SUM(Cantidad) as total, '"+cmb_propietario.Text.ToString()+"' from encabezadoentrada a INNER JOIN detalleentrada b on a.idEntrada = b.FK_encEntrada
                                                                                                                                                                                                                                                                                                                          //"select * from detalleInventario where FK_Propietario =  '"+cmb_propietario.Text.ToString()+"' and Fecha=MONTH(text)"
