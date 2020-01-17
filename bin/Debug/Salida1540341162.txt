@@ -1,0 +1,15 @@
+***SALIDA DE PRODUCTO***
+
+Codigo: 1540341162
+Encargado: hulk
+Fecha: jueves, 16 de enero de 2020
+Propietario Producto: Jorge
+Recibio: batman
+
+Producto
+Harina Suave
+15
+Harina Suave
+30
+
+16/01/2020 21:34:44

@@ -69,7 +69,7 @@ namespace Bodega.Traslados
                 con.Open();
                 //OdbcDataAdapter cmd = new OdbcDataAdapter("select a.FK_EncPrestamo AS 'Codigo', a.Cantidad, a.FK_Producto AS 'idProducto', a.estado from detalleprestamo a INNER JOIN encabezadoprestamo b ON b.idPrestamo=a.FK_EncPrestamo WHERE b.FK_Prestador='"+ cmb_prestador.Text.ToString() + "' AND b.FK_Propietario = '" +cmb_propietario.Text.ToString()+"' AND a.estado=1", con);//
                 //OdbcDataReader queryResults = cmd.ExecuteReader();
-                OdbcDataAdapter cmd = new OdbcDataAdapter("select e.idPrestamo as 'Codigo', e.Fecha, e.FK_trabajador as 'Entrego', e.Recibio, d.Cantidad, p.Name as 'Producto' from encabezadoprestamo e, detalleprestamo d, producto p where e.idPrestamo=d.FK_EncPrestamo and e.FK_Prestador='"+cmb_prestador.Text.ToString()+"' AND e.FK_Propietario = '"+cmb_propietario.Text.ToString()+ "' AND p.idProducto=d.Fk_Producto AND d.estado=1", con);
+                OdbcDataAdapter cmd = new OdbcDataAdapter("select e.idPrestamo as 'Codigo', e.Fecha, e.FK_trabajador as 'Entrego', e.Recibio, d.Cantidad, p.Name as 'Producto', d.FK_Producto as 'Cod Producto' from encabezadoprestamo e, detalleprestamo d, producto p where e.idPrestamo=d.FK_EncPrestamo and e.FK_Prestador='"+cmb_prestador.Text.ToString()+"' AND e.FK_Propietario = '"+cmb_propietario.Text.ToString()+ "' AND p.idProducto=d.Fk_Producto AND d.estado=1", con);
                 cmd.Fill(tabla);
             }
             dgv_productos.DataSource = tabla;
@@ -356,9 +356,9 @@ namespace Bodega.Traslados
             try
             {
 
-                txt_CantidadPrestamo.Text = Convert.ToString(dgv_productos.Rows[e.RowIndex].Cells[1].Value.ToString());//llena el textbox con los campos seleccionados en el datagrid
+                txt_CantidadPrestamo.Text = Convert.ToString(dgv_productos.Rows[e.RowIndex].Cells[4].Value.ToString());//llena el textbox con los campos seleccionados en el datagrid
                 txt_idPrestamo.Text = Convert.ToString(dgv_productos.Rows[e.RowIndex].Cells[0].Value.ToString());//llena el textbox con los campos seleccionados en el datagrid
-                txt_ProductoPrestamo.Text = Convert.ToString(dgv_productos.Rows[e.RowIndex].Cells[2].Value.ToString());//llena el textbox con los campos seleccionados en el datagrid
+                txt_ProductoPrestamo.Text = Convert.ToString(dgv_productos.Rows[e.RowIndex].Cells[6].Value.ToString());//llena el textbox con los campos seleccionados en el datagrid
                 btn_ok.Enabled = true;
             }
             catch (Exception ex)

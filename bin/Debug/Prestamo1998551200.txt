@@ -1,0 +1,14 @@
+***PRESTAMO DE PRODUCTO***
+
+Codigo: 1998551200
+Encargado: hulk
+Fecha: jueves, 16 de enero de 2020
+Propietario Producto: Jorge
+Prestador: Karin
+Recibio: batman
+
+Producto
+Harina Dura
+10
+
+16/01/2020 21:35:24

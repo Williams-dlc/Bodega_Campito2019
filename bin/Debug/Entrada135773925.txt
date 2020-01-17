@@ -1,0 +1,16 @@
+***ENTRADA DE PRODUCTO***
+
+Codigo: 135773925
+Encargado: hulk
+Fecha: jueves, 16 de enero de 2020
+Propietario Producto: Jorge
+
+Producto
+Harina Dura
+20
+Harina Suave
+15
+Azucar
+9
+
+16/01/2020 21:33:54
