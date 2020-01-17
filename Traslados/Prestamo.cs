@@ -315,6 +315,7 @@ namespace Bodega.Traslados
             dgb_pedido.DataSource = null;
             dgb_pedido.Refresh();
             txt_comentario.Text = "";
+            btn_continuar.Enabled = true;
         }
 
         private void btn_nuevo_Click(object sender, EventArgs e)
