@@ -72,6 +72,8 @@
             this.label10 = new System.Windows.Forms.Label();
             this.txt_comentario = new System.Windows.Forms.TextBox();
             this.btn_imprimirMensual = new System.Windows.Forms.Panel();
+            this.txt_Entrego = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_productos)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -223,16 +225,16 @@
             // 
             this.cmb_propietario.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmb_propietario.FormattingEnabled = true;
-            this.cmb_propietario.Location = new System.Drawing.Point(526, 47);
+            this.cmb_propietario.Location = new System.Drawing.Point(477, 40);
             this.cmb_propietario.Name = "cmb_propietario";
-            this.cmb_propietario.Size = new System.Drawing.Size(198, 21);
+            this.cmb_propietario.Size = new System.Drawing.Size(164, 21);
             this.cmb_propietario.TabIndex = 15;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(522, 16);
+            this.label6.Location = new System.Drawing.Point(473, 9);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(163, 21);
             this.label6.TabIndex = 16;
@@ -315,6 +317,8 @@
             // 
             // gbx_encabezado
             // 
+            this.gbx_encabezado.Controls.Add(this.txt_Entrego);
+            this.gbx_encabezado.Controls.Add(this.label9);
             this.gbx_encabezado.Controls.Add(this.txt_encargado);
             this.gbx_encabezado.Controls.Add(this.cmb_tipoBodega);
             this.gbx_encabezado.Controls.Add(this.lbl_tipoBodega);
@@ -535,6 +539,23 @@
             this.btn_imprimirMensual.TabIndex = 103;
             this.btn_imprimirMensual.Click += new System.EventHandler(this.btn_imprimirMensual_Click);
             // 
+            // txt_Entrego
+            // 
+            this.txt_Entrego.Location = new System.Drawing.Point(477, 97);
+            this.txt_Entrego.Name = "txt_Entrego";
+            this.txt_Entrego.Size = new System.Drawing.Size(164, 20);
+            this.txt_Entrego.TabIndex = 72;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(473, 66);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(72, 21);
+            this.label9.TabIndex = 71;
+            this.label9.Text = "Entrego";
+            // 
             // EntradaProducto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -620,5 +641,7 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox txt_comentario;
         private System.Windows.Forms.Panel btn_imprimirMensual;
+        private System.Windows.Forms.TextBox txt_Entrego;
+        private System.Windows.Forms.Label label9;
     }
 }

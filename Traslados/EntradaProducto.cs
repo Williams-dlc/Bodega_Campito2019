@@ -167,7 +167,7 @@ namespace Bodega.Traslados
                 {
                     OdbcConnection con = new OdbcConnection(ConnStr);//varibale para llamar la conexion ODBC
 
-                    OdbcCommand cmd1 = new OdbcCommand("insert into encabezadoentrada values ('" + txt_codigo.Text + "','" + dtp_fecha.Value.ToString("yyyyMMdd") + "', '"+ cmb_propietario.Text.ToString() + "', '" + txt_encargado.Text + "', '" + cmb_tipoBodega.Text.ToString() + "')", con);
+                    OdbcCommand cmd1 = new OdbcCommand("insert into encabezadoentrada values ('" + txt_codigo.Text + "','" + dtp_fecha.Value.ToString("yyyyMMdd") + "', '"+ cmb_propietario.Text.ToString() + "', '" + txt_encargado.Text + "', '" + cmb_tipoBodega.Text.ToString() + "','"+txt_Entrego.Text+"')", con);
                     con.Open();//abre la conexion 
                     cmd1.ExecuteNonQuery();//ejecuta el query
                     con.Close();//cierra la conexion
@@ -180,6 +180,7 @@ namespace Bodega.Traslados
                     txt_cantidad.Enabled = true;
                     cmb_propietario.Enabled = false;
                     cmb_tipoBodega.Enabled = false;
+                    txt_Entrego.Enabled = false;
                     btn_aceptar.Enabled = true;
                     btn_continuar.Enabled = false;
                     txt_codProducto.Enabled = true;
@@ -270,6 +271,7 @@ namespace Bodega.Traslados
             txt_codProducto.Enabled = false;
             txt_disponible.Enabled = false;
             dgv_productos.Enabled = false;
+            txt_Entrego.Enabled = true;
         }
 
         private void btn_nuevo_Click(object sender, EventArgs e)
@@ -470,6 +472,7 @@ namespace Bodega.Traslados
             file.WriteLine("Encargado: " + txt_encargado.Text);
             file.WriteLine("Fecha: " + dtp_fecha.Text.ToString());
             file.WriteLine("Propietario Producto: " + cmb_propietario.Text.ToString());
+            file.WriteLine("Entrego: " + txt_Entrego.Text);
             file.WriteLine("");
             file.WriteLine("Producto");
 
