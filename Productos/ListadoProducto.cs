@@ -72,16 +72,21 @@ namespace Bodega.Productos
         private void btn_aceptarProd_Click(object sender, EventArgs e)
         {
             DataTable tabla = new DataTable();
+            DataTable tabla2 = new DataTable();
             using (OdbcConnection con = new OdbcConnection(ConnStr))
             {
                 con.Open();
                 OdbcDataAdapter cmd = new OdbcDataAdapter("select FK_producto AS 'Producto', cantidad, FK_Propietario AS 'Distribuidor' from DetalleInventario  where FK_Producto='" + txt_codProducto.Text + "'", con);//llama a la tabla de inventario para ver stock   a INNER JOIN producto b on a.FK_producto=b.idProducto
-                                                                                                                                                                                   //OdbcDataReader queryResults = cmd.ExecuteReader();
+                                                                                                                                                                                                                        //OdbcDataReader queryResults = cmd.ExecuteReader();
+
+                OdbcDataAdapter cmd2 = new OdbcDataAdapter("SELECT p.name as 'Producto', sum(d.cantidad) AS 'Cantidad' from detalleinventario d, producto p where d.fk_producto='" + txt_codProducto.Text + "' and p.idProducto=d.Fk_Producto", con);
                 cmd.Fill(tabla);
+                cmd2.Fill(tabla2);
 
             }
 
             dgv_productos.DataSource = tabla;
+            dgv_totalProductos.DataSource = tabla2;
         }
 
         private void dgv_productos_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
