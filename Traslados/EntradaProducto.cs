@@ -260,6 +260,7 @@ namespace Bodega.Traslados
             txt_producto.Text = "";
             txt_disponible.Text = "";
             txt_cantidad.Text = "";
+            txt_Entrego.Text = "";
      
             btn_continuar.Enabled = true;
             txt_producto.Enabled = false;

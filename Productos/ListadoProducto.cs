@@ -109,8 +109,9 @@ namespace Bodega.Productos
             using (OdbcConnection con = new OdbcConnection(ConnStr))
             {
                 con.Open();
-                OdbcDataAdapter cmd = new OdbcDataAdapter("Select idPrestamo AS 'ID', fecha, FK_Trabajador AS 'Trabajador', FK_Propietario AS 'Distribuidor', FK_Prestador AS 'Prestador', FK_Tipo_Bodega AS 'Bodega' from EncabezadoPrestamo a INNER JOIN DetallePrestamo b ON a.idPrestamo=b.FK_EncPrestamo AND b.Estado=1 and a.FK_Propietario='" + cmb_propietario.Text.ToString()+"'", con);//
-              
+                //OdbcDataAdapter cmd = new OdbcDataAdapter("Select idPrestamo AS 'ID', fecha, FK_Trabajador AS 'Trabajador', FK_Propietario AS 'Distribuidor', FK_Prestador AS 'Prestador', FK_Tipo_Bodega AS 'Bodega' from EncabezadoPrestamo a INNER JOIN DetallePrestamo b ON a.idPrestamo=b.FK_EncPrestamo AND b.Estado=1 and a.FK_Propietario='" + cmb_propietario.Text.ToString()+"'", con);//
+
+                OdbcDataAdapter cmd = new OdbcDataAdapter("select e.idPrestamo as 'Codigo', e.Fecha, e.fk_prestador as 'Prestador', e.FK_trabajador as 'Entrego', e.Recibio, p.Name as 'Producto', d.Cantidad,  d.comentario from encabezadoprestamo e, detalleprestamo d, producto p where e.idPrestamo=d.FK_EncPrestamo AND e.FK_Propietario = '" + cmb_propietario.Text.ToString() + "' AND p.idProducto=d.Fk_Producto AND d.estado=1", con);
                 cmd.Fill(tabla);
             }
             dgv_productos.DataSource = tabla;
