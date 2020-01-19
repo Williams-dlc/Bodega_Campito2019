@@ -124,7 +124,7 @@ namespace Bodega.Traslados
 
         private void btn_continuar_Click(object sender, EventArgs e)
         {
-            if (txt_codigo.Text == "" || cmb_prestador.SelectedIndex == -1 || cmb_propietario.SelectedIndex == -1 || cmb_tipoBodega.SelectedIndex == -1)
+            if (txt_codigo.Text == "" || cmb_prestador.SelectedIndex == -1 || cmb_propietario.SelectedIndex == -1 || cmb_tipoBodega.SelectedIndex == -1 || txt_entrego.Text=="")
             {
                 MessageBox.Show("llene todos los campos");//lanza mensaje
             }
@@ -296,7 +296,7 @@ namespace Bodega.Traslados
                         cmd8.ExecuteNonQuery();//ejecuta el query
                         con.Close();//cierra la conexion  //NO SE EJECUTARA ESTE DELETE PORQUE LO USA ENCABEZADO PRESTAMO RESPALDO
 
-                        OdbcCommand cmd9 = new OdbcCommand("update detalleprestamo set Comentario= 'Devolucion parcial: "+txt_comentario.Text+" "+txt_comentarioPrest.Text+"' where fk_encprestamo='" + txt_idPrestamo.Text + "' and fk_producto= '" + txt_ProductoPrestamo.Text + "'", con);
+                        OdbcCommand cmd9 = new OdbcCommand("update detalleprestamo set Comentario= 'Devolucion parcial: \n"+txt_comentario.Text+" "+txt_comentarioPrest.Text+"' where fk_encprestamo='" + txt_idPrestamo.Text + "' and fk_producto= '" + txt_ProductoPrestamo.Text + "'", con);
                         con.Open();//abre la conexion 
                         cmd9.ExecuteNonQuery();//ejecuta el query
                         con.Close();//cierra la conexion  //NO SE EJECUTARA ESTE DELETE PORQUE LO USA ENCABEZADO PRESTAMO RESPALDO
@@ -400,6 +400,7 @@ namespace Bodega.Traslados
             txt_producto.Text = "";
             txt_cantidad.Text = "";
             txt_disponible.Text = "";
+            txt_entrego.Text = "";
 
             btn_aceptar.Enabled = true;
             btn_ok.Enabled = false;
@@ -413,7 +414,10 @@ namespace Bodega.Traslados
             txt_disponible.Enabled = false;
             cmb_tipoBodega.Enabled = false;
             btn_introducir.Enabled = false;
+            txt_entrego.Enabled = false;
+            txt_comentario.Enabled = false;
             txt_comentario.Text = "";
+            dgb_pedido.DataSource = null;
         }
 
         private void btn_nuevo_Click(object sender, EventArgs e)
@@ -474,6 +478,8 @@ namespace Bodega.Traslados
             btn_continuar.Enabled = true;
             dtp_fecha.Enabled = true;
             cmb_tipoBodega.Enabled = true;
+            txt_entrego.Enabled = true;
+            txt_comentario.Enabled = true;
 
             btn_aceptar.Enabled = false;
         }

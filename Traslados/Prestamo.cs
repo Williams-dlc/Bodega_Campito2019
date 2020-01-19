@@ -311,6 +311,7 @@ namespace Bodega.Traslados
             txt_producto.Enabled=false;
             txt_disponible.Enabled = false;
             txt_cantidad.Enabled = false;
+            txt_Recibio.Text = "";
             btn_ingresar.Enabled = false;
             dgb_pedido.DataSource = null;
             dgb_pedido.Refresh();

@@ -205,7 +205,7 @@
             this.dgv_productos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgv_productos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_productos.EnableHeadersVisualStyles = false;
-            this.dgv_productos.Location = new System.Drawing.Point(38, 171);
+            this.dgv_productos.Location = new System.Drawing.Point(16, 171);
             this.dgv_productos.Name = "dgv_productos";
             this.dgv_productos.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -220,7 +220,7 @@
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.DeepSkyBlue;
             this.dgv_productos.RowsDefaultCellStyle = dataGridViewCellStyle3;
-            this.dgv_productos.Size = new System.Drawing.Size(618, 129);
+            this.dgv_productos.Size = new System.Drawing.Size(728, 129);
             this.dgv_productos.TabIndex = 69;
             this.dgv_productos.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_productos_CellDoubleClick);
             // 
@@ -594,7 +594,7 @@
             this.btn_ok.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_ok.BackgroundImage")));
             this.btn_ok.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold;
             this.btn_ok.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btn_ok.Location = new System.Drawing.Point(721, 211);
+            this.btn_ok.Location = new System.Drawing.Point(768, 208);
             this.btn_ok.Name = "btn_ok";
             this.btn_ok.Size = new System.Drawing.Size(64, 63);
             this.btn_ok.TabIndex = 93;
@@ -653,7 +653,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(709, 288);
+            this.label5.Location = new System.Drawing.Point(750, 278);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(100, 22);
             this.label5.TabIndex = 98;

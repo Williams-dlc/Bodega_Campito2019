@@ -157,7 +157,7 @@ namespace Bodega.Traslados
 
         private void btn_continuar_Click(object sender, EventArgs e)
         {
-            if (txt_codigo.Text == "" || txt_encargado.Text == "")
+            if (txt_codigo.Text == "" || txt_encargado.Text == "" || txt_Entrego.Text=="")
             {
                 MessageBox.Show("llene todos los campos");//lanza mensaje
             }
