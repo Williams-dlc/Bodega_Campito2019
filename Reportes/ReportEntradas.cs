@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.Odbc;
+using System.Drawing.Printing;
 
 namespace Bodega.Reportes
 {
@@ -145,7 +146,7 @@ namespace Bodega.Reportes
             {
                 con.Open();
                 //OdbcDataAdapter cmd = new OdbcDataAdapter("SELECT * FROM encabezadoentrada a INNER JOIN detalleentrada b ON a.idEntrada=b.FK_encEntrada where FK_Distribuidor='" + cmb_propietario.Text.ToString() + "' and fecha='"+ dtp_FechaPro.Value.ToString("yyyyMMdd") + "'", con);//llama a la tabla de inventario para ver stock
-                OdbcDataAdapter cmd = new OdbcDataAdapter("SELECT e.idEntrada as 'Codigo', e.fecha, e.FK_Distribuidor as 'Distribuidor', e.fk_trabajador AS 'Despacho', e.Entrego, e.FK_Tipo_Bodega AS 'Bodega', p.name as 'Producto', d.cantidad, d.comentario from encabezadoentrada e, producto p, detalleentrada d where e.fecha='" + dtp_FechaPro.Value.ToString("yyyyMMdd") + "' and p.idProducto=d.Fk_Producto and e.idEntrada=d.FK_encEntrada and e.FK_Distribuidor='jorge'", con);//llama a la tabla de inventario para ver stock                                                                                                                                                                                                                                    
+                OdbcDataAdapter cmd = new OdbcDataAdapter("SELECT e.idEntrada as 'Codigo', e.fecha, e.FK_Distribuidor as 'Distribuidor', e.fk_trabajador AS 'Despacho', e.Entrego, e.FK_Tipo_Bodega AS 'Bodega', p.name as 'Producto', d.cantidad, d.comentario from encabezadoentrada e, producto p, detalleentrada d where e.fecha='" + dtp_FechaPro.Value.ToString("yyyyMMdd") + "' and p.idProducto=d.Fk_Producto and e.idEntrada=d.FK_encEntrada and e.FK_Distribuidor='"+cmb_propietario.Text.ToString()+"'", con);//llama a la tabla de inventario para ver stock                                                                                                                                                                                                                                    
                 cmd.Fill(tabla);
 
             }
@@ -156,7 +157,8 @@ namespace Bodega.Reportes
 
         private void ReportEntradas_Load(object sender, EventArgs e)
         {
-
+            foreach (string printer in PrinterSettings.InstalledPrinters)
+                cmb_printer.Items.Add(printer);
         }
 
         private void btn_Fecha_Click(object sender, EventArgs e)
@@ -271,12 +273,22 @@ namespace Bodega.Reportes
 
         private void btn_imprimir_Click(object sender, EventArgs e)
         {
+            if (printDialog1.ShowDialog() == DialogResult.OK)
+            {
+                prt_docMensual.PrinterSettings.PrinterName = printDialog1.PrinterSettings.PrinterName;
+                prt_docMensual.PrinterSettings.Copies = printDialog1.PrinterSettings.Copies;
+            }
             prt_preview.Document = prt_doc;
             prt_preview.ShowDialog();
         }
 
         private void btn_imprimirCod_Click(object sender, EventArgs e)
         {
+            if (printDialog1.ShowDialog() == DialogResult.OK)
+            {
+                prt_docMensual.PrinterSettings.PrinterName = printDialog1.PrinterSettings.PrinterName;
+                prt_docMensual.PrinterSettings.Copies = printDialog1.PrinterSettings.Copies;
+            }
             prt_preview.Document = prt_docCod;
             prt_preview.ShowDialog();
         }
@@ -303,6 +315,11 @@ namespace Bodega.Reportes
 
         private void btn_imprimirPropietario_Click(object sender, EventArgs e)
         {
+            if (printDialog1.ShowDialog() == DialogResult.OK)
+            {
+                prt_docMensual.PrinterSettings.PrinterName = printDialog1.PrinterSettings.PrinterName;
+                prt_docMensual.PrinterSettings.Copies = printDialog1.PrinterSettings.Copies;
+            }
             prt_preview.Document = prt_docPropietario;
             prt_preview.ShowDialog();
         }
@@ -336,7 +353,7 @@ namespace Bodega.Reportes
                 con.Open();
                 //OdbcDataAdapter cmd = new OdbcDataAdapter("SELECT a.fk_encEntrada, a.fk_Producto, SUM(Cantidad) AS 'Cantidad' FROM detalleentrada a INNER JOIN encabezadoentrada b ON a.FK_encEntrada=b.idEntrada AND b.FK_Distribuidor='" + cmb_propietario2.Text.ToString() + "' AND b.Fecha BETWEEN '" + cmb_year.Text.ToString() + "-" + txt_numero.Text + "-1' AND '" + cmb_year.Text.ToString() + "-" + txt_numero.Text + "-30' GROUP BY Fk_Producto", con);//llama a la tabla de inventario para ver stock
                                                                                                                                                                                                                                                                                                                                                                                                                                                                   //"select * from detalleInventario where FK_Propietario =  '"+cmb_propietario.Text.ToString()+"' and Fecha=MONTH(text)"
-                OdbcDataAdapter cmd = new OdbcDataAdapter("SELECT d.fk_encEntrada as 'Codigo', b.fecha, b.fk_trabajador as 'Despacho', b.Entrego, b.FK_Tipo_Bodega AS 'Bodega', p.name as 'Producto', SUM(Cantidad) AS 'Cantidad', d.comentario from detalleentrada d, producto p, encabezadoentrada b where d.FK_encEntrada=b.idEntrada AND b.FK_Distribuidor='" + cmb_propietario2.Text.ToString() + "' AND b.Fecha BETWEEN '" + cmb_year.Text.ToString() + "-" + txt_numero.Text + "-1' AND '" + cmb_year.Text.ToString() + "-" + txt_numero.Text + "-30' and p.idProducto=d.Fk_Producto GROUP BY Fk_Producto", con);//llama a la tabla de inventario para ver stock
+                OdbcDataAdapter cmd = new OdbcDataAdapter("SELECT d.fk_encEntrada as 'Codigo', b.fecha, b.fk_trabajador as 'Despacho', b.Entrego, b.FK_Tipo_Bodega AS 'Bodega', p.name as 'Producto', d.cantidad AS 'Cantidad', d.comentario from detalleentrada d, producto p, encabezadoentrada b where d.FK_encEntrada=b.idEntrada AND b.FK_Distribuidor='" + cmb_propietario2.Text.ToString() + "' AND d.Fk_Producto=p.idProducto and b.Fecha BETWEEN '" + cmb_year.Text.ToString() + "-" + txt_numero.Text + "-1' AND '" + cmb_year.Text.ToString() + "-" + txt_numero.Text + "-31'", con);//llama a la tabla de inventario para ver stock
                 cmd.Fill(tabla);
 
             }
@@ -373,8 +390,19 @@ namespace Bodega.Reportes
 
         private void btn_imprimirMensual_Click(object sender, EventArgs e)
         {
+            //prt_docMensual.PrinterSettings.PrinterName = cmb_printer.Text;
+
+            //prt_docMensual.Print();
+
+            if (printDialog1.ShowDialog() == DialogResult.OK)
+            {
+                prt_docMensual.PrinterSettings.PrinterName = printDialog1.PrinterSettings.PrinterName;
+                prt_docMensual.PrinterSettings.Copies = printDialog1.PrinterSettings.Copies;
+            }
+
             prt_preview.Document = prt_docMensual;
             prt_preview.ShowDialog();
+            
         }
 
         private void button1_Click(object sender, EventArgs e)

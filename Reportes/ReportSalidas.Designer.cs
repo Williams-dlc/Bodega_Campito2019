@@ -66,6 +66,7 @@
             this.button1 = new System.Windows.Forms.Button();
             this.btn_imprimirMensual = new System.Windows.Forms.Panel();
             this.prt_docMensual = new System.Drawing.Printing.PrintDocument();
+            this.printDialog1 = new System.Windows.Forms.PrintDialog();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -465,6 +466,10 @@
             // 
             this.prt_docMensual.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.prt_docMensual_PrintPage);
             // 
+            // printDialog1
+            // 
+            this.printDialog1.UseEXDialog = true;
+            // 
             // ReportSalidas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -546,5 +551,6 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Panel btn_imprimirMensual;
         private System.Drawing.Printing.PrintDocument prt_docMensual;
+        private System.Windows.Forms.PrintDialog printDialog1;
     }
 }

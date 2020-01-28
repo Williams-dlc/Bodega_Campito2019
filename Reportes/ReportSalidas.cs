@@ -251,6 +251,11 @@ namespace Bodega.Reportes
 
         private void btn_imprimir_Click(object sender, EventArgs e)
         {
+            if (printDialog1.ShowDialog() == DialogResult.OK)
+            {
+                prt_docMensual.PrinterSettings.PrinterName = printDialog1.PrinterSettings.PrinterName;
+                prt_docMensual.PrinterSettings.Copies = printDialog1.PrinterSettings.Copies;
+            }
             prt_preview.Document = prt_doc;
             prt_preview.ShowDialog();
         }
@@ -277,6 +282,11 @@ namespace Bodega.Reportes
 
         private void btn_imprimirCod_Click(object sender, EventArgs e)
         {
+            if (printDialog1.ShowDialog() == DialogResult.OK)
+            {
+                prt_docMensual.PrinterSettings.PrinterName = printDialog1.PrinterSettings.PrinterName;
+                prt_docMensual.PrinterSettings.Copies = printDialog1.PrinterSettings.Copies;
+            }
             prt_preview.Document = prt_docCod;
             prt_preview.ShowDialog();
         }
@@ -303,6 +313,11 @@ namespace Bodega.Reportes
 
         private void btn_imprimirPropietario_Click(object sender, EventArgs e)
         {
+            if (printDialog1.ShowDialog() == DialogResult.OK)
+            {
+                prt_docMensual.PrinterSettings.PrinterName = printDialog1.PrinterSettings.PrinterName;
+                prt_docMensual.PrinterSettings.Copies = printDialog1.PrinterSettings.Copies;
+            }
             prt_preview.Document = prt_docPropietario;
             prt_preview.ShowDialog();
         }
@@ -334,7 +349,7 @@ namespace Bodega.Reportes
             using (OdbcConnection con = new OdbcConnection(ConnStr))
             {
                 con.Open();
-                OdbcDataAdapter cmd = new OdbcDataAdapter("SELECT b.idPedido as 'Codigo', b.fecha, b.FK_Usuario as 'Distribuidor', b.fk_trabajador AS 'Despacho', b.Recibio, b.FK_Tipo_Bodega AS 'Bodega', p.name as 'Producto', d.cantidad, d.comentario from detallepedido d, producto p, encabezadopedido b where d.FK_EncPedido=b.idPedido AND b.FK_Usuario='" + cmb_propietario2.Text.ToString() + "' AND b.Fecha BETWEEN '" + cmb_year.Text.ToString() + "-" + txt_numero.Text + "-1' AND '" + cmb_year.Text.ToString() + "-" + txt_numero.Text + "-30' and p.idProducto=d.Fk_Producto GROUP BY Fk_Producto", con);//llama a la tabla de inventario para ver stock
+                OdbcDataAdapter cmd = new OdbcDataAdapter("SELECT b.idPedido as 'Codigo', b.fecha, b.FK_Usuario as 'Distribuidor', b.fk_trabajador AS 'Despacho', b.Recibio, b.FK_Tipo_Bodega AS 'Bodega', p.name as 'Producto', d.cantidad, d.comentario from detallepedido d, producto p, encabezadopedido b where d.FK_EncPedido=b.idPedido AND b.FK_Usuario='" + cmb_propietario2.Text.ToString() + "' AND b.Fecha BETWEEN '" + cmb_year.Text.ToString() + "-" + txt_numero.Text + "-1' AND '" + cmb_year.Text.ToString() + "-" + txt_numero.Text + "-31' and d.Fk_Producto=p.idproducto", con);//llama a la tabla de inventario para ver stock
                                                                                                                                                                                                                                                                                                                                                                                                                                                        //OdbcDataReader queryResults = cmd.ExecuteReader();
                                                                                                                                                                                                                                                                                                                                                                                                                                                        //SELECT YEAR(Fecha), SUM(Cantidad) as total, '"+cmb_propietario.Text.ToString()+"' from encabezadoentrada a INNER JOIN detalleentrada b on a.idEntrada = b.FK_encEntrada
                                                                                                                                                                                                                                                                                                                                                                                                                                                        //"select * from detalleInventario where FK_Propietario =  '"+cmb_propietario.Text.ToString()+"' and Fecha=MONTH(text)"
@@ -376,7 +391,11 @@ namespace Bodega.Reportes
 
         private void btn_imprimirMensual_Click(object sender, EventArgs e)
         {
-           
+            if (printDialog1.ShowDialog() == DialogResult.OK)
+            {
+                prt_docMensual.PrinterSettings.PrinterName = printDialog1.PrinterSettings.PrinterName;
+                prt_docMensual.PrinterSettings.Copies = printDialog1.PrinterSettings.Copies;
+            }
             prt_preview.Document = prt_docMensual;
             prt_preview.ShowDialog();
         }

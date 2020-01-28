@@ -59,7 +59,13 @@
             this.btn_propietario = new System.Windows.Forms.Button();
             this.btn_codigo = new System.Windows.Forms.Button();
             this.btn_Fecha = new System.Windows.Forms.Button();
-            this.lbl_buscar = new System.Windows.Forms.Label();
+            this.cmb_year = new System.Windows.Forms.ComboBox();
+            this.cmb_propietario2 = new System.Windows.Forms.ComboBox();
+            this.btn_aceptarMes = new System.Windows.Forms.Button();
+            this.txt_numero = new System.Windows.Forms.TextBox();
+            this.cmb_mes = new System.Windows.Forms.ComboBox();
+            this.lbl_mes = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             this.pnl_titulo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btn_salir)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Entradas)).BeginInit();
@@ -72,14 +78,14 @@
             this.pnl_titulo.Controls.Add(this.label1);
             this.pnl_titulo.Location = new System.Drawing.Point(0, 0);
             this.pnl_titulo.Name = "pnl_titulo";
-            this.pnl_titulo.Size = new System.Drawing.Size(761, 31);
+            this.pnl_titulo.Size = new System.Drawing.Size(870, 31);
             this.pnl_titulo.TabIndex = 3;
             // 
             // btn_salir
             // 
             this.btn_salir.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_salir.Image = ((System.Drawing.Image)(resources.GetObject("btn_salir.Image")));
-            this.btn_salir.Location = new System.Drawing.Point(728, 1);
+            this.btn_salir.Location = new System.Drawing.Point(831, 1);
             this.btn_salir.Name = "btn_salir";
             this.btn_salir.Size = new System.Drawing.Size(27, 27);
             this.btn_salir.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -185,7 +191,7 @@
             this.dgv_Entradas.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.DeepSkyBlue;
             this.dgv_Entradas.RowsDefaultCellStyle = dataGridViewCellStyle3;
-            this.dgv_Entradas.Size = new System.Drawing.Size(690, 271);
+            this.dgv_Entradas.Size = new System.Drawing.Size(819, 271);
             this.dgv_Entradas.TabIndex = 86;
             this.dgv_Entradas.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_Entradas_CellDoubleClick);
             // 
@@ -230,7 +236,7 @@
             // 
             // dtp_FechaPro
             // 
-            this.dtp_FechaPro.Location = new System.Drawing.Point(516, 178);
+            this.dtp_FechaPro.Location = new System.Drawing.Point(651, 159);
             this.dtp_FechaPro.Name = "dtp_FechaPro";
             this.dtp_FechaPro.Size = new System.Drawing.Size(200, 20);
             this.dtp_FechaPro.TabIndex = 81;
@@ -238,7 +244,7 @@
             // cmb_propietario
             // 
             this.cmb_propietario.FormattingEnabled = true;
-            this.cmb_propietario.Location = new System.Drawing.Point(547, 151);
+            this.cmb_propietario.Location = new System.Drawing.Point(680, 132);
             this.cmb_propietario.Name = "cmb_propietario";
             this.cmb_propietario.Size = new System.Drawing.Size(121, 21);
             this.cmb_propietario.TabIndex = 80;
@@ -252,7 +258,7 @@
             this.btn_aceparPro.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_aceparPro.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_aceparPro.ForeColor = System.Drawing.Color.Silver;
-            this.btn_aceparPro.Location = new System.Drawing.Point(563, 207);
+            this.btn_aceparPro.Location = new System.Drawing.Point(697, 207);
             this.btn_aceparPro.Name = "btn_aceparPro";
             this.btn_aceparPro.Size = new System.Drawing.Size(84, 31);
             this.btn_aceparPro.TabIndex = 79;
@@ -270,7 +276,7 @@
             this.btn_aceptarCod.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_aceptarCod.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_aceptarCod.ForeColor = System.Drawing.Color.Silver;
-            this.btn_aceptarCod.Location = new System.Drawing.Point(330, 207);
+            this.btn_aceptarCod.Location = new System.Drawing.Point(492, 207);
             this.btn_aceptarCod.Name = "btn_aceptarCod";
             this.btn_aceptarCod.Size = new System.Drawing.Size(84, 31);
             this.btn_aceptarCod.TabIndex = 78;
@@ -281,7 +287,7 @@
             // 
             // txt_codigo
             // 
-            this.txt_codigo.Location = new System.Drawing.Point(313, 166);
+            this.txt_codigo.Location = new System.Drawing.Point(476, 156);
             this.txt_codigo.Name = "txt_codigo";
             this.txt_codigo.Size = new System.Drawing.Size(121, 20);
             this.txt_codigo.TabIndex = 77;
@@ -295,7 +301,7 @@
             this.btn_aceptarDate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_aceptarDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_aceptarDate.ForeColor = System.Drawing.Color.Silver;
-            this.btn_aceptarDate.Location = new System.Drawing.Point(92, 207);
+            this.btn_aceptarDate.Location = new System.Drawing.Point(68, 207);
             this.btn_aceptarDate.Name = "btn_aceptarDate";
             this.btn_aceptarDate.Size = new System.Drawing.Size(84, 31);
             this.btn_aceptarDate.TabIndex = 76;
@@ -306,7 +312,7 @@
             // 
             // dtp_fecha
             // 
-            this.dtp_fecha.Location = new System.Drawing.Point(32, 163);
+            this.dtp_fecha.Location = new System.Drawing.Point(7, 155);
             this.dtp_fecha.Name = "dtp_fecha";
             this.dtp_fecha.Size = new System.Drawing.Size(200, 20);
             this.dtp_fecha.TabIndex = 75;
@@ -315,7 +321,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(564, 63);
+            this.label2.Location = new System.Drawing.Point(698, 44);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(88, 18);
             this.label2.TabIndex = 74;
@@ -325,7 +331,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(341, 63);
+            this.label3.Location = new System.Drawing.Point(502, 44);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(64, 18);
             this.label3.TabIndex = 73;
@@ -335,7 +341,7 @@
             // 
             this.lbl_fecha.AutoSize = true;
             this.lbl_fecha.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_fecha.Location = new System.Drawing.Point(106, 63);
+            this.lbl_fecha.Location = new System.Drawing.Point(82, 44);
             this.lbl_fecha.Name = "lbl_fecha";
             this.lbl_fecha.Size = new System.Drawing.Size(54, 18);
             this.lbl_fecha.TabIndex = 72;
@@ -348,7 +354,7 @@
             this.btn_propietario.FlatAppearance.BorderSize = 0;
             this.btn_propietario.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_propietario.Image = ((System.Drawing.Image)(resources.GetObject("btn_propietario.Image")));
-            this.btn_propietario.Location = new System.Drawing.Point(574, 84);
+            this.btn_propietario.Location = new System.Drawing.Point(708, 65);
             this.btn_propietario.Name = "btn_propietario";
             this.btn_propietario.Size = new System.Drawing.Size(67, 61);
             this.btn_propietario.TabIndex = 71;
@@ -362,7 +368,7 @@
             this.btn_codigo.FlatAppearance.BorderSize = 0;
             this.btn_codigo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_codigo.Image = ((System.Drawing.Image)(resources.GetObject("btn_codigo.Image")));
-            this.btn_codigo.Location = new System.Drawing.Point(339, 84);
+            this.btn_codigo.Location = new System.Drawing.Point(500, 65);
             this.btn_codigo.Name = "btn_codigo";
             this.btn_codigo.Size = new System.Drawing.Size(67, 61);
             this.btn_codigo.TabIndex = 70;
@@ -376,29 +382,111 @@
             this.btn_Fecha.FlatAppearance.BorderSize = 0;
             this.btn_Fecha.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_Fecha.Image = ((System.Drawing.Image)(resources.GetObject("btn_Fecha.Image")));
-            this.btn_Fecha.Location = new System.Drawing.Point(100, 84);
+            this.btn_Fecha.Location = new System.Drawing.Point(76, 65);
             this.btn_Fecha.Name = "btn_Fecha";
             this.btn_Fecha.Size = new System.Drawing.Size(67, 61);
             this.btn_Fecha.TabIndex = 69;
             this.btn_Fecha.UseVisualStyleBackColor = false;
             this.btn_Fecha.Click += new System.EventHandler(this.btn_Fecha_Click);
             // 
-            // lbl_buscar
+            // cmb_year
             // 
-            this.lbl_buscar.AutoSize = true;
-            this.lbl_buscar.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_buscar.ForeColor = System.Drawing.Color.Black;
-            this.lbl_buscar.Location = new System.Drawing.Point(12, 36);
-            this.lbl_buscar.Name = "lbl_buscar";
-            this.lbl_buscar.Size = new System.Drawing.Size(112, 21);
-            this.lbl_buscar.TabIndex = 68;
-            this.lbl_buscar.Text = "Buscar Salida";
+            this.cmb_year.FormattingEnabled = true;
+            this.cmb_year.Location = new System.Drawing.Point(273, 155);
+            this.cmb_year.Name = "cmb_year";
+            this.cmb_year.Size = new System.Drawing.Size(121, 21);
+            this.cmb_year.TabIndex = 99;
+            // 
+            // cmb_propietario2
+            // 
+            this.cmb_propietario2.FormattingEnabled = true;
+            this.cmb_propietario2.Location = new System.Drawing.Point(273, 182);
+            this.cmb_propietario2.Name = "cmb_propietario2";
+            this.cmb_propietario2.Size = new System.Drawing.Size(121, 21);
+            this.cmb_propietario2.TabIndex = 98;
+            // 
+            // btn_aceptarMes
+            // 
+            this.btn_aceptarMes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.btn_aceptarMes.FlatAppearance.BorderSize = 0;
+            this.btn_aceptarMes.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
+            this.btn_aceptarMes.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btn_aceptarMes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_aceptarMes.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_aceptarMes.ForeColor = System.Drawing.Color.Silver;
+            this.btn_aceptarMes.Location = new System.Drawing.Point(285, 209);
+            this.btn_aceptarMes.Name = "btn_aceptarMes";
+            this.btn_aceptarMes.Size = new System.Drawing.Size(84, 31);
+            this.btn_aceptarMes.TabIndex = 97;
+            this.btn_aceptarMes.Tag = "3";
+            this.btn_aceptarMes.Text = "Aceptar";
+            this.btn_aceptarMes.UseVisualStyleBackColor = false;
+            this.btn_aceptarMes.Click += new System.EventHandler(this.btn_aceptarMes_Click);
+            // 
+            // txt_numero
+            // 
+            this.txt_numero.Location = new System.Drawing.Point(393, 104);
+            this.txt_numero.Name = "txt_numero";
+            this.txt_numero.Size = new System.Drawing.Size(46, 20);
+            this.txt_numero.TabIndex = 96;
+            this.txt_numero.Visible = false;
+            // 
+            // cmb_mes
+            // 
+            this.cmb_mes.FormattingEnabled = true;
+            this.cmb_mes.Items.AddRange(new object[] {
+            "Enero",
+            "Febrero",
+            "Marzo",
+            "Abril",
+            "Mayo",
+            "Junio",
+            "Julio",
+            "Agosto",
+            "Septiembre",
+            "Octubre",
+            "Noviembre",
+            "Diciembre"});
+            this.cmb_mes.Location = new System.Drawing.Point(273, 130);
+            this.cmb_mes.Name = "cmb_mes";
+            this.cmb_mes.Size = new System.Drawing.Size(121, 21);
+            this.cmb_mes.TabIndex = 95;
+            // 
+            // lbl_mes
+            // 
+            this.lbl_mes.AutoSize = true;
+            this.lbl_mes.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_mes.Location = new System.Drawing.Point(316, 42);
+            this.lbl_mes.Name = "lbl_mes";
+            this.lbl_mes.Size = new System.Drawing.Size(38, 18);
+            this.lbl_mes.TabIndex = 94;
+            this.lbl_mes.Text = "Mes";
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
+            this.button1.Location = new System.Drawing.Point(301, 63);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(67, 61);
+            this.button1.TabIndex = 93;
+            this.button1.UseVisualStyleBackColor = false;
             // 
             // EliminarSalida
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(760, 615);
+            this.ClientSize = new System.Drawing.Size(870, 615);
+            this.Controls.Add(this.cmb_year);
+            this.Controls.Add(this.cmb_propietario2);
+            this.Controls.Add(this.btn_aceptarMes);
+            this.Controls.Add(this.txt_numero);
+            this.Controls.Add(this.cmb_mes);
+            this.Controls.Add(this.lbl_mes);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.txt_cantidad);
             this.Controls.Add(this.txt_codDetalle);
@@ -423,7 +511,6 @@
             this.Controls.Add(this.btn_propietario);
             this.Controls.Add(this.btn_codigo);
             this.Controls.Add(this.btn_Fecha);
-            this.Controls.Add(this.lbl_buscar);
             this.Controls.Add(this.pnl_titulo);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -468,6 +555,12 @@
         private System.Windows.Forms.Button btn_propietario;
         private System.Windows.Forms.Button btn_codigo;
         private System.Windows.Forms.Button btn_Fecha;
-        private System.Windows.Forms.Label lbl_buscar;
+        private System.Windows.Forms.ComboBox cmb_year;
+        private System.Windows.Forms.ComboBox cmb_propietario2;
+        private System.Windows.Forms.Button btn_aceptarMes;
+        private System.Windows.Forms.TextBox txt_numero;
+        private System.Windows.Forms.ComboBox cmb_mes;
+        private System.Windows.Forms.Label lbl_mes;
+        private System.Windows.Forms.Button button1;
     }
 }

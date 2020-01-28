@@ -33,6 +33,20 @@ namespace Bodega.Ajustes
             this.tt_distribuidor.SetToolTip(this.lbl_distribuidor, "Ingrese el nombre del distribuidor que realizo la dovolucion");
             this.tt_distribuidor.SetToolTip(this.cmb_propietario, "Seleccione el nombre del distribuidor que realizo la dovolucion");
             this.tt_distribuidor.SetToolTip(this.btn_propietario, "Seleccione el nombre del distribuidor que realizo la dovolucion");
+
+            cmb_propietario2.DataSource = CapaDatosBodega.llenarPropietario();
+            cmb_propietario2.ValueMember = "Nombre";
+
+            years();
+        }
+
+        public void years()
+        {
+            for (int i = 2019; i < 2050; i++)
+            {
+                cmb_year.Items.Add(i.ToString());
+            }
+
         }
 
         public void DevCodigo() ////////////////////////////////////////////////procedimiento para mostrar disponibilidad de producto en bodega
@@ -42,8 +56,10 @@ namespace Bodega.Ajustes
             using (OdbcConnection con = new OdbcConnection(ConnStr))
             {
                 con.Open();
-                OdbcDataAdapter cmd = new OdbcDataAdapter("select * from encabezadoDevoluciones b INNER JOIN DetalleDevoluciones a ON b.idDevoluciones=a.FK_EncDevoluciones WHERE b.idDevoluciones='" + txt_codigo.Text + "' AND a.FK_encDevoluciones= '" + txt_codigo.Text + "'   ", con);//llama a la tabla de inventario para ver stock
-                                                                                                                                                                                                                                                                          //OdbcDataReader queryResults = cmd.ExecuteReader();
+                //OdbcDataAdapter cmd = new OdbcDataAdapter("select * from encabezadoDevoluciones b INNER JOIN DetalleDevoluciones a ON b.idDevoluciones=a.FK_EncDevoluciones WHERE b.idDevoluciones='" + txt_codigo.Text + "' AND a.FK_encDevoluciones= '" + txt_codigo.Text + "'   ", con);//llama a la tabla de inventario para ver stock
+
+
+                OdbcDataAdapter cmd = new OdbcDataAdapter("select e.idDevoluciones as 'Codigo', d.fk_codDetallePrestamo as 'ID', d.idDetalleDevoluciones as 'Codigo2', e.fecha, e.fk_trabajador as 'Encargado', e.fk_propietario as 'Propietario', e.fk_prestador as 'Prestador', e.fk_bodega as 'Bodega', e.entrego, d.fk_producto as 'Cod Producto', p.name as 'Producto', d.cantidad, d.comentario from encabezadodevoluciones e, detalledevoluciones d, producto p where e.idDevoluciones='" + txt_codigo.Text+ "' and p.idProducto=d.Fk_Producto and e.idDevoluciones=d.FK_EncDevoluciones", con);
                 cmd.Fill(tabla);
 
             }
@@ -59,8 +75,9 @@ namespace Bodega.Ajustes
             using (OdbcConnection con = new OdbcConnection(ConnStr))
             {
                 con.Open();
-                OdbcDataAdapter cmd = new OdbcDataAdapter("select * from encabezadoDevoluciones b INNER JOIN DetalleDevoluciones a ON b.idDevoluciones=a.FK_EncDevoluciones WHERE b.fecha='" + dtp_fecha.Value.ToString("yyyyMMdd") + "'", con);//llama a la tabla de inventario para ver stock
-                                                                                                                                                                                                                                            //OdbcDataReader queryResults = cmd.ExecuteReader();
+                //OdbcDataAdapter cmd = new OdbcDataAdapter("select * from encabezadoDevoluciones b INNER JOIN DetalleDevoluciones a ON b.idDevoluciones=a.FK_EncDevoluciones WHERE b.fecha='" + dtp_fecha.Value.ToString("yyyyMMdd") + "'", con);//llama a la tabla de inventario para ver stock
+
+                OdbcDataAdapter cmd = new OdbcDataAdapter("select e.idDevoluciones as 'Codigo', d.fk_codDetallePrestamo as 'ID', d.idDetalleDevoluciones as 'Codigo2', e.fecha, e.fk_trabajador as 'Encargado', e.fk_propietario as 'Propietario', e.fk_prestador as 'Prestador', e.fk_bodega as 'Bodega', e.entrego, d.fk_producto as 'Cod Producto', p.name as 'Producto', d.cantidad, d.comentario from encabezadodevoluciones e, detalledevoluciones d, producto p where e.idDevoluciones=d.FK_EncDevoluciones and p.idProducto=d.Fk_Producto and e.fecha='" + dtp_fecha.Value.ToString("yyyyMMdd") + "'", con);
                 cmd.Fill(tabla);
 
             }
@@ -76,8 +93,10 @@ namespace Bodega.Ajustes
             using (OdbcConnection con = new OdbcConnection(ConnStr))
             {
                 con.Open();
-                OdbcDataAdapter cmd = new OdbcDataAdapter("select * from encabezadoDevoluciones b INNER JOIN DetalleDevoluciones a ON b.idDevoluciones=a.FK_EncDevoluciones WHERE b.fecha='" + dtp_fecha.Value.ToString("yyyyMMdd") + "' and b.FK_Prestador='" + cmb_propietario.Text.ToString() + "'", con);//llama a la tabla de inventario para ver stock
-                
+                //OdbcDataAdapter cmd = new OdbcDataAdapter("select * from encabezadoDevoluciones b INNER JOIN DetalleDevoluciones a ON b.idDevoluciones=a.FK_EncDevoluciones WHERE b.fecha='" + dtp_fecha.Value.ToString("yyyyMMdd") + "' and b.FK_Prestador='" + cmb_propietario.Text.ToString() + "'", con);//llama a la tabla de inventario para ver stock
+
+
+                OdbcDataAdapter cmd = new OdbcDataAdapter("select e.idDevoluciones as 'Codigo', d.fk_codDetallePrestamo as 'ID', d.idDetalleDevoluciones as 'Codigo2', e.fecha, e.fk_trabajador as 'Encargado', e.fk_propietario as 'Propietario', e.fk_prestador as 'Prestador', e.fk_bodega as 'Bodega', e.entrego, d.fk_producto as 'Cod Producto', p.name as 'Producto', d.cantidad, d.comentario from encabezadodevoluciones e, detalledevoluciones d, producto p where e.idDevoluciones=d.FK_EncDevoluciones and p.idProducto=d.Fk_Producto and e.fecha='" + dtp_FechaPro.Value.ToString("yyyyMMdd") + "' and e.FK_Prestador='" + cmb_propietario.Text.ToString() + "'", con);
                 cmd.Fill(tabla);
 
             }
@@ -148,10 +167,11 @@ namespace Bodega.Ajustes
             {
                 txt_codPrestamo.Text = Convert.ToString(dgv_Entradas.Rows[e.RowIndex].Cells[0].Value.ToString());//llena el textbox con los campos seleccionados en el datagrid
                 txt_producto.Text = Convert.ToString(dgv_Entradas.Rows[e.RowIndex].Cells[9].Value.ToString());//llena el textbox con los campos seleccionados en el datagrid
-                txt_propietario.Text = Convert.ToString(dgv_Entradas.Rows[e.RowIndex].Cells[3].Value.ToString());
-                txt_codDetalle.Text = Convert.ToString(dgv_Entradas.Rows[e.RowIndex].Cells[6].Value.ToString());
-                txt_cantidad.Text = Convert.ToString(dgv_Entradas.Rows[e.RowIndex].Cells[7].Value.ToString());
-                txt_prestador.Text = Convert.ToString(dgv_Entradas.Rows[e.RowIndex].Cells[4].Value.ToString());
+                txt_propietario.Text = Convert.ToString(dgv_Entradas.Rows[e.RowIndex].Cells[5].Value.ToString());
+                txt_codDetalle.Text = Convert.ToString(dgv_Entradas.Rows[e.RowIndex].Cells[2].Value.ToString());
+                txt_cantidad.Text = Convert.ToString(dgv_Entradas.Rows[e.RowIndex].Cells[11].Value.ToString());
+                txt_prestador.Text = Convert.ToString(dgv_Entradas.Rows[e.RowIndex].Cells[6].Value.ToString());
+                txt_codDetallePrestamo.Text= Convert.ToString(dgv_Entradas.Rows[e.RowIndex].Cells[1].Value.ToString());
             }
             catch (Exception ex)
             {
@@ -193,7 +213,12 @@ namespace Bodega.Ajustes
                         OdbcCommand cmd2 = new OdbcCommand("UPDATE detalleinventario set cantidad=cantidad + '" + txt_cantidad.Text + "' WHERE Fk_Producto='" + txt_producto.Text + "' AND FK_Propietario='" + txt_prestador.Text + "'", con);
                         con.Open();//abre la conexion ;
                         cmd2.ExecuteNonQuery();
-                        con.Close();//cierra la conexion                  
+                        con.Close();//cierra la conexion      
+
+                        OdbcCommand cmd5 = new OdbcCommand("update detalleprestamo set estado=1 WHERE Fk_Producto='" + txt_producto.Text + "' AND idDetallePrestamo='" + txt_codDetallePrestamo.Text + "' AND cantidad='" + txt_cantidad.Text + "'", con);
+                        con.Open();//abre la conexion ;
+                        cmd5.ExecuteNonQuery();
+                        con.Close();//cierra la conexion            
 
                         if (btn_Fecha.Enabled == true && btn_codigo.Enabled == false && btn_propietario.Enabled == false)
                         {
@@ -226,6 +251,83 @@ namespace Bodega.Ajustes
 
                 }
             }
+        }
+
+        public void mes()
+        {
+            if (cmb_mes.Text.ToString() == "Enero")
+            {
+                txt_numero.Text = "1";
+            }
+            else if (cmb_mes.Text.ToString() == "Febrero")
+            {
+                txt_numero.Text = "2";
+            }
+            else if (cmb_mes.Text.ToString() == "Marzo")
+            {
+                txt_numero.Text = "3";
+            }
+            else if (cmb_mes.Text.ToString() == "Abril")
+            {
+                txt_numero.Text = "4";
+            }
+            else if (cmb_mes.Text.ToString() == "Mayo")
+            {
+                txt_numero.Text = "5";
+            }
+            else if (cmb_mes.Text.ToString() == "Junio")
+            {
+                txt_numero.Text = "6";
+            }
+            else if (cmb_mes.Text.ToString() == "Julio")
+            {
+                txt_numero.Text = "7";
+            }
+            else if (cmb_mes.Text.ToString() == "Agosto")
+            {
+                txt_numero.Text = "8";
+            }
+            else if (cmb_mes.Text.ToString() == "Septiembre")
+            {
+                txt_numero.Text = "9";
+            }
+            else if (cmb_mes.Text.ToString() == "Octubre")
+            {
+                txt_numero.Text = "10";
+            }
+            else if (cmb_mes.Text.ToString() == "Noviembre")
+            {
+                txt_numero.Text = "11";
+            }
+            else if (cmb_mes.Text.ToString() == "Diciembre")
+            {
+                txt_numero.Text = "12";
+            }
+        }
+
+        public void Devolucion_Mensual()
+        {
+            mes();
+            DataTable tabla = new DataTable();
+            using (OdbcConnection con = new OdbcConnection(ConnStr))
+            {
+                con.Open();
+                OdbcDataAdapter cmd = new OdbcDataAdapter("select e.idDevoluciones as 'Codigo', d.fk_codDetallePrestamo as 'ID', d.idDetalleDevoluciones as 'Codigo2', e.fecha, e.fk_trabajador as 'Encargado', e.fk_propietario as 'Propietario', e.fk_prestador as 'Prestador', e.fk_bodega as 'Bodega', e.entrego, d.fk_producto as 'Cod Producto', p.name as 'Producto', d.cantidad, d.comentario from encabezadodevoluciones e, detalledevoluciones d, producto p where e.idDevoluciones=d.FK_EncDevoluciones AND e.FK_Prestador='" + cmb_propietario2.Text.ToString() + "' AND e.Fecha BETWEEN '" + cmb_year.Text.ToString() + "-" + txt_numero.Text + "-1' AND '" + cmb_year.Text.ToString() + "-" + txt_numero.Text + "-30' and d.Fk_Producto=p.idproducto", con);//llama a la tabla de inventario para ver stock
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 //OdbcDataReader queryResults = cmd.ExecuteReader();
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 //SELECT YEAR(Fecha), SUM(Cantidad) as total, '"+cmb_propietario.Text.ToString()+"' from encabezadoentrada a INNER JOIN detalleentrada b on a.idEntrada = b.FK_encEntrada
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 //"select * from detalleInventario where FK_Propietario =  '"+cmb_propietario.Text.ToString()+"' and Fecha=MONTH(text)"
+                cmd.Fill(tabla);
+
+            }
+
+            dgv_Entradas.DataSource = tabla;
+
+
+        }
+
+        private void btn_aceptarMes_Click(object sender, EventArgs e)
+        {
+            Devolucion_Mensual();
         }
     }
 }

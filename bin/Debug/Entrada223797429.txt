@@ -1,0 +1,13 @@
+***ENTRADA DE PRODUCTO***
+
+Codigo: 223797429
+Encargado: willian
+Fecha: miércoles, 22 de enero de 2020
+Propietario Producto: Jorge
+Entrego: aa
+
+Producto
+Azucar
+2
+
+22/01/2020 20:17:33

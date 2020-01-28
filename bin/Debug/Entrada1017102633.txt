@@ -1,0 +1,21 @@
+***ENTRADA DE PRODUCTO***
+
+Codigo: 1017102633
+Encargado: Willian
+Fecha: lunes, 27 de enero de 2020
+Propietario Producto: Josue
+Entrego: aa
+
+Producto
+Harina Dura
+800
+Harina Suave
+850
+Manteca
+200
+Azucar
+80
+Levaduras
+60
+
+27/01/2020 21:18:03

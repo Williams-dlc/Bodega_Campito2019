@@ -69,7 +69,7 @@ namespace Bodega.Traslados
                 con.Open();
                 //OdbcDataAdapter cmd = new OdbcDataAdapter("select a.FK_EncPrestamo AS 'Codigo', a.Cantidad, a.FK_Producto AS 'idProducto', a.estado from detalleprestamo a INNER JOIN encabezadoprestamo b ON b.idPrestamo=a.FK_EncPrestamo WHERE b.FK_Prestador='"+ cmb_prestador.Text.ToString() + "' AND b.FK_Propietario = '" +cmb_propietario.Text.ToString()+"' AND a.estado=1", con);//
                 //OdbcDataReader queryResults = cmd.ExecuteReader();
-                OdbcDataAdapter cmd = new OdbcDataAdapter("select e.idPrestamo as 'Codigo', e.Fecha, e.FK_trabajador as 'Entrego', e.Recibio, d.Cantidad, p.Name as 'Producto', d.FK_Producto as 'Cod Producto', d.comentario from encabezadoprestamo e, detalleprestamo d, producto p where e.idPrestamo=d.FK_EncPrestamo and e.FK_Prestador='"+cmb_prestador.Text.ToString()+"' AND e.FK_Propietario = '"+cmb_propietario.Text.ToString()+ "' AND p.idProducto=d.Fk_Producto AND d.estado=1", con);
+                OdbcDataAdapter cmd = new OdbcDataAdapter("select e.idPrestamo as 'Codigo',  d.idDetallePrestamo as 'Codigo2', e.Fecha, e.FK_trabajador as 'Entrego', e.Recibio, d.Cantidad, p.Name as 'Producto', d.FK_Producto as 'Cod Producto', d.comentario from encabezadoprestamo e, detalleprestamo d, producto p where e.idPrestamo=d.FK_EncPrestamo and e.FK_Prestador='" + cmb_prestador.Text.ToString()+"' AND e.FK_Propietario = '"+cmb_propietario.Text.ToString()+ "' AND p.idProducto=d.Fk_Producto AND d.estado=1", con);
                 cmd.Fill(tabla);
             }
             dgv_productos.DataSource = tabla;
@@ -250,12 +250,12 @@ namespace Bodega.Traslados
                     {
                         OdbcConnection con = new OdbcConnection(ConnStr);//varibale para llamar la conexion ODBC
 
-                        OdbcCommand cmd1 = new OdbcCommand("insert into DetalleDevoluciones values (NULL,'" + txt_cantidad.Text + "', '" + txt_detalle.Text + "', '" + txt_codProducto.Text + "', 'pendiente: " + txt_comentario.Text + "')", con);
+                        OdbcCommand cmd1 = new OdbcCommand("insert into DetalleDevoluciones values (NULL,'" + txt_cantidad.Text + "', '" + txt_detalle.Text + "', '" + txt_codProducto.Text + "', 'pendiente: " + txt_comentario.Text + "','"+ txt_codDetallePrestamo.Text+ "')", con);
                         con.Open();//abre la conexion ;
                         cmd1.ExecuteNonQuery();
                         con.Close();//cierra la conexion
 
-                        OdbcCommand cmd5 = new OdbcCommand("insert into DetalleDevoluciones_respaldo values (NULL,'" + txt_cantidad.Text + "', '" + txt_detalle.Text + "', '" + txt_codProducto.Text + "','pendiente: " + txt_comentario.Text + "')", con);
+                        OdbcCommand cmd5 = new OdbcCommand("insert into DetalleDevoluciones_respaldo values (NULL,'" + txt_cantidad.Text + "', '" + txt_detalle.Text + "', '" + txt_codProducto.Text + "','pendiente: " + txt_comentario.Text + "','" + txt_codDetallePrestamo.Text + "')", con);
                         con.Open();//abre la conexion ;
                         cmd5.ExecuteNonQuery();
                         con.Close();//cierra la conexion
@@ -324,12 +324,12 @@ namespace Bodega.Traslados
                     {
                         OdbcConnection con = new OdbcConnection(ConnStr);//varibale para llamar la conexion ODBC
 
-                        OdbcCommand cmd1 = new OdbcCommand("insert into DetalleDevoluciones values (NULL,'" + txt_cantidad.Text + "', '" + txt_detalle.Text + "', '" + txt_codProducto.Text + "','" + txt_comentario.Text + "')", con);
+                        OdbcCommand cmd1 = new OdbcCommand("insert into DetalleDevoluciones values (NULL,'" + txt_cantidad.Text + "', '" + txt_detalle.Text + "', '" + txt_codProducto.Text + "','" + txt_comentario.Text + "','" + txt_codDetallePrestamo.Text + "')", con);
                         con.Open();//abre la conexion ;
                         cmd1.ExecuteNonQuery();
                         con.Close();//cierra la conexion
 
-                        OdbcCommand cmd5 = new OdbcCommand("insert into DetalleDevoluciones_respaldo values (NULL,'" + txt_cantidad.Text + "', '" + txt_detalle.Text + "', '" + txt_codProducto.Text + "','" + txt_comentario.Text + "')", con);
+                        OdbcCommand cmd5 = new OdbcCommand("insert into DetalleDevoluciones_respaldo values (NULL,'" + txt_cantidad.Text + "', '" + txt_detalle.Text + "', '" + txt_codProducto.Text + "','" + txt_comentario.Text + "','" + txt_codDetallePrestamo.Text + "')", con);
                         con.Open();//abre la conexion ;
                         cmd5.ExecuteNonQuery();
                         con.Close();//cierra la conexion
@@ -448,10 +448,11 @@ namespace Bodega.Traslados
             try
             {
 
-                txt_CantidadPrestamo.Text = Convert.ToString(dgv_productos.Rows[e.RowIndex].Cells[4].Value.ToString());//llena el textbox con los campos seleccionados en el datagrid
+                txt_CantidadPrestamo.Text = Convert.ToString(dgv_productos.Rows[e.RowIndex].Cells[5].Value.ToString());//llena el textbox con los campos seleccionados en el datagrid
                 txt_idPrestamo.Text = Convert.ToString(dgv_productos.Rows[e.RowIndex].Cells[0].Value.ToString());//llena el textbox con los campos seleccionados en el datagrid
-                txt_ProductoPrestamo.Text = Convert.ToString(dgv_productos.Rows[e.RowIndex].Cells[6].Value.ToString());//llena el textbox con los campos seleccionados en el datagrid
-                txt_comentarioPrest.Text= Convert.ToString(dgv_productos.Rows[e.RowIndex].Cells[7].Value.ToString());//llena el textbox con los campos seleccionados en el datagrid
+                txt_ProductoPrestamo.Text = Convert.ToString(dgv_productos.Rows[e.RowIndex].Cells[7].Value.ToString());//llena el textbox con los campos seleccionados en el datagrid
+                txt_comentarioPrest.Text= Convert.ToString(dgv_productos.Rows[e.RowIndex].Cells[8].Value.ToString());//llena el textbox con los campos seleccionados en el datagrid
+                txt_codDetallePrestamo.Text= Convert.ToString(dgv_productos.Rows[e.RowIndex].Cells[1].Value.ToString());//llena el textbox con los campos seleccionados en el datagrid
                 btn_ok.Enabled = true;
             }
             catch (Exception ex)
@@ -602,6 +603,15 @@ namespace Bodega.Traslados
             //MessageBox.Show("Imprimiendo factura");
             file.Close();
 
+            PrintDialog pDlg = new PrintDialog();
+            PrintDocument pDoc = new PrintDocument();
+            pDoc.DocumentName = "devolucion" + txt_codigo.Text + ".txt";
+            pDlg.Document = pDoc;
+            pDlg.AllowSelection = true;
+            pDlg.AllowSomePages = true;
+            if (pDlg.ShowDialog() == DialogResult.OK)
+            {
+
             reader = new StreamReader("devolucion" + txt_codigo.Text + ".txt");
             //Create a Verdana font with size 10  
             verdana10Font = new Font("Verdana", 9);
@@ -611,7 +621,12 @@ namespace Bodega.Traslados
             pd.PrintPage += new PrintPageEventHandler(this.PrintTextFileHandler);
             //Call Print Method  
             pd.Print();
-            //Close the reader  
+                //Close the reader  
+            }
+            else
+            {
+                MessageBox.Show("Print Cancelled");
+            }
             if (reader != null)
                 reader.Close();
         }

@@ -77,6 +77,7 @@
             this.btn_imprimirMensual = new System.Windows.Forms.Panel();
             this.prt_doc = new System.Drawing.Printing.PrintDocument();
             this.prt_preview = new System.Windows.Forms.PrintPreviewDialog();
+            this.printDialog1 = new System.Windows.Forms.PrintDialog();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_producto)).BeginInit();
@@ -582,6 +583,10 @@
             this.prt_preview.Name = "prt_preview";
             this.prt_preview.Visible = false;
             // 
+            // printDialog1
+            // 
+            this.printDialog1.UseEXDialog = true;
+            // 
             // SalidaProducto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -671,5 +676,6 @@
         private System.Windows.Forms.Panel btn_imprimirMensual;
         private System.Drawing.Printing.PrintDocument prt_doc;
         private System.Windows.Forms.PrintPreviewDialog prt_preview;
+        private System.Windows.Forms.PrintDialog printDialog1;
     }
 }

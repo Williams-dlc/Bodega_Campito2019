@@ -435,16 +435,30 @@ namespace Bodega.Traslados
             //MessageBox.Show("Imprimiendo factura");
             file.Close();
 
-            reader = new StreamReader("Salida"+txt_codigo.Text+".txt");
-            //Create a Verdana font with size 10  
-            verdana10Font = new Font("Verdana", 9);
-            //Create a PrintDocument object  
-            PrintDocument pd = new PrintDocument();
-            //Add PrintPage event handler  
-            pd.PrintPage += new PrintPageEventHandler(this.PrintTextFileHandler);
-            //Call Print Method  
-            pd.Print();
-            //Close the reader  
+            PrintDialog pDlg = new PrintDialog();
+            PrintDocument pDoc = new PrintDocument();
+            pDoc.DocumentName = "Salida" + txt_codigo.Text + ".txt";
+            pDlg.Document = pDoc;
+            pDlg.AllowSelection = true;
+            pDlg.AllowSomePages = true;
+            if (pDlg.ShowDialog() == DialogResult.OK)
+            {
+                reader = new StreamReader("Salida"+txt_codigo.Text+".txt");
+                //Create a Verdana font with size 10  
+                verdana10Font = new Font("Verdana", 9);
+                //Create a PrintDocument object  
+                PrintDocument pd = new PrintDocument();
+                //Add PrintPage event handler  
+                pd.PrintPage += new PrintPageEventHandler(this.PrintTextFileHandler);
+                //Call Print Method  
+                pd.Print();
+                //Close the reader  
+            }
+            else
+            {
+                MessageBox.Show("Print Cancelled");
+            }
+
             if (reader != null)
                 reader.Close();
 

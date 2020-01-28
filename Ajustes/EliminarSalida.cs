@@ -29,6 +29,20 @@ namespace Bodega.Ajustes
 
             cmb_propietario.DataSource = CapaDatosBodega.llenarPropietario();
             cmb_propietario.ValueMember = "Nombre";
+
+            cmb_propietario2.DataSource = CapaDatosBodega.llenarPropietario();
+            cmb_propietario2.ValueMember = "Nombre";
+
+            years();
+        }
+
+        public void years()
+        {
+            for (int i = 2019; i < 2050; i++)
+            {
+                cmb_year.Items.Add(i.ToString());
+            }
+
         }
 
         public void SalidasCodigo() ////////////////////////////////////////////////procedimiento para mostrar disponibilidad de producto en bodega
@@ -38,8 +52,9 @@ namespace Bodega.Ajustes
             using (OdbcConnection con = new OdbcConnection(ConnStr))
             {
                 con.Open();
-                OdbcDataAdapter cmd = new OdbcDataAdapter("SELECT * FROM encabezadoPedido a INNER JOIN detallepedido b ON a.idPedido=b.FK_encPedido where idPedido='" + txt_codigo.Text + "'", con);//llama a la tabla de inventario para ver stock
-                                                                                                                                                                                                    //OdbcDataReader queryResults = cmd.ExecuteReader();
+                //OdbcDataAdapter cmd = new OdbcDataAdapter("SELECT * FROM encabezadoPedido a INNER JOIN detallepedido b ON a.idPedido=b.FK_encPedido where idPedido='" + txt_codigo.Text + "'", con);//llama a la tabla de inventario para ver stock
+                //OdbcDataReader queryResults = cmd.ExecuteReader();
+                OdbcDataAdapter cmd = new OdbcDataAdapter("SELECT e.idPedido as 'Codigo', e.fecha, e.FK_Usuario as 'Distribuidor', e.fk_trabajador AS 'Despacho', e.Recibio, e.FK_Tipo_Bodega AS 'Bodega', d.FK_producto as 'Producto', p.name as 'Producto', d.cantidad, d.comentario from encabezadopedido e, producto p, detallepedido d where p.idProducto=d.Fk_Producto and e.idPedido=d.FK_EncPedido AND e.idPedido='" + txt_codigo.Text + "'", con);
                 cmd.Fill(tabla);
 
             }
@@ -55,8 +70,9 @@ namespace Bodega.Ajustes
             using (OdbcConnection con = new OdbcConnection(ConnStr))
             {
                 con.Open();
-                OdbcDataAdapter cmd = new OdbcDataAdapter("SELECT * FROM encabezadoPedido a INNER JOIN detallepedido b ON a.idPedido=b.FK_encPedido where fecha='" + dtp_fecha.Value.ToString("yyyyMMdd") + "'", con);//llama a la tabla de inventario para ver stock
-                                                                                                                                                                                                                      //OdbcDataReader queryResults = cmd.ExecuteReader();
+                //OdbcDataAdapter cmd = new OdbcDataAdapter("SELECT * FROM encabezadoPedido a INNER JOIN detallepedido b ON a.idPedido=b.FK_encPedido where fecha='" + dtp_fecha.Value.ToString("yyyyMMdd") + "'", con);//llama a la tabla de inventario para ver stock
+                //OdbcDataReader queryResults = cmd.ExecuteReader();
+                OdbcDataAdapter cmd = new OdbcDataAdapter("SELECT e.idPedido as 'Codigo', e.fecha, e.FK_Usuario as 'Distribuidor', e.fk_trabajador AS 'Despacho', e.Recibio, e.FK_Tipo_Bodega AS 'Bodega', d.FK_producto as 'Producto', p.name as 'Producto', d.cantidad, d.comentario from encabezadopedido e, producto p, detallepedido d where e.fecha='" + dtp_fecha.Value.ToString("yyyyMMdd") + "' and p.idProducto=d.Fk_Producto and e.idPedido=d.FK_EncPedido", con);
                 cmd.Fill(tabla);
 
             }
@@ -72,7 +88,9 @@ namespace Bodega.Ajustes
             using (OdbcConnection con = new OdbcConnection(ConnStr))
             {
                 con.Open();
-                OdbcDataAdapter cmd = new OdbcDataAdapter("SELECT * FROM encabezadoPedido a INNER JOIN detallepedido b ON a.idPedido=b.FK_encPedido where FK_usuario='" + cmb_propietario.Text.ToString() + "' and fecha='" + dtp_FechaPro.Value.ToString("yyyyMMdd") + "'", con);//llama a la tabla de inventario para ver stock
+                //OdbcDataAdapter cmd = new OdbcDataAdapter("SELECT * FROM encabezadoPedido a INNER JOIN detallepedido b ON a.idPedido=b.FK_encPedido where FK_usuario='" + cmb_propietario.Text.ToString() + "' and fecha='" + dtp_FechaPro.Value.ToString("yyyyMMdd") + "'", con);//llama a la tabla de inventario para ver stock
+
+                OdbcDataAdapter cmd = new OdbcDataAdapter("SELECT e.idPedido as 'Codigo', e.fecha, e.FK_Usuario as 'Distribuidor', e.fk_trabajador AS 'Despacho', e.Recibio, e.FK_Tipo_Bodega AS 'Bodega', d.FK_producto as 'Producto', p.name as 'Producto', d.cantidad, d.comentario from encabezadopedido e, producto p, detallepedido d where e.fecha='" + dtp_FechaPro.Value.ToString("yyyyMMdd") + "' and p.idProducto=d.Fk_Producto and e.idPedido=d.FK_EncPedido and e.FK_Usuario='" + cmb_propietario.Text.ToString() + "'", con);//llama a la tabla de inventario para ver stock                                                                                                                                                                                                                                    
 
                 cmd.Fill(tabla);
 
@@ -107,10 +125,10 @@ namespace Bodega.Ajustes
             try
             {
                 txt_codSalida.Text = Convert.ToString(dgv_Entradas.Rows[e.RowIndex].Cells[0].Value.ToString());//llena el textbox con los campos seleccionados en el datagrid
-                txt_producto.Text = Convert.ToString(dgv_Entradas.Rows[e.RowIndex].Cells[8].Value.ToString());//llena el textbox con los campos seleccionados en el datagrid
+                txt_producto.Text = Convert.ToString(dgv_Entradas.Rows[e.RowIndex].Cells[6].Value.ToString());//llena el textbox con los campos seleccionados en el datagrid
                 txt_propietario.Text = Convert.ToString(dgv_Entradas.Rows[e.RowIndex].Cells[2].Value.ToString());
-                txt_codDetalle.Text = Convert.ToString(dgv_Entradas.Rows[e.RowIndex].Cells[5].Value.ToString());
-                txt_cantidad.Text = Convert.ToString(dgv_Entradas.Rows[e.RowIndex].Cells[6].Value.ToString());
+                txt_codDetalle.Text = Convert.ToString(dgv_Entradas.Rows[e.RowIndex].Cells[0].Value.ToString());
+                txt_cantidad.Text = Convert.ToString(dgv_Entradas.Rows[e.RowIndex].Cells[8].Value.ToString());
             }
             catch (Exception ex)
             {
@@ -134,7 +152,7 @@ namespace Bodega.Ajustes
                     {
                         OdbcConnection con = new OdbcConnection(ConnStr);//varibale para llamar la conexion ODBC
 
-                        OdbcCommand cmd1 = new OdbcCommand("DELETE FROM detallePedido WHERE Fk_Producto='" + txt_producto.Text + "' AND FK_EncPedido='" + txt_codSalida.Text + "' AND cantidad='" + txt_cantidad.Text + "' AND idDetallePedido='" + txt_codDetalle.Text + "' ", con);
+                        OdbcCommand cmd1 = new OdbcCommand("DELETE FROM detallePedido WHERE Fk_Producto='" + txt_producto.Text + "' AND FK_EncPedido='" + txt_codSalida.Text + "' AND cantidad='" + txt_cantidad.Text + "' ", con);
                         con.Open();//abre la conexion ;
                         cmd1.ExecuteNonQuery();
                         con.Close();//cierra la conexion
@@ -208,6 +226,83 @@ namespace Bodega.Ajustes
             btn_aceptarDate.Enabled = false;
             txt_codigo.Enabled = false;
             btn_aceptarCod.Enabled = false;
+        }
+
+        public void mes()
+        {
+            if (cmb_mes.Text.ToString() == "Enero")
+            {
+                txt_numero.Text = "1";
+            }
+            else if (cmb_mes.Text.ToString() == "Febrero")
+            {
+                txt_numero.Text = "2";
+            }
+            else if (cmb_mes.Text.ToString() == "Marzo")
+            {
+                txt_numero.Text = "3";
+            }
+            else if (cmb_mes.Text.ToString() == "Abril")
+            {
+                txt_numero.Text = "4";
+            }
+            else if (cmb_mes.Text.ToString() == "Mayo")
+            {
+                txt_numero.Text = "5";
+            }
+            else if (cmb_mes.Text.ToString() == "Junio")
+            {
+                txt_numero.Text = "6";
+            }
+            else if (cmb_mes.Text.ToString() == "Julio")
+            {
+                txt_numero.Text = "7";
+            }
+            else if (cmb_mes.Text.ToString() == "Agosto")
+            {
+                txt_numero.Text = "8";
+            }
+            else if (cmb_mes.Text.ToString() == "Septiembre")
+            {
+                txt_numero.Text = "9";
+            }
+            else if (cmb_mes.Text.ToString() == "Octubre")
+            {
+                txt_numero.Text = "10";
+            }
+            else if (cmb_mes.Text.ToString() == "Noviembre")
+            {
+                txt_numero.Text = "11";
+            }
+            else if (cmb_mes.Text.ToString() == "Diciembre")
+            {
+                txt_numero.Text = "12";
+            }
+        }
+
+        public void Salidas_Mensual()
+        {
+            mes();
+            DataTable tabla = new DataTable();
+            using (OdbcConnection con = new OdbcConnection(ConnStr))
+            {
+                con.Open();
+                OdbcDataAdapter cmd = new OdbcDataAdapter("SELECT b.idPedido as 'Codigo', b.fecha, b.FK_Usuario as 'Distribuidor', b.fk_trabajador AS 'Despacho', b.Recibio, b.FK_Tipo_Bodega AS 'Bodega', d.FK_producto as 'Producto', p.name as 'Producto', d.cantidad, d.comentario from detallepedido d, producto p, encabezadopedido b where d.FK_EncPedido=b.idPedido AND b.FK_Usuario='" + cmb_propietario2.Text.ToString() + "' AND b.Fecha BETWEEN '" + cmb_year.Text.ToString() + "-" + txt_numero.Text + "-1' AND '" + cmb_year.Text.ToString() + "-" + txt_numero.Text + "-30' and d.Fk_Producto=p.idproducto ORDER BY b.fecha ASC", con);//llama a la tabla de inventario para ver stock
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         //OdbcDataReader queryResults = cmd.ExecuteReader();
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         //SELECT YEAR(Fecha), SUM(Cantidad) as total, '"+cmb_propietario.Text.ToString()+"' from encabezadoentrada a INNER JOIN detalleentrada b on a.idEntrada = b.FK_encEntrada
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         //"select * from detalleInventario where FK_Propietario =  '"+cmb_propietario.Text.ToString()+"' and Fecha=MONTH(text)"
+                cmd.Fill(tabla);
+
+            }
+
+            dgv_Entradas.DataSource = tabla;
+
+
+        }
+
+        private void btn_aceptarMes_Click(object sender, EventArgs e)
+        {
+            Salidas_Mensual();
         }
     }
 }
