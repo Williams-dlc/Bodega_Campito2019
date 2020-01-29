@@ -115,6 +115,10 @@ namespace Bodega.Ajustes
             cmb_propietario.Enabled = false;
             btn_aceparPro.Enabled = false;
             dtp_FechaPro.Enabled = false;
+            cmb_mes.Enabled = false;
+            cmb_propietario2.Enabled = false;
+            cmb_year.Enabled = false;
+            
         }
 
         private void btn_codigo_Click(object sender, EventArgs e)
@@ -127,6 +131,9 @@ namespace Bodega.Ajustes
             btn_aceparPro.Enabled = false;
             dtp_fecha.Enabled = false;
             btn_aceptarDate.Enabled = false;
+            cmb_mes.Enabled = false;
+            cmb_propietario2.Enabled = false;
+            cmb_year.Enabled = false;
         }
 
         private void btn_propietario_Click(object sender, EventArgs e)
@@ -139,6 +146,9 @@ namespace Bodega.Ajustes
             btn_aceptarDate.Enabled = false;
             txt_codigo.Enabled = false;
             btn_aceptarCod.Enabled = false;
+            cmb_mes.Enabled = false;
+            cmb_propietario2.Enabled = false;
+            cmb_year.Enabled = false;
         }
 
         private void btn_aceptarDate_Click(object sender, EventArgs e)
@@ -328,6 +338,23 @@ namespace Bodega.Ajustes
         private void btn_aceptarMes_Click(object sender, EventArgs e)
         {
             Devolucion_Mensual();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            cmb_mes.Enabled = true;
+            cmb_propietario2.Enabled = true;
+            cmb_year.Enabled = true;
+
+            cmb_propietario.Enabled = false;
+            btn_aceparPro.Enabled = false;
+            dtp_FechaPro.Enabled = false;
+
+            dtp_fecha.Enabled = false;
+            btn_aceptarDate.Enabled = false;
+            txt_codigo.Enabled = false;
+            btn_aceptarCod.Enabled = false;
+            
         }
     }
 }

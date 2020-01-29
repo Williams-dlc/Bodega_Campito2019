@@ -419,5 +419,11 @@ namespace Bodega.Reportes
 
             e.Graphics.DrawString(titulo, new Font("Century Gothic", 20, FontStyle.Bold), Brushes.Black, new Point(175, 50));
         }
+
+        private void btn_ReportePrestamos_Click(object sender, EventArgs e)
+        {
+            ReportDevoluciones devoluciones = new ReportDevoluciones();
+            devoluciones.Show();
+        }
     }
 }

@@ -67,7 +67,7 @@
             this.txt_numero = new System.Windows.Forms.TextBox();
             this.cmb_mes = new System.Windows.Forms.ComboBox();
             this.lbl_mes = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btn_mensual = new System.Windows.Forms.Button();
             this.pnl_titulo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btn_salir)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Entradas)).BeginInit();
@@ -482,18 +482,19 @@
             this.lbl_mes.TabIndex = 120;
             this.lbl_mes.Text = "Mes";
             // 
-            // button1
+            // btn_mensual
             // 
-            this.button1.BackColor = System.Drawing.Color.LightSeaGreen;
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
-            this.button1.Location = new System.Drawing.Point(291, 58);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(67, 61);
-            this.button1.TabIndex = 119;
-            this.button1.UseVisualStyleBackColor = false;
+            this.btn_mensual.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.btn_mensual.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_mensual.FlatAppearance.BorderSize = 0;
+            this.btn_mensual.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_mensual.Image = ((System.Drawing.Image)(resources.GetObject("btn_mensual.Image")));
+            this.btn_mensual.Location = new System.Drawing.Point(291, 58);
+            this.btn_mensual.Name = "btn_mensual";
+            this.btn_mensual.Size = new System.Drawing.Size(67, 61);
+            this.btn_mensual.TabIndex = 119;
+            this.btn_mensual.UseVisualStyleBackColor = false;
+            this.btn_mensual.Click += new System.EventHandler(this.btn_mensual_Click);
             // 
             // EliminarPrestamo
             // 
@@ -506,7 +507,7 @@
             this.Controls.Add(this.txt_numero);
             this.Controls.Add(this.cmb_mes);
             this.Controls.Add(this.lbl_mes);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btn_mensual);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.txt_prestador);
             this.Controls.Add(this.label7);
@@ -584,6 +585,6 @@
         private System.Windows.Forms.TextBox txt_numero;
         private System.Windows.Forms.ComboBox cmb_mes;
         private System.Windows.Forms.Label lbl_mes;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btn_mensual;
     }
 }

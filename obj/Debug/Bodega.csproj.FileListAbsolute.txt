@@ -226,3 +226,5 @@ C:\Users\Williams Cuesta\Source\Repos\Bodega_Campito2019\bin\Debug\FlashControlV
 C:\Users\Williams Cuesta\Source\Repos\Bodega_Campito2019\bin\Debug\ShockwaveFlashObjects.dll
 C:\Users\Williams Cuesta\Source\Repos\Bodega_Campito2019\obj\Debug\Bodega.Facturas.FactSalida.resources
 C:\Users\Williams Cuesta\Source\Repos\Bodega_Campito2019\obj\Debug\Bodega.Ajustes.AjustesTrabajador.resources
+C:\Users\Williams Cuesta\Source\Repos\Bodega_Campito2019\obj\Debug\Bodega.Reportes.ReportPrestamos.resources
+C:\Users\Williams Cuesta\Source\Repos\Bodega_Campito2019\obj\Debug\Bodega.Reportes.ReportDevoluciones.resources

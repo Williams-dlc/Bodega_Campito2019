@@ -278,8 +278,20 @@ namespace Bodega.Reportes
                 prt_docMensual.PrinterSettings.PrinterName = printDialog1.PrinterSettings.PrinterName;
                 prt_docMensual.PrinterSettings.Copies = printDialog1.PrinterSettings.Copies;
             }
+
             prt_preview.Document = prt_doc;
             prt_preview.ShowDialog();
+            /*PrintDialog pDlg = new PrintDialog();
+            PrintDocument pDoc = new PrintDocument();
+            if (pDlg.ShowDialog() == DialogResult.OK)
+            {
+                prt_preview.Document = prt_doc;
+                prt_preview.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Print Cancelled");
+            }*/
         }
 
         private void btn_imprimirCod_Click(object sender, EventArgs e)
@@ -425,6 +437,12 @@ namespace Bodega.Reportes
             btn_imprimirCod.Visible = false;
             btn_imprimirPropietario.Visible = false;
             btn_imprimirMensual.Visible = true;
+        }
+
+        private void btn_ReportePrestamos_Click(object sender, EventArgs e)
+        {
+            ReportPrestamos prestamos = new ReportPrestamos();
+            prestamos.Show();
         }
     }
 }

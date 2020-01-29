@@ -67,6 +67,7 @@
             this.btn_imprimirMensual = new System.Windows.Forms.Panel();
             this.prt_docMensual = new System.Drawing.Printing.PrintDocument();
             this.printDialog1 = new System.Windows.Forms.PrintDialog();
+            this.btn_ReportePrestamos = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -265,7 +266,7 @@
             this.btn_imprimirPropietario.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_imprimirPropietario.BackgroundImage")));
             this.btn_imprimirPropietario.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btn_imprimirPropietario.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.btn_imprimirPropietario.Location = new System.Drawing.Point(797, 528);
+            this.btn_imprimirPropietario.Location = new System.Drawing.Point(797, 501);
             this.btn_imprimirPropietario.Name = "btn_imprimirPropietario";
             this.btn_imprimirPropietario.Size = new System.Drawing.Size(42, 38);
             this.btn_imprimirPropietario.TabIndex = 37;
@@ -277,7 +278,7 @@
             this.btn_imprimirCod.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_imprimirCod.BackgroundImage")));
             this.btn_imprimirCod.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btn_imprimirCod.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.btn_imprimirCod.Location = new System.Drawing.Point(797, 539);
+            this.btn_imprimirCod.Location = new System.Drawing.Point(797, 512);
             this.btn_imprimirCod.Name = "btn_imprimirCod";
             this.btn_imprimirCod.Size = new System.Drawing.Size(42, 38);
             this.btn_imprimirCod.TabIndex = 38;
@@ -301,7 +302,7 @@
             this.btn_imprimir.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_imprimir.BackgroundImage")));
             this.btn_imprimir.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btn_imprimir.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.btn_imprimir.Location = new System.Drawing.Point(797, 549);
+            this.btn_imprimir.Location = new System.Drawing.Point(797, 522);
             this.btn_imprimir.Name = "btn_imprimir";
             this.btn_imprimir.Size = new System.Drawing.Size(42, 38);
             this.btn_imprimir.TabIndex = 36;
@@ -360,7 +361,7 @@
             this.dgv_Entradas.RowHeadersVisible = false;
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.DeepSkyBlue;
             this.dgv_Entradas.RowsDefaultCellStyle = dataGridViewCellStyle3;
-            this.dgv_Entradas.Size = new System.Drawing.Size(762, 310);
+            this.dgv_Entradas.Size = new System.Drawing.Size(762, 289);
             this.dgv_Entradas.TabIndex = 40;
             // 
             // cmb_year
@@ -455,7 +456,7 @@
             this.btn_imprimirMensual.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_imprimirMensual.BackgroundImage")));
             this.btn_imprimirMensual.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btn_imprimirMensual.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.btn_imprimirMensual.Location = new System.Drawing.Point(796, 523);
+            this.btn_imprimirMensual.Location = new System.Drawing.Point(796, 496);
             this.btn_imprimirMensual.Name = "btn_imprimirMensual";
             this.btn_imprimirMensual.Size = new System.Drawing.Size(42, 38);
             this.btn_imprimirMensual.TabIndex = 38;
@@ -470,11 +471,30 @@
             // 
             this.printDialog1.UseEXDialog = true;
             // 
+            // btn_ReportePrestamos
+            // 
+            this.btn_ReportePrestamos.BackColor = System.Drawing.Color.MediumSeaGreen;
+            this.btn_ReportePrestamos.FlatAppearance.BorderSize = 0;
+            this.btn_ReportePrestamos.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
+            this.btn_ReportePrestamos.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btn_ReportePrestamos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_ReportePrestamos.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_ReportePrestamos.ForeColor = System.Drawing.Color.Black;
+            this.btn_ReportePrestamos.Location = new System.Drawing.Point(20, 572);
+            this.btn_ReportePrestamos.Name = "btn_ReportePrestamos";
+            this.btn_ReportePrestamos.Size = new System.Drawing.Size(200, 31);
+            this.btn_ReportePrestamos.TabIndex = 48;
+            this.btn_ReportePrestamos.Tag = "3";
+            this.btn_ReportePrestamos.Text = "Reporte Prestamos";
+            this.btn_ReportePrestamos.UseVisualStyleBackColor = false;
+            this.btn_ReportePrestamos.Click += new System.EventHandler(this.btn_ReportePrestamos_Click);
+            // 
             // ReportSalidas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(850, 615);
+            this.Controls.Add(this.btn_ReportePrestamos);
             this.Controls.Add(this.btn_imprimirMensual);
             this.Controls.Add(this.cmb_year);
             this.Controls.Add(this.cmb_propietario2);
@@ -552,5 +572,6 @@
         private System.Windows.Forms.Panel btn_imprimirMensual;
         private System.Drawing.Printing.PrintDocument prt_docMensual;
         private System.Windows.Forms.PrintDialog printDialog1;
+        private System.Windows.Forms.Button btn_ReportePrestamos;
     }
 }

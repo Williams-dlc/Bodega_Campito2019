@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ReportEntradas));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lbl_titulo = new System.Windows.Forms.Label();
@@ -68,6 +68,7 @@
             this.prt_docMensual = new System.Drawing.Printing.PrintDocument();
             this.cmb_printer = new System.Windows.Forms.ComboBox();
             this.printDialog1 = new System.Windows.Forms.PrintDialog();
+            this.btn_ReportePrestamos = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -337,31 +338,31 @@
             this.dgv_Entradas.BackgroundColor = System.Drawing.Color.White;
             this.dgv_Entradas.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgv_Entradas.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.DeepSkyBlue;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_Entradas.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.DeepSkyBlue;
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_Entradas.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
             this.dgv_Entradas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_Entradas.EnableHeadersVisualStyles = false;
             this.dgv_Entradas.Location = new System.Drawing.Point(28, 276);
             this.dgv_Entradas.Name = "dgv_Entradas";
             this.dgv_Entradas.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.DeepSkyBlue;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_Entradas.RowHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.DeepSkyBlue;
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_Entradas.RowHeadersDefaultCellStyle = dataGridViewCellStyle11;
             this.dgv_Entradas.RowHeadersVisible = false;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.DeepSkyBlue;
-            this.dgv_Entradas.RowsDefaultCellStyle = dataGridViewCellStyle6;
-            this.dgv_Entradas.Size = new System.Drawing.Size(762, 302);
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.DeepSkyBlue;
+            this.dgv_Entradas.RowsDefaultCellStyle = dataGridViewCellStyle12;
+            this.dgv_Entradas.Size = new System.Drawing.Size(762, 292);
             this.dgv_Entradas.TabIndex = 24;
             // 
             // lbl_mes
@@ -474,16 +475,36 @@
             this.cmb_printer.Name = "cmb_printer";
             this.cmb_printer.Size = new System.Drawing.Size(121, 21);
             this.cmb_printer.TabIndex = 40;
+            this.cmb_printer.Visible = false;
             // 
             // printDialog1
             // 
             this.printDialog1.UseEXDialog = true;
+            // 
+            // btn_ReportePrestamos
+            // 
+            this.btn_ReportePrestamos.BackColor = System.Drawing.Color.Orange;
+            this.btn_ReportePrestamos.FlatAppearance.BorderSize = 0;
+            this.btn_ReportePrestamos.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
+            this.btn_ReportePrestamos.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btn_ReportePrestamos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_ReportePrestamos.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_ReportePrestamos.ForeColor = System.Drawing.Color.Black;
+            this.btn_ReportePrestamos.Location = new System.Drawing.Point(28, 574);
+            this.btn_ReportePrestamos.Name = "btn_ReportePrestamos";
+            this.btn_ReportePrestamos.Size = new System.Drawing.Size(200, 31);
+            this.btn_ReportePrestamos.TabIndex = 49;
+            this.btn_ReportePrestamos.Tag = "3";
+            this.btn_ReportePrestamos.Text = "Reporte Prestamos";
+            this.btn_ReportePrestamos.UseVisualStyleBackColor = false;
+            this.btn_ReportePrestamos.Click += new System.EventHandler(this.btn_ReportePrestamos_Click);
             // 
             // ReportEntradas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(850, 615);
+            this.Controls.Add(this.btn_ReportePrestamos);
             this.Controls.Add(this.cmb_printer);
             this.Controls.Add(this.btn_imprimirMensual);
             this.Controls.Add(this.cmb_year);
@@ -564,5 +585,6 @@
         private System.Drawing.Printing.PrintDocument prt_docMensual;
         private System.Windows.Forms.ComboBox cmb_printer;
         private System.Windows.Forms.PrintDialog printDialog1;
+        private System.Windows.Forms.Button btn_ReportePrestamos;
     }
 }
