@@ -555,6 +555,7 @@
             this.btn_imprimirMensual.Name = "btn_imprimirMensual";
             this.btn_imprimirMensual.Size = new System.Drawing.Size(42, 38);
             this.btn_imprimirMensual.TabIndex = 103;
+            this.btn_imprimirMensual.Visible = false;
             this.btn_imprimirMensual.Click += new System.EventHandler(this.btn_imprimirMensual_Click);
             // 
             // printDialog1

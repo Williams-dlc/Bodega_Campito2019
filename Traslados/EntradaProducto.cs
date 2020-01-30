@@ -134,7 +134,8 @@ namespace Bodega.Traslados
                     con.Close();//cierra la conexion
 
 
-                   DataTable tabla = new DataTable();
+                    btn_imprimirMensual.Visible = true;
+                    DataTable tabla = new DataTable();
                     using (OdbcConnection con1 = new OdbcConnection(ConnStr))
                     {
                         con1.Open();
@@ -495,8 +496,8 @@ namespace Bodega.Traslados
             PrintDocument pDoc = new PrintDocument();
             pDoc.DocumentName = "Entrada" + txt_codigo.Text + ".txt";
             pDlg.Document = pDoc;
-            pDlg.AllowSelection = true;
-            pDlg.AllowSomePages = true;
+            //pDlg.AllowSelection = true;
+            //pDlg.AllowSomePages = true;
             if (pDlg.ShowDialog() == DialogResult.OK)
             {
                 reader = new StreamReader("Entrada" + txt_codigo.Text + ".txt");

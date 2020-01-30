@@ -227,6 +227,8 @@ namespace Bodega.Traslados
                     txt_disponible.Text = "";
                     txt_codProducto.Text = "";
                     btn_finalizar.Enabled = true;
+
+                    btn_imprimirPrestamo.Visible = true;
                     producto();
                     pedido();
 

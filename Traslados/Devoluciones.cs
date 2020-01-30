@@ -311,6 +311,8 @@ namespace Bodega.Traslados
                         btn_nuevo.Enabled = true;
                         btn_introducir.Enabled = false;
 
+                        btn_imprimir.Visible = true;
+
                     }
                     else if (result == DialogResult.No)
                     {
@@ -364,6 +366,7 @@ namespace Bodega.Traslados
 
 
 
+                        btn_imprimir.Visible = true;
                         producto();
                         pedido();
                         btn_nuevo.Enabled = true;

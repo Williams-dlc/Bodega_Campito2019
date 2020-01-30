@@ -1,0 +1,13 @@
+***ENTRADA DE PRODUCTO***
+
+Codigo: 100085698
+Encargado: Willian
+Fecha: miércoles, 29 de enero de 2020
+Propietario Producto: Josue
+Entrego: ee
+
+Producto
+Levaduras
+100
+
+29/01/2020 22:23:11

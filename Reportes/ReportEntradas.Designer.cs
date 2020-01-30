@@ -69,6 +69,7 @@
             this.cmb_printer = new System.Windows.Forms.ComboBox();
             this.printDialog1 = new System.Windows.Forms.PrintDialog();
             this.btn_ReportePrestamos = new System.Windows.Forms.Button();
+            this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -475,7 +476,6 @@
             this.cmb_printer.Name = "cmb_printer";
             this.cmb_printer.Size = new System.Drawing.Size(121, 21);
             this.cmb_printer.TabIndex = 40;
-            this.cmb_printer.Visible = false;
             // 
             // printDialog1
             // 
@@ -498,6 +498,16 @@
             this.btn_ReportePrestamos.Text = "Reporte Prestamos";
             this.btn_ReportePrestamos.UseVisualStyleBackColor = false;
             this.btn_ReportePrestamos.Click += new System.EventHandler(this.btn_ReportePrestamos_Click);
+            // 
+            // printPreviewDialog1
+            // 
+            this.printPreviewDialog1.AutoScrollMargin = new System.Drawing.Size(0, 0);
+            this.printPreviewDialog1.AutoScrollMinSize = new System.Drawing.Size(0, 0);
+            this.printPreviewDialog1.ClientSize = new System.Drawing.Size(400, 300);
+            this.printPreviewDialog1.Enabled = true;
+            this.printPreviewDialog1.Icon = ((System.Drawing.Icon)(resources.GetObject("printPreviewDialog1.Icon")));
+            this.printPreviewDialog1.Name = "printPreviewDialog1";
+            this.printPreviewDialog1.Visible = false;
             // 
             // ReportEntradas
             // 
@@ -586,5 +596,6 @@
         private System.Windows.Forms.ComboBox cmb_printer;
         private System.Windows.Forms.PrintDialog printDialog1;
         private System.Windows.Forms.Button btn_ReportePrestamos;
+        private System.Windows.Forms.PrintPreviewDialog printPreviewDialog1;
     }
 }

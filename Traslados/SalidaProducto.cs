@@ -213,6 +213,7 @@ namespace Bodega.Traslados
                         txt_comentario.Text = "";
                         producto();
 
+                        btn_imprimirMensual.Visible = true;
                         pedido();//LLenar el datagrid con los productos que se estan operando
                     }
                     catch (Exception ex)

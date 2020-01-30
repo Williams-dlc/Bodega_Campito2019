@@ -310,13 +310,22 @@ namespace Bodega.Reportes
 
         private void btn_imprimir_Click(object sender, EventArgs e)
         {
-            if (printDialog1.ShowDialog() == DialogResult.OK)
+            /*if (printDialog1.ShowDialog() == DialogResult.OK)
             {
                 prt_docMensual.PrinterSettings.PrinterName = printDialog1.PrinterSettings.PrinterName;
                 prt_docMensual.PrinterSettings.Copies = printDialog1.PrinterSettings.Copies;
             }
             prt_preview.Document = prt_doc;
-            prt_preview.ShowDialog();
+            prt_preview.ShowDialog();*/
+            PrintDialog printDialog1 = new PrintDialog();
+            printDialog1.Document = prt_doc;
+            DialogResult result = printDialog1.ShowDialog();
+            if (result == DialogResult.OK)
+            {
+
+                prt_doc.Print();
+
+            }
         }
 
         private void prt_docCod_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
@@ -341,13 +350,23 @@ namespace Bodega.Reportes
 
         private void btn_imprimirCod_Click(object sender, EventArgs e)
         {
-            if (printDialog1.ShowDialog() == DialogResult.OK)
+            /*if (printDialog1.ShowDialog() == DialogResult.OK)
             {
                 prt_docMensual.PrinterSettings.PrinterName = printDialog1.PrinterSettings.PrinterName;
                 prt_docMensual.PrinterSettings.Copies = printDialog1.PrinterSettings.Copies;
             }
             prt_preview.Document = prt_docCod;
-            prt_preview.ShowDialog();
+            prt_preview.ShowDialog();*/
+
+            PrintDialog printDialog1 = new PrintDialog();
+            printDialog1.Document = prt_docCod;
+            DialogResult result = printDialog1.ShowDialog();
+            if (result == DialogResult.OK)
+            {
+
+                prt_docCod.Print();
+
+            }
         }
 
         private void prt_docPropietario_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
@@ -372,13 +391,22 @@ namespace Bodega.Reportes
 
         private void btn_imprimirPropietario_Click(object sender, EventArgs e)
         {
-            if (printDialog1.ShowDialog() == DialogResult.OK)
+            /*if (printDialog1.ShowDialog() == DialogResult.OK)
             {
                 prt_docMensual.PrinterSettings.PrinterName = printDialog1.PrinterSettings.PrinterName;
                 prt_docMensual.PrinterSettings.Copies = printDialog1.PrinterSettings.Copies;
             }
             prt_preview.Document = prt_docPropietario;
-            prt_preview.ShowDialog();
+            prt_preview.ShowDialog();*/
+            PrintDialog printDialog1 = new PrintDialog();
+            printDialog1.Document = prt_docPropietario;
+            DialogResult result = printDialog1.ShowDialog();
+            if (result == DialogResult.OK)
+            {
+
+                prt_docPropietario.Print();
+
+            }
         }
 
         private void prt_docMensual_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
@@ -403,14 +431,23 @@ namespace Bodega.Reportes
 
         private void btn_imprimirMensual_Click(object sender, EventArgs e)
         {
-            if (printDialog1.ShowDialog() == DialogResult.OK)
+            /*if (printDialog1.ShowDialog() == DialogResult.OK)
             {
                 prt_docMensual.PrinterSettings.PrinterName = printDialog1.PrinterSettings.PrinterName;
                 prt_docMensual.PrinterSettings.Copies = printDialog1.PrinterSettings.Copies;
             }
 
             prt_preview.Document = prt_docMensual;
-            prt_preview.ShowDialog();
+            prt_preview.ShowDialog();*/
+            PrintDialog printDialog1 = new PrintDialog();
+            printDialog1.Document = prt_docMensual;
+            DialogResult result = printDialog1.ShowDialog();
+            if (result == DialogResult.OK)
+            {
+
+                prt_docMensual.Print();
+
+            }
         }
     }
 }
