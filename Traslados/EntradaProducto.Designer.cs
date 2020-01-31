@@ -580,10 +580,11 @@
             // cmb_printer
             // 
             this.cmb_printer.FormattingEnabled = true;
-            this.cmb_printer.Location = new System.Drawing.Point(419, 526);
+            this.cmb_printer.Location = new System.Drawing.Point(413, 553);
             this.cmb_printer.Name = "cmb_printer";
             this.cmb_printer.Size = new System.Drawing.Size(121, 21);
             this.cmb_printer.TabIndex = 105;
+            this.cmb_printer.Visible = false;
             // 
             // EntradaProducto
             // 
