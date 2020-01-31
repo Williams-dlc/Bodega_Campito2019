@@ -75,6 +75,8 @@
             this.txt_comentario = new System.Windows.Forms.TextBox();
             this.btn_imprimirMensual = new System.Windows.Forms.Panel();
             this.printDialog1 = new System.Windows.Forms.PrintDialog();
+            this.btn_printAgain = new System.Windows.Forms.Button();
+            this.cmb_printer = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_productos)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -551,7 +553,7 @@
             this.btn_imprimirMensual.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_imprimirMensual.BackgroundImage")));
             this.btn_imprimirMensual.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btn_imprimirMensual.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.btn_imprimirMensual.Location = new System.Drawing.Point(801, 484);
+            this.btn_imprimirMensual.Location = new System.Drawing.Point(801, 461);
             this.btn_imprimirMensual.Name = "btn_imprimirMensual";
             this.btn_imprimirMensual.Size = new System.Drawing.Size(42, 38);
             this.btn_imprimirMensual.TabIndex = 103;
@@ -562,11 +564,34 @@
             // 
             this.printDialog1.UseEXDialog = true;
             // 
+            // btn_printAgain
+            // 
+            this.btn_printAgain.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_printAgain.BackgroundImage")));
+            this.btn_printAgain.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btn_printAgain.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_printAgain.Location = new System.Drawing.Point(802, 505);
+            this.btn_printAgain.Name = "btn_printAgain";
+            this.btn_printAgain.Size = new System.Drawing.Size(38, 31);
+            this.btn_printAgain.TabIndex = 104;
+            this.btn_printAgain.UseVisualStyleBackColor = true;
+            this.btn_printAgain.Visible = false;
+            this.btn_printAgain.Click += new System.EventHandler(this.btn_printAgain_Click);
+            // 
+            // cmb_printer
+            // 
+            this.cmb_printer.FormattingEnabled = true;
+            this.cmb_printer.Location = new System.Drawing.Point(419, 526);
+            this.cmb_printer.Name = "cmb_printer";
+            this.cmb_printer.Size = new System.Drawing.Size(121, 21);
+            this.cmb_printer.TabIndex = 105;
+            // 
             // EntradaProducto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(850, 615);
+            this.Controls.Add(this.cmb_printer);
+            this.Controls.Add(this.btn_printAgain);
             this.Controls.Add(this.btn_imprimirMensual);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.txt_comentario);
@@ -650,5 +675,7 @@
         private System.Windows.Forms.TextBox txt_Entrego;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.PrintDialog printDialog1;
+        private System.Windows.Forms.Button btn_printAgain;
+        private System.Windows.Forms.ComboBox cmb_printer;
     }
 }

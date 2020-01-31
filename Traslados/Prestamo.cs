@@ -328,6 +328,9 @@ namespace Bodega.Traslados
             if (result == DialogResult.Yes)
             {
                 nuevaEntrada();
+                btn_printAgain.Visible = false;
+                btn_imprimirPrestamo.Enabled = true;
+                btn_imprimirPrestamo.Visible = false;
             }
             else if (result == DialogResult.No)
             {
@@ -448,7 +451,7 @@ namespace Bodega.Traslados
             file.WriteLine(DateTime.Now.ToString());
             //MessageBox.Show("Imprimiendo factura");
             file.Close();
-            PrintDialog pDlg = new PrintDialog();
+            /*PrintDialog pDlg = new PrintDialog();
             PrintDocument pDoc = new PrintDocument();
             pDoc.DocumentName = "Prestamo" + txt_codigo.Text + ".txt";
             pDlg.Document = pDoc;
@@ -473,7 +476,28 @@ namespace Bodega.Traslados
                 MessageBox.Show("Print Cancelled");
             }
             if (reader != null)
-                reader.Close();
+                reader.Close();*/
+
+            reader = new StreamReader("Prestamo" + txt_codigo.Text + ".txt");
+            //Create a Verdana font with size 10  
+            verdana10Font = new Font("Verdana", 9);
+            //Create a PrintDocument object  
+            PrintDocument pd = new PrintDocument();
+            //Add PrintPage event handler  
+            pd.PrintPage += new PrintPageEventHandler(this.PrintTextFileHandler);
+            if (printDialog1.ShowDialog() == DialogResult.OK)
+            {
+                pd.PrinterSettings.PrinterName = printDialog1.PrinterSettings.PrinterName;
+                pd.PrinterSettings.Copies = printDialog1.PrinterSettings.Copies;
+            }
+            //Call Print Method  
+            pd.Print();
+            //Close the reader
+            if (reader != null)
+                reader.Close(); 
+
+             btn_imprimirPrestamo.Enabled = false;
+            btn_printAgain.Visible = true;
         }
 
         private void PrintTextFileHandler(object sender, PrintPageEventArgs ppeArgs)
@@ -508,6 +532,27 @@ namespace Bodega.Traslados
             {
                 ppeArgs.HasMorePages = false;
             }
+        }
+
+        private void btn_printAgain_Click(object sender, EventArgs e)
+        {
+            reader = new StreamReader("Prestamo" + txt_codigo.Text + ".txt");
+            //Create a Verdana font with size 10  
+            verdana10Font = new Font("Verdana", 9);
+            //Create a PrintDocument object  
+            PrintDocument pd = new PrintDocument();
+            //Add PrintPage event handler  
+            pd.PrintPage += new PrintPageEventHandler(this.PrintTextFileHandler);
+            if (printDialog1.ShowDialog() == DialogResult.OK)
+            {
+                pd.PrinterSettings.PrinterName = printDialog1.PrinterSettings.PrinterName;
+                pd.PrinterSettings.Copies = printDialog1.PrinterSettings.Copies;
+            }
+            //Call Print Method  
+            pd.Print();
+            //Close the reader
+            if (reader != null)
+                reader.Close();
         }
     }
 }

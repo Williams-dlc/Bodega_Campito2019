@@ -1,0 +1,13 @@
+***ENTRADA DE PRODUCTO***
+
+Codigo: 1366315477
+Encargado: Willian
+Fecha: jueves, 30 de enero de 2020
+Propietario Producto: Josue
+Entrego: ee
+
+Producto
+Harina Dura
+10
+
+30/01/2020 21:49:00

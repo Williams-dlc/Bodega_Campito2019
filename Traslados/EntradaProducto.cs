@@ -286,6 +286,9 @@ namespace Bodega.Traslados
             {
                 btn_continuar.Enabled = true;
                 nuevaEntrada();
+                btn_printAgain.Visible = false;
+                btn_imprimirMensual.Enabled = true;
+                btn_imprimirMensual.Visible = false;
             }
             else if (result == DialogResult.No)
             {
@@ -380,6 +383,8 @@ namespace Bodega.Traslados
         private void EntradaProducto_Load(object sender, EventArgs e)
         {
             txt_encargado.Text = UserLoginCache.username;
+            foreach (string printer in PrinterSettings.InstalledPrinters)
+                cmb_printer.Items.Add(printer);
         }
 
         public void producto()
@@ -463,6 +468,8 @@ namespace Bodega.Traslados
         {
 
         }
+
+
         private Font verdana10Font;
         private StreamReader reader;
         private void btn_imprimirMensual_Click(object sender, EventArgs e)
@@ -498,25 +505,21 @@ namespace Bodega.Traslados
             pDlg.Document = pDoc;
             //pDlg.AllowSelection = true;
             //pDlg.AllowSomePages = true;
-            if (pDlg.ShowDialog() == DialogResult.OK)
+            /*PrintDialog printDialog1 = new PrintDialog();
+            PrintDocument pDoc = new PrintDocument();
+            pDoc.DocumentName = "Entrada" + txt_codigo.Text + ".txt";
+            printDialog1.Document = pDoc;
+            DialogResult result = printDialog1.ShowDialog();
+            if (result == DialogResult.OK)
             {
-                reader = new StreamReader("Entrada" + txt_codigo.Text + ".txt");
-                //Create a Verdana font with size 10  
-                verdana10Font = new Font("Verdana", 9);
-                //Create a PrintDocument object  
-                PrintDocument pd = new PrintDocument();
-                //Add PrintPage event handler  
-                pd.PrintPage += new PrintPageEventHandler(this.PrintTextFileHandler);
-                //Call Print Method  
-                pd.Print();
-                //pDoc.Print();
-            }
-            else
-            {
-                MessageBox.Show("Print Cancelled");
-            }
 
-            /*
+                //print
+
+            }
+            btn_imprimirMensual.Enabled = false;
+            btn_printAgain.Visible = true;*/
+            
+
             reader = new StreamReader("Entrada" + txt_codigo.Text + ".txt");
             //Create a Verdana font with size 10  
             verdana10Font = new Font("Verdana", 9);
@@ -524,11 +527,18 @@ namespace Bodega.Traslados
             PrintDocument pd = new PrintDocument();
             //Add PrintPage event handler  
             pd.PrintPage += new PrintPageEventHandler(this.PrintTextFileHandler);
+            if (printDialog1.ShowDialog() == DialogResult.OK)
+            {
+                pd.PrinterSettings.PrinterName = printDialog1.PrinterSettings.PrinterName;
+                pd.PrinterSettings.Copies = printDialog1.PrinterSettings.Copies;
+            }
             //Call Print Method  
             pd.Print();
             //Close the reader  
             if (reader != null)
-                reader.Close();*/
+                reader.Close();
+            btn_imprimirMensual.Enabled = false;
+            btn_printAgain.Visible = true;
         }
 
         private void PrintTextFileHandler(object sender, PrintPageEventArgs ppeArgs)
@@ -563,6 +573,33 @@ namespace Bodega.Traslados
             {
                 ppeArgs.HasMorePages = false;
             }
+        }
+
+        private void btn_printAgain_Click(object sender, EventArgs e)
+        {
+            /*PrintDialog pDlg = new PrintDialog();
+            PrintDocument pDoc = new PrintDocument();
+            pDoc.DocumentName = "Entrada" + txt_codigo.Text + ".txt";
+            pDlg.Document = pDoc;
+            pDlg.AllowSelection = true;
+            pDlg.AllowSomePages = true;*/
+            reader = new StreamReader("Entrada" + txt_codigo.Text + ".txt");
+            //Create a Verdana font with size 10  
+            verdana10Font = new Font("Verdana", 9);
+            //Create a PrintDocument object  
+            PrintDocument pd = new PrintDocument();
+            //Add PrintPage event handler  
+            pd.PrintPage += new PrintPageEventHandler(this.PrintTextFileHandler);
+            if (printDialog1.ShowDialog() == DialogResult.OK)
+            {
+                pd.PrinterSettings.PrinterName = printDialog1.PrinterSettings.PrinterName;
+                pd.PrinterSettings.Copies = printDialog1.PrinterSettings.Copies;
+            }
+            //Call Print Method  
+            pd.Print();
+            //Close the reader  
+            if (reader != null)
+                reader.Close();
         }
     }
 }
