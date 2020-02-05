@@ -24,7 +24,7 @@ namespace Datos
                 {
                     cmd.Connection = connection;
                     //cmd.CommandText = "SELECT * FROM usuario where Nombre='"+user+"' AND contraseña='"+pass+ "' and estado=1";
-                    cmd.CommandText = "SELECT u.nombre, u.telefono, u.correo, u.contraseña, u.fk_perfil, u.estado, p.tipo, p.productos, p.traslados, p.reportes, p.graficas, p.configuracion1, p.configuracion2, p. estado FROM usuario u, perfil p where u.Nombre='" + user + "' AND u.contraseña='" + pass + "' and u.estado=1 and u.fk_perfil=p.tipo";
+                    cmd.CommandText = "SELECT u.nombre, u.telefono, u.correo, u.contraseña, u.fk_perfil, u.estado, p.tipo, p.productos, p.traslados, p.reportes, p.graficas, p.configuracion1, p.configuracion2, p. estado FROM Usuario u, Perfil p where u.Nombre='" + user + "' AND u.contraseña='" + pass + "' and u.estado=1 and u.fk_perfil=p.tipo";
                     cmd.Parameters.AddWithValue("?user", user);
                     cmd.Parameters.AddWithValue("?pass", pass);
 

@@ -21,8 +21,8 @@ namespace Bodega.Traslados
     public partial class SalidaProducto : Form
     {
         CapaDatosBodega conexion = new CapaDatosBodega();
-        string ConnStr = "Driver={MySQL ODBC 3.51 Driver};Server=localhost;Database=bodega_campito;uid=willi;pwd=1234";
-
+        //string ConnStr = "Driver={MySQL ODBC 3.51 Driver};Server=localhost;Database=bodega_campito;uid=willi;pwd=1234";
+        string ConnStr = "Driver={MySQL ODBC 3.51 Driver};Server=35.222.102.30;Database=Bodega_Campito;uid=root;pwd=125654campUSER";
         public SalidaProducto()
         {
             InitializeComponent();
@@ -32,11 +32,13 @@ namespace Bodega.Traslados
             //cmb_encargado.ValueMember = "Nombre";
             txt_encargado.Text= UserLoginCache.username;
 
+            cmb_bodega.DataSource = CapaDatosBodega.llenarBodega();
+            cmb_bodega.ValueMember = "tipo_bodega";
+
             cmb_propietario.DataSource = CapaDatosBodega.llenarPropietario();
             cmb_propietario.ValueMember = "Nombre";
 
-            cmb_bodega.DataSource = CapaDatosBodega.llenarBodega();
-            cmb_bodega.ValueMember = "tipo_bodega";
+            
 
             Random r_aleatgenerador = new Random();
             int numero_generado;
@@ -59,7 +61,7 @@ namespace Bodega.Traslados
             using (OdbcConnection con = new OdbcConnection(ConnStr))
             {
                 con.Open();
-                OdbcDataAdapter cmd = new OdbcDataAdapter("select idProducto, Name AS 'Nombre' from producto where estado=1", con);//llama a la tabla de inventario para ver stock
+                OdbcDataAdapter cmd = new OdbcDataAdapter("select idProducto, Name AS 'Nombre' from Producto where estado=1", con);//llama a la tabla de inventario para ver stock
                                                                                               //OdbcDataReader queryResults = cmd.ExecuteReader();
                 cmd.Fill(tabla);
 
@@ -87,7 +89,7 @@ namespace Bodega.Traslados
                     OdbcConnection con = new OdbcConnection(ConnStr);//varibale para llamar la conexion ODBC
 
 
-                    OdbcCommand cmd = new OdbcCommand("insert into encabezadopedido values ('" + txt_codigo.Text + "','" + dtp_fecha.Value.ToString("yyyyMMdd") + "', '" + cmb_propietario.Text.ToString() + "', '" + txt_encargado.Text + "', '" + cmb_bodega.Text.ToString() + "', '"+txt_Recibio.Text+"')", con);
+                    OdbcCommand cmd = new OdbcCommand("insert into EncabezadoPedido values ('" + txt_codigo.Text + "','" + dtp_fecha.Value.ToString("yyyyMMdd") + "', '" + cmb_propietario.Text.ToString() + "', '" + txt_encargado.Text + "', '" + cmb_bodega.Text.ToString() + "', '"+txt_Recibio.Text+"')", con);
                     con.Open();//abre la conexion 
                     cmd.ExecuteNonQuery();//ejecuta el query
                     con.Close();//cierra la conexion
@@ -167,7 +169,7 @@ namespace Bodega.Traslados
             using (OdbcConnection con1 = new OdbcConnection(ConnStr))
             {
                 con1.Open();
-                OdbcDataAdapter cmd = new OdbcDataAdapter("select  p.name, d.Cantidad from detallepedido d, producto p where FK_EncPedido = '" + txt_detalle.Text + "' and p.idProducto=d.Fk_Producto", con1);//llama a la tabla de inventario para ver stock
+                OdbcDataAdapter cmd = new OdbcDataAdapter("select  p.name, d.Cantidad from DetallePedido d, Producto p where FK_EncPedido = '" + txt_detalle.Text + "' and p.idProducto=d.Fk_Producto", con1);//llama a la tabla de inventario para ver stock
                                                                                                                                                                   //OdbcDataReader queryResults = cmd.ExecuteReader();
                 cmd.Fill(tabla);
 
@@ -201,7 +203,7 @@ namespace Bodega.Traslados
                         cmd1.ExecuteNonQuery();
                         con.Close();//cierra la conexion
 
-                        OdbcCommand cmd2 = new OdbcCommand("update detalleinventario set Cantidad='" + txt_disponible.Text + "'-'" + txt_cantidad.Text + "' where FK_Propietario='" + cmb_propietario.Text.ToString() + "' AND FK_producto='" + txt_codProducto.Text + " '", con);//elimina de stock lo solicitado
+                        OdbcCommand cmd2 = new OdbcCommand("update DetalleInventario set Cantidad='" + txt_disponible.Text + "'-'" + txt_cantidad.Text + "' where FK_Propietario='" + cmb_propietario.Text.ToString() + "' AND FK_producto='" + txt_codProducto.Text + " '", con);//elimina de stock lo solicitado
                         con.Open();//abre la conexion ;               
                         cmd2.ExecuteNonQuery();
                         con.Close();//cierra la conexion
@@ -275,7 +277,7 @@ namespace Bodega.Traslados
 
                 OdbcConnection con = new OdbcConnection(ConnStr);//varibale para llamar la conexion ODBC
 
-                OdbcCommand cmd1 = new OdbcCommand("delete from encabezadopedido where idPedido='" + txt_codigo.Text + "'", con);
+                OdbcCommand cmd1 = new OdbcCommand("delete from EncabezadoPedido where idPedido='" + txt_codigo.Text + "'", con);
                 con.Open();//abre la conexion 
                 cmd1.ExecuteNonQuery();//ejecuta el query
                 con.Close();//cierra la conexion
@@ -349,12 +351,12 @@ namespace Bodega.Traslados
                 {
                     OdbcConnection con = new OdbcConnection(ConnStr);//varibale para llamar la conexion ODBC
 
-                    OdbcCommand cmd1 = new OdbcCommand("DELETE FROM detallepedido WHERE Fk_Producto='" + txt_deleteCod.Text + "' AND FK_EncPedido='" + txt_codigo.Text + "'", con);
+                    OdbcCommand cmd1 = new OdbcCommand("DELETE FROM DetallePedido WHERE Fk_Producto='" + txt_deleteCod.Text + "' AND FK_EncPedido='" + txt_codigo.Text + "'", con);
                     con.Open();//abre la conexion ;
                     cmd1.ExecuteNonQuery();
                     con.Close();//cierra la conexion
 
-                    OdbcCommand cmd4 = new OdbcCommand("UPDATE detalleinventario set cantidad=cantidad + '" + txt_deleteCant.Text + "' WHERE Fk_Producto='" + txt_deleteCod.Text + "' AND FK_Propietario='" + cmb_propietario.Text.ToString() + "'", con);
+                    OdbcCommand cmd4 = new OdbcCommand("UPDATE Detalleinventario set cantidad=cantidad + '" + txt_deleteCant.Text + "' WHERE Fk_Producto='" + txt_deleteCod.Text + "' AND FK_Propietario='" + cmb_propietario.Text.ToString() + "'", con);
                     con.Open();//abre la conexion ;
                     cmd4.ExecuteNonQuery();
                     con.Close();//cierra la conexion

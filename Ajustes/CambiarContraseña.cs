@@ -13,7 +13,8 @@ namespace Bodega.Ajustes
 {
     public partial class CambiarContraseña : Form
     {
-        string ConnStr = "Driver={MySQL ODBC 3.51 Driver};Server=localhost;Database=bodega_campito;uid=willi;pwd=1234";
+        //string ConnStr = "Driver={MySQL ODBC 3.51 Driver};Server=localhost;Database=bodega_campito;uid=willi;pwd=1234";
+        string ConnStr = "Driver={MySQL ODBC 3.51 Driver};Server=35.222.102.30;Database=Bodega_Campito;uid=root;pwd=125654campUSER";
         public CambiarContraseña()
         {
             InitializeComponent();
@@ -29,7 +30,7 @@ namespace Bodega.Ajustes
             try
             {
                 OdbcConnection con = new OdbcConnection(ConnStr);//varibale para llamar la conexion ODBC
-                OdbcCommand cmd1 = new OdbcCommand("update usuario set contraseña='" + txt_contraseña.Text+"' where nombre='" + cmb_usuario.Text.ToString() + "'", con);
+                OdbcCommand cmd1 = new OdbcCommand("update Usuario set contraseña='" + txt_contraseña.Text+"' where nombre='" + cmb_usuario.Text.ToString() + "'", con);
                 con.Open();//abre la conexion 
                 cmd1.ExecuteNonQuery();//ejecuta el query
                 con.Close();//cierra la conexion

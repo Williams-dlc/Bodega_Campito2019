@@ -14,7 +14,8 @@ namespace Bodega.Productos
 {
     public partial class ListadoProducto : Form
     {
-        string ConnStr = "Driver={MySQL ODBC 3.51 Driver};Server=localhost;Database=bodega_campito;uid=willi;pwd=1234";
+        //string ConnStr = "Driver={MySQL ODBC 3.51 Driver};Server=localhost;Database=bodega_campito;uid=willi;pwd=1234";
+        string ConnStr = "Driver={MySQL ODBC 3.51 Driver};Server=35.222.102.30;Database=Bodega_Campito;uid=root;pwd=125654campUSER";
         CapaDatosBodega conexion = new CapaDatosBodega();
         public ListadoProducto()
         {
@@ -38,7 +39,7 @@ namespace Bodega.Productos
             using (OdbcConnection con = new OdbcConnection(ConnStr))
             {
                 con.Open();
-                OdbcDataAdapter cmd = new OdbcDataAdapter("select * from Producto a INNER JOIN detalleinventario b on a.idProducto=b.FK_producto where FK_Propietario='" + cmb_propietario.Text.ToString() + "'", con);//llama a la tabla de inventario para ver stock
+                OdbcDataAdapter cmd = new OdbcDataAdapter("select * from Producto a INNER JOIN DetalleInventario b on a.idProducto=b.FK_producto where FK_Propietario='" + cmb_propietario.Text.ToString() + "'", con);//llama a la tabla de inventario para ver stock
                                                                                                                                                                                                                                                   //OdbcDataReader queryResults = cmd.ExecuteReader();
                 cmd.Fill(tabla);
 
@@ -60,7 +61,7 @@ namespace Bodega.Productos
             using (OdbcConnection con = new OdbcConnection(ConnStr))
             {
                 con.Open();
-                OdbcDataAdapter cmd = new OdbcDataAdapter("select * from producto where estado=1", con);//llama a la tabla de inventario para ver stock
+                OdbcDataAdapter cmd = new OdbcDataAdapter("select * from Producto where estado=1", con);//llama a la tabla de inventario para ver stock
                                                                                               //OdbcDataReader queryResults = cmd.ExecuteReader();
                 cmd.Fill(tabla);
 
@@ -79,7 +80,7 @@ namespace Bodega.Productos
                 OdbcDataAdapter cmd = new OdbcDataAdapter("select FK_producto AS 'Producto', cantidad, FK_Propietario AS 'Distribuidor' from DetalleInventario  where FK_Producto='" + txt_codProducto.Text + "'", con);//llama a la tabla de inventario para ver stock   a INNER JOIN producto b on a.FK_producto=b.idProducto
                                                                                                                                                                                                                         //OdbcDataReader queryResults = cmd.ExecuteReader();
 
-                OdbcDataAdapter cmd2 = new OdbcDataAdapter("SELECT p.name as 'Producto', sum(d.cantidad) AS 'Cantidad' from detalleinventario d, producto p where d.fk_producto='" + txt_codProducto.Text + "' and p.idProducto=d.Fk_Producto", con);
+                OdbcDataAdapter cmd2 = new OdbcDataAdapter("SELECT p.name as 'Producto', sum(d.cantidad) AS 'Cantidad' from DetalleInventario d, Producto p where d.fk_producto='" + txt_codProducto.Text + "' and p.idProducto=d.Fk_Producto", con);
                 cmd.Fill(tabla);
                 cmd2.Fill(tabla2);
 
@@ -111,7 +112,7 @@ namespace Bodega.Productos
                 con.Open();
                 //OdbcDataAdapter cmd = new OdbcDataAdapter("Select idPrestamo AS 'ID', fecha, FK_Trabajador AS 'Trabajador', FK_Propietario AS 'Distribuidor', FK_Prestador AS 'Prestador', FK_Tipo_Bodega AS 'Bodega' from EncabezadoPrestamo a INNER JOIN DetallePrestamo b ON a.idPrestamo=b.FK_EncPrestamo AND b.Estado=1 and a.FK_Propietario='" + cmb_propietario.Text.ToString()+"'", con);//
 
-                OdbcDataAdapter cmd = new OdbcDataAdapter("select e.idPrestamo as 'Codigo', e.Fecha, e.fk_prestador as 'Prestador', e.FK_trabajador as 'Entrego', e.Recibio, p.Name as 'Producto', d.Cantidad,  d.comentario from encabezadoprestamo e, detalleprestamo d, producto p where e.idPrestamo=d.FK_EncPrestamo AND e.FK_Propietario = '" + cmb_propietario.Text.ToString() + "' AND p.idProducto=d.Fk_Producto AND d.estado=1", con);
+                OdbcDataAdapter cmd = new OdbcDataAdapter("select e.idPrestamo as 'Codigo', e.Fecha, e.fk_prestador as 'Prestador', e.FK_trabajador as 'Entrego', e.Recibio, p.Name as 'Producto', d.Cantidad,  d.comentario from EncabezadoPrestamo e, DetallePrestamo d, Producto p where e.idPrestamo=d.FK_EncPrestamo AND e.FK_Propietario = '" + cmb_propietario.Text.ToString() + "' AND p.idProducto=d.Fk_Producto AND d.estado=1", con);
                 cmd.Fill(tabla);
             }
             dgv_productos.DataSource = tabla;

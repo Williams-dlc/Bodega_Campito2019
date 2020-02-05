@@ -13,7 +13,8 @@ namespace Bodega.Ajustes
 {
     public partial class EliminarPrestamo : Form
     {
-        string ConnStr = "Driver={MySQL ODBC 3.51 Driver};Server=localhost;Database=bodega_campito;uid=willi;pwd=1234";
+        //string ConnStr = "Driver={MySQL ODBC 3.51 Driver};Server=localhost;Database=bodega_campito;uid=willi;pwd=1234";
+        string ConnStr = "Driver={MySQL ODBC 3.51 Driver};Server=35.222.102.30;Database=Bodega_Campito;uid=root;pwd=125654campUSER";
         public EliminarPrestamo()
         {
             InitializeComponent();
@@ -55,7 +56,7 @@ namespace Bodega.Ajustes
                 //OdbcDataAdapter cmd = new OdbcDataAdapter("select * from encabezadoPrestamo b INNER JOIN DetallePrestamo a ON b.idPrestamo=a.FK_EncPrestamo WHERE b.idprestamo='" + txt_codigo.Text + "' AND a.FK_encPrestamo= '" + txt_codigo.Text + "' AND a.estado=1", con);//llama a la tabla de inventario para ver stock
                 //OdbcDataReader queryResults = cmd.ExecuteReader();
 
-                OdbcDataAdapter cmd = new OdbcDataAdapter("SELECT e.idPrestamo as 'Codigo', d.iddetalleprestamo as 'ID', e.fecha, e.fk_trabajador as 'Encargado', e.fk_propietario as 'Propietario', e.fk_prestador as 'Prestador', e.fk_tipo_bodega as 'Bodega', e.recibio, d.fk_producto as 'Codigo Producto', p.name as 'Producto', d.cantidad, d.comentario from encabezadoprestamo e, detalleprestamo d, producto p where e.idprestamo='" + txt_codigo.Text + "' AND d.FK_encPrestamo= '" + txt_codigo.Text + "' AND d.estado=1 and d.FK_EncPrestamo=e.idPrestamo and p.idProducto=d.Fk_Producto", con);//llama a la tabla de inventario para ver stock
+                OdbcDataAdapter cmd = new OdbcDataAdapter("SELECT e.idPrestamo as 'Codigo', d.iddetalleprestamo as 'ID', e.fecha, e.fk_trabajador as 'Encargado', e.fk_propietario as 'Propietario', e.fk_prestador as 'Prestador', e.fk_tipo_bodega as 'Bodega', e.recibio, d.fk_producto as 'Codigo Producto', p.name as 'Producto', d.cantidad, d.comentario from EncabezadoPrestamo e, DetallePrestamo d, Producto p where e.idprestamo='" + txt_codigo.Text + "' AND d.FK_encPrestamo= '" + txt_codigo.Text + "' AND d.estado=1 and d.FK_EncPrestamo=e.idPrestamo and p.idProducto=d.Fk_Producto", con);//llama a la tabla de inventario para ver stock
 
                 cmd.Fill(tabla);
 
@@ -75,7 +76,7 @@ namespace Bodega.Ajustes
                 //OdbcDataAdapter cmd = new OdbcDataAdapter("select * from encabezadoPrestamo b INNER JOIN detallePrestamo a ON b.idPrestamo=a.FK_EncPrestamo WHERE b.fecha='" + dtp_fecha.Value.ToString("yyyyMMdd") + "' and estado=1", con);//llama a la tabla de inventario para ver stock
                 //OdbcDataReader queryResults = cmd.ExecuteReader();
 
-                OdbcDataAdapter cmd = new OdbcDataAdapter("SELECT e.idPrestamo as 'Codigo', d.iddetalleprestamo as 'ID', e.fecha, e.fk_trabajador as 'Encargado', e.fk_propietario as 'Propietario', e.fk_prestador as 'Prestador', e.fk_tipo_bodega as 'Bodega', e.recibio, d.fk_producto as 'Codigo Producto', p.name as 'Producto', d.cantidad, d.comentario from encabezadoprestamo e, detalleprestamo d, producto p where e.fecha='" + dtp_fecha.Value.ToString("yyyyMMdd") + "' and d.FK_EncPrestamo=e.idPrestamo and d.estado=1 and p.idProducto=d.Fk_Producto", con);
+                OdbcDataAdapter cmd = new OdbcDataAdapter("SELECT e.idPrestamo as 'Codigo', d.iddetalleprestamo as 'ID', e.fecha, e.fk_trabajador as 'Encargado', e.fk_propietario as 'Propietario', e.fk_prestador as 'Prestador', e.fk_tipo_bodega as 'Bodega', e.recibio, d.fk_producto as 'Codigo Producto', p.name as 'Producto', d.cantidad, d.comentario from EncabezadoPrestamo e, DetallePrestamo d, Producto p where e.fecha='" + dtp_fecha.Value.ToString("yyyyMMdd") + "' and d.FK_EncPrestamo=e.idPrestamo and d.estado=1 and p.idProducto=d.Fk_Producto", con);
                 cmd.Fill(tabla);
 
             }
@@ -93,7 +94,7 @@ namespace Bodega.Ajustes
                 con.Open();
                 //OdbcDataAdapter cmd = new OdbcDataAdapter("select * from encabezadoPrestamo b INNER JOIN detallePrestamo a ON b.idPrestamo=a.FK_EncPrestamo WHERE b.fecha='" + dtp_fecha.Value.ToString("yyyyMMdd") + "' and b.FK_Propietario='" + cmb_propietario.Text.ToString() + "' and estado=1", con);//llama a la tabla de inventario para ver stock
 
-                OdbcDataAdapter cmd = new OdbcDataAdapter("SELECT e.idPrestamo as 'Codigo', d.iddetalleprestamo as 'ID', e.fecha, e.fk_trabajador as 'Encargado', e.fk_propietario as 'Propietario', e.fk_prestador as 'Prestador', e.fk_tipo_bodega as 'Bodega', e.recibio, d.fk_producto as 'Codigo Producto', p.name as 'Producto', d.cantidad, d.comentario from encabezadoprestamo e, detalleprestamo d, producto p where e.fecha='" + dtp_FechaPro.Value.ToString("yyyyMMdd") + "' and e.FK_Propietario='" + cmb_propietario.Text.ToString() + "' and d.estado=1 and d.FK_EncPrestamo=e.idPrestamo and p.idProducto=d.Fk_Producto", con);
+                OdbcDataAdapter cmd = new OdbcDataAdapter("SELECT e.idPrestamo as 'Codigo', d.iddetalleprestamo as 'ID', e.fecha, e.fk_trabajador as 'Encargado', e.fk_propietario as 'Propietario', e.fk_prestador as 'Prestador', e.fk_tipo_bodega as 'Bodega', e.recibio, d.fk_producto as 'Codigo Producto', p.name as 'Producto', d.cantidad, d.comentario from EncabezadoPrestamo e, Detalleprestamo d, Producto p where e.fecha='" + dtp_FechaPro.Value.ToString("yyyyMMdd") + "' and e.FK_Propietario='" + cmb_propietario.Text.ToString() + "' and d.estado=1 and d.FK_EncPrestamo=e.idPrestamo and p.idProducto=d.Fk_Producto", con);
                 cmd.Fill(tabla);
 
             }
@@ -200,22 +201,22 @@ namespace Bodega.Ajustes
                     {
                         OdbcConnection con = new OdbcConnection(ConnStr);//varibale para llamar la conexion ODBC
 
-                        OdbcCommand cmd1 = new OdbcCommand("update detalleprestamo set estado=0 WHERE Fk_Producto='" + txt_producto.Text + "' AND FK_EncPrestamo='" + txt_codPrestamo.Text + "' AND cantidad='" + txt_cantidad.Text + "' AND idDetallePrestamo='" + txt_codDetalle.Text + "' ", con);
+                        OdbcCommand cmd1 = new OdbcCommand("update DetallePrestamo set estado=0 WHERE Fk_Producto='" + txt_producto.Text + "' AND FK_EncPrestamo='" + txt_codPrestamo.Text + "' AND cantidad='" + txt_cantidad.Text + "' AND idDetallePrestamo='" + txt_codDetalle.Text + "' ", con);
                         con.Open();//abre la conexion ;
                         cmd1.ExecuteNonQuery();
                         con.Close();//cierra la conexion
 
-                        OdbcCommand cmd3 = new OdbcCommand("update detalleprestamo set estado=0 WHERE Fk_Producto='" + txt_producto.Text + "' AND FK_EncPrestamo_resp='" + txt_codPrestamo.Text + "' AND cantidad='" + txt_cantidad.Text + "' AND idDetallePrestamo_resp='" + txt_codDetalle.Text + "' ", con);
+                        OdbcCommand cmd3 = new OdbcCommand("update DetallePrestamo set estado=0 WHERE Fk_Producto='" + txt_producto.Text + "' AND FK_EncPrestamo_resp='" + txt_codPrestamo.Text + "' AND cantidad='" + txt_cantidad.Text + "' AND idDetallePrestamo_resp='" + txt_codDetalle.Text + "' ", con);
                         con.Open();//abre la conexion ;
                         cmd3.ExecuteNonQuery();
                         con.Close();//cierra la conexion
 
-                        OdbcCommand cmd4 = new OdbcCommand("UPDATE detalleinventario set cantidad=cantidad + '" + txt_cantidad.Text + "' WHERE Fk_Producto='" + txt_producto.Text + "' AND FK_Propietario='" + txt_propietario.Text + "'", con);
+                        OdbcCommand cmd4 = new OdbcCommand("UPDATE DetalleInventario set cantidad=cantidad + '" + txt_cantidad.Text + "' WHERE Fk_Producto='" + txt_producto.Text + "' AND FK_Propietario='" + txt_propietario.Text + "'", con);
                         con.Open();//abre la conexion ;
                         cmd4.ExecuteNonQuery();
                         con.Close();//cierra la conexion       
 
-                        OdbcCommand cmd2 = new OdbcCommand("UPDATE detalleinventario set cantidad=cantidad - '" + txt_cantidad.Text + "' WHERE Fk_Producto='" + txt_producto.Text + "' AND FK_Propietario='" + txt_prestador.Text + "'", con);
+                        OdbcCommand cmd2 = new OdbcCommand("UPDATE DetalleInventario set cantidad=cantidad - '" + txt_cantidad.Text + "' WHERE Fk_Producto='" + txt_producto.Text + "' AND FK_Propietario='" + txt_prestador.Text + "'", con);
                         con.Open();//abre la conexion ;
                         cmd2.ExecuteNonQuery();
                         con.Close();//cierra la conexion                  
@@ -312,7 +313,7 @@ namespace Bodega.Ajustes
             using (OdbcConnection con = new OdbcConnection(ConnStr))
             {
                 con.Open();
-                OdbcDataAdapter cmd = new OdbcDataAdapter("SELECT e.idPrestamo as 'Codigo', d.iddetalleprestamo as 'ID', e.fecha, e.fk_trabajador as 'Encargado', e.fk_propietario as 'Propietario', e.fk_prestador as 'Prestador', e.fk_tipo_bodega as 'Bodega', e.recibio, d.fk_producto as 'Codigo Producto', p.name as 'Producto', d.cantidad, d.comentario from encabezadoprestamo e, detalleprestamo d, producto p where d.FK_EncPrestamo=e.idPrestamo AND e.FK_Propietario='" + cmb_propietario2.Text.ToString() + "' AND e.Fecha BETWEEN '" + cmb_year.Text.ToString() + "-" + txt_numero.Text + "-1' AND '" + cmb_year.Text.ToString() + "-" + txt_numero.Text + "-31' and d.Fk_Producto=p.idproducto and d.estado=1", con);//llama a la tabla de inventario para ver stock
+                OdbcDataAdapter cmd = new OdbcDataAdapter("SELECT e.idPrestamo as 'Codigo', d.iddetalleprestamo as 'ID', e.fecha, e.fk_trabajador as 'Encargado', e.fk_propietario as 'Propietario', e.fk_prestador as 'Prestador', e.fk_tipo_bodega as 'Bodega', e.recibio, d.fk_producto as 'Codigo Producto', p.name as 'Producto', d.cantidad, d.comentario from EncabezadoPrestamo e, DetallePrestamo d, Producto p where d.FK_EncPrestamo=e.idPrestamo AND e.FK_Propietario='" + cmb_propietario2.Text.ToString() + "' AND e.Fecha BETWEEN '" + cmb_year.Text.ToString() + "-" + txt_numero.Text + "-1' AND '" + cmb_year.Text.ToString() + "-" + txt_numero.Text + "-31' and d.Fk_Producto=p.idproducto and d.estado=1", con);//llama a la tabla de inventario para ver stock
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       //OdbcDataReader queryResults = cmd.ExecuteReader();
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       //SELECT YEAR(Fecha), SUM(Cantidad) as total, '"+cmb_propietario.Text.ToString()+"' from encabezadoentrada a INNER JOIN detalleentrada b on a.idEntrada = b.FK_encEntrada
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       //"select * from detalleInventario where FK_Propietario =  '"+cmb_propietario.Text.ToString()+"' and Fecha=MONTH(text)"

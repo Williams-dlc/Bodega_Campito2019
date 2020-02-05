@@ -16,7 +16,8 @@ namespace Bodega.Ajustes
 {
     public partial class NuevoProducto : Form
     {
-        string ConnStr = "Driver={MySQL ODBC 3.51 Driver};Server=localhost;Database=bodega_campito;uid=willi;pwd=1234";
+        //string ConnStr = "Driver={MySQL ODBC 3.51 Driver};Server=localhost;Database=bodega_campito;uid=willi;pwd=1234";
+        string ConnStr = "Driver={MySQL ODBC 3.51 Driver};Server=35.222.102.30;Database=Bodega_Campito;uid=root;pwd=125654campUSER";
         public NuevoProducto()
         {
             InitializeComponent();
@@ -59,7 +60,7 @@ namespace Bodega.Ajustes
                     try
                     {
                         OdbcConnection con = new OdbcConnection(ConnStr);//varibale para llamar la conexion ODBC
-                        OdbcCommand cmd1 = new OdbcCommand("insert into producto values ('" + txt_codigo.Text + "','" + txt_nombre.Text + "',1)", con);
+                        OdbcCommand cmd1 = new OdbcCommand("insert into Producto values ('" + txt_codigo.Text + "','" + txt_nombre.Text + "',1)", con);
                         con.Open();//abre la conexion 
                         cmd1.ExecuteNonQuery();//ejecuta el query
                         con.Close();//cierra la conexion

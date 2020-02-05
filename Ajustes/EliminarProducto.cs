@@ -13,7 +13,8 @@ namespace Bodega.Ajustes
 {
     public partial class EliminarProducto : Form
     {
-        string ConnStr = "Driver={MySQL ODBC 3.51 Driver};Server=localhost;Database=bodega_campito;uid=willi;pwd=1234";
+        //string ConnStr = "Driver={MySQL ODBC 3.51 Driver};Server=localhost;Database=bodega_campito;uid=willi;pwd=1234";
+        string ConnStr = "Driver={MySQL ODBC 3.51 Driver};Server=35.222.102.30;Database=Bodega_Campito;uid=root;pwd=125654campUSER";
         public EliminarProducto()
         {
             InitializeComponent();
@@ -26,7 +27,7 @@ namespace Bodega.Ajustes
             using (OdbcConnection con = new OdbcConnection(ConnStr))
             {
                 con.Open();
-                OdbcDataAdapter cmd = new OdbcDataAdapter("select * from producto where estado=1", con);//llama a la tabla de inventario para ver stock
+                OdbcDataAdapter cmd = new OdbcDataAdapter("select * from Producto where estado=1", con);//llama a la tabla de inventario para ver stock
                                                                                                         //OdbcDataReader queryResults = cmd.ExecuteReader();
                 cmd.Fill(tabla);
 
