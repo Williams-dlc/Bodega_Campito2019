@@ -18,11 +18,27 @@ namespace Bodega.Ajustes
         public EliminarUsuario()
         {
             InitializeComponent();
-            cmb_usuario.DataSource = CapaDatosBodega.llenarUsuarioActivo();
-            cmb_usuario.ValueMember = "nombre";
+            /*cmb_usuario.DataSource = CapaDatosBodega.llenarUsuarioActivo();
+            cmb_usuario.ValueMember = "nombre";*/
+            usuarios();
         }
 
-       
+        public void usuarios()
+
+        {
+            DataTable tabla = new DataTable();
+            using (OdbcConnection con = new OdbcConnection(ConnStr))
+            {
+                con.Open();
+                OdbcDataAdapter cmd = new OdbcDataAdapter("select * from Usuario where estado=1", con);//llama a la tabla de inventario para ver stock
+                                                                                                        //OdbcDataReader queryResults = cmd.ExecuteReader();
+                cmd.Fill(tabla);
+
+            }
+            cmb_usuario.ValueMember = "Nombre";
+            cmb_usuario.DataSource = tabla;
+
+        }
 
         private void btn_Eliminar_Click(object sender, EventArgs e)
         {

@@ -28,17 +28,38 @@ namespace Bodega.Ajustes
             btn_aceparPro.Enabled = false;
             dtp_FechaPro.Enabled = false;
 
-            cmb_propietario.DataSource = CapaDatosBodega.llenarPropietario();
-            cmb_propietario.ValueMember = "Nombre";
+            //cmb_propietario.DataSource = CapaDatosBodega.llenarPropietario();
+            //cmb_propietario.ValueMember = "Nombre";
 
             this.tt_distribuidor.SetToolTip(this.lbl_distribuidor, "Ingrese el nombre del distribuidor que realizo la dovolucion");
             this.tt_distribuidor.SetToolTip(this.cmb_propietario, "Seleccione el nombre del distribuidor que realizo la dovolucion");
             this.tt_distribuidor.SetToolTip(this.btn_propietario, "Seleccione el nombre del distribuidor que realizo la dovolucion");
 
-            cmb_propietario2.DataSource = CapaDatosBodega.llenarPropietario();
-            cmb_propietario2.ValueMember = "Nombre";
+            //cmb_propietario2.DataSource = CapaDatosBodega.llenarPropietario();
+            //cmb_propietario2.ValueMember = "Nombre";
+
+            propietarios();
 
             years();
+        }
+
+        public void propietarios()
+
+        {
+            DataTable tabla = new DataTable();
+            using (OdbcConnection con = new OdbcConnection(ConnStr))
+            {
+                con.Open();
+                OdbcDataAdapter cmd = new OdbcDataAdapter("select nombre from Distribuidores", con);//llama a la tabla de inventario para ver stock
+                                                                                                    //OdbcDataReader queryResults = cmd.ExecuteReader();
+                cmd.Fill(tabla);
+
+            }
+            cmb_propietario.ValueMember = "Nombre";
+            cmb_propietario.DataSource = tabla;
+            cmb_propietario2.ValueMember = "Nombre";
+            cmb_propietario2.DataSource = tabla;
+
         }
 
         public void years()

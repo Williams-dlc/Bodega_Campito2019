@@ -14,6 +14,7 @@ using CrystalDecisions.CrystalReports.Engine;
 using CrystalDecisions.Shared;
 using System.IO;
 using System.Diagnostics;
+using Datos;
 
 namespace Bodega.Traslados
 {
@@ -21,8 +22,10 @@ namespace Bodega.Traslados
     {
 
         CapaDatosBodega conexion = new CapaDatosBodega();
-        string ConnStr = "Driver={MySQL ODBC 3.51 Driver};Server=35.222.102.30;Database=Bodega_Campito;uid=root;pwd=125654campUSER";
+        
 
+        string ConnStr = "Driver={MySQL ODBC 3.51 Driver};Server=35.222.102.30;Database=Bodega_Campito;uid=root;pwd=125654campUSER";
+       
 
         
         public EntradaProducto()
@@ -36,21 +39,11 @@ namespace Bodega.Traslados
             //cmb_propietario.Enabled = false;
             btn_aceptar.Enabled = false;
 
-            dgv_productos.DataSource = CapaDatosBodega.llenarproducto();
-            //dtp_fecha.Format = DateTimePickerFormat.Custom;
-            //Display the date as "Mon 27 Feb 2012".  
-            //dtp_fecha.CustomFormat = "yyyy MM dd";
-            //cmb_encargado.DataSource = CapaDatosBodega.llenarTrabajador();//llama la tabla trabajador
-            //cmb_encargado.ValueMember = "Nombre";
+            //dgv_productos.DataSource = CapaDatosBodega.llenarproducto();
+            productos();
             txt_encargado.Text = UserLoginCache.username;
-
-            //cmb_propietario.DataSource = CapaDatosBodega.llenarPropietario();
-            //cmb_propietario.ValueMember = "Nombre";
             propietarios();
-
-
-            //cmb_tipoBodega.DataSource = CapaDatosBodega.llenarBodega();
-            //cmb_tipoBodega.ValueMember = "tipo_bodega";
+            
             bodegas();
 
             dgv_productos.Enabled = false;
@@ -74,6 +67,22 @@ namespace Bodega.Traslados
             prin.panelContenedor.Tag = fh;
             fh.Show();
             
+        }
+
+        public void productos()
+
+        {
+            DataTable tabla = new DataTable();
+            using (OdbcConnection con = new OdbcConnection(ConnStr))
+            {
+                con.Open();
+                OdbcDataAdapter cmd = new OdbcDataAdapter("select idProducto, name AS 'Nombre' from Producto where estado=1", con);//llama a la tabla de inventario para ver stock
+                                                                                                                                                                                                                                                                                               //OdbcDataReader queryResults = cmd.ExecuteReader();
+                cmd.Fill(tabla);
+
+            }
+            dgv_productos.DataSource = tabla;
+
         }
 
         public void bodegas() ////////////////////////////////////////////////procedimiento para mostrar disponibilidad de producto en bodega

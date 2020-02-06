@@ -16,15 +16,51 @@ namespace Bodega.Productos
     {
         //string ConnStr = "Driver={MySQL ODBC 3.51 Driver};Server=localhost;Database=bodega_campito;uid=willi;pwd=1234";
         string ConnStr = "Driver={MySQL ODBC 3.51 Driver};Server=35.222.102.30;Database=Bodega_Campito;uid=root;pwd=125654campUSER";
-        CapaDatosBodega conexion = new CapaDatosBodega();
+        
         public ListadoProducto()
         {
             InitializeComponent();
-            dgv_productos.DataSource = CapaDatosBodega.llenarInventario2();
+            //dgv_productos.DataSource = CapaDatosBodega.llenarInventario2();
             gbx_Producto.Visible = false;
 
-            cmb_propietario.DataSource = CapaDatosBodega.llenarPropietario();
+            //cmb_propietario.DataSource = CapaDatosBodega.llenarPropietario();
+            //cmb_propietario.ValueMember = "Nombre";
+            propietarios();
+            inventarios();
+        }
+
+        public void inventarios()
+
+        {
+            DataTable tabla = new DataTable();
+            using (OdbcConnection con = new OdbcConnection(ConnStr))
+            {
+                con.Open();
+                OdbcDataAdapter cmd = new OdbcDataAdapter("select d.fk_producto AS 'Codigo de producto', p.name as 'Producto', d.cantidad AS 'Cantidad disponible', d.fk_propietario as 'Propietario de producto' from DetalleInventario d, Producto p WHERE p.idProducto=d.Fk_Producto", con);//llama a la tabla de inventario para ver stock
+                                                                                                    //OdbcDataReader queryResults = cmd.ExecuteReader();
+                cmd.Fill(tabla);
+
+            }
+            dgv_productos.DataSource = tabla;
+
+        }
+
+
+        public void propietarios()
+
+        {
+            DataTable tabla = new DataTable();
+            using (OdbcConnection con = new OdbcConnection(ConnStr))
+            {
+                con.Open();
+                OdbcDataAdapter cmd = new OdbcDataAdapter("select nombre from Distribuidores", con);//llama a la tabla de inventario para ver stock
+                                                                                                    //OdbcDataReader queryResults = cmd.ExecuteReader();
+                cmd.Fill(tabla);
+
+            }
             cmb_propietario.ValueMember = "Nombre";
+            cmb_propietario.DataSource = tabla;
+
         }
 
         private void btn_aceptar_Click(object sender, EventArgs e)

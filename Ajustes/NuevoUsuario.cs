@@ -18,10 +18,28 @@ namespace Bodega.Ajustes
         public NuevoUsuario()
         {
             InitializeComponent();
-            cmb_perfil.DataSource = CapaDatosBodega.llenarPerfil2();
-            cmb_perfil.ValueMember = "tipo";
+            /*cmb_perfil.DataSource = CapaDatosBodega.llenarPerfil2();
+            cmb_perfil.ValueMember = "tipo";*/
+            perfiles();
 
             personalizado();
+        }
+
+        public void perfiles()
+
+        {
+            DataTable tabla = new DataTable();
+            using (OdbcConnection con = new OdbcConnection(ConnStr))
+            {
+                con.Open();
+                OdbcDataAdapter cmd = new OdbcDataAdapter("select * from Perfil where estado=1", con);//llama a la tabla de inventario para ver stock
+                                                                                                        //OdbcDataReader queryResults = cmd.ExecuteReader();
+                cmd.Fill(tabla);
+
+            }
+            cmb_perfil.ValueMember = "tipo";
+            cmb_perfil.DataSource = tabla;
+
         }
 
         void personalizado()

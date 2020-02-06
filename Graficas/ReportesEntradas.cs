@@ -24,8 +24,9 @@ namespace Bodega.Reportes
 
             InitializeComponent();
             years();
-            cmb_propietario.DataSource = CapaDatosBodega.llenarPropietario();
-            cmb_propietario.ValueMember = "Nombre";
+            //cmb_propietario.DataSource = CapaDatosBodega.llenarPropietario();
+            //cmb_propietario.ValueMember = "Nombre";
+            propietarios();
 
             cmb_mes.SelectedIndex = 0;
 
@@ -49,6 +50,23 @@ namespace Bodega.Reportes
                 cmb_mes.Enabled = false;
                 cmb_year.Enabled = true;
             }
+
+        }
+
+        public void propietarios()
+
+        {
+            DataTable tabla = new DataTable();
+            using (OdbcConnection con = new OdbcConnection(ConnStr))
+            {
+                con.Open();
+                OdbcDataAdapter cmd = new OdbcDataAdapter("select nombre from Distribuidores", con);//llama a la tabla de inventario para ver stock
+                                                                                                    //OdbcDataReader queryResults = cmd.ExecuteReader();
+                cmd.Fill(tabla);
+
+            }
+            cmb_propietario.ValueMember = "Nombre";
+            cmb_propietario.DataSource = tabla;
 
         }
 

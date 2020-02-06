@@ -16,12 +16,15 @@ namespace Bodega
         public static OdbcConnection cnx = new OdbcConnection(Properties.Settings.Default.ruta);
         public OdbcConnection con1;
 
+        public static string CadenaConexion = "Driver={MySQL ODBC 3.51 Driver};Server=localhost;Database=bodega_campito;uid=willi;pwd=1234";
 
         public CapaDatosBodega()
         {
             string ConnStr = "Driver={MySQL ODBC 3.51 Driver};Server=localhost;Database=bodega_campito;uid=willi;pwd=1234";
             con1 = new OdbcConnection(ConnStr);//varibale para llamar la conexion ODBC
         }
+
+        
 
 
         public static string producto = "select idProducto, name AS 'Nombre' from Producto where estado=1";

@@ -26,17 +26,22 @@ namespace Bodega.Traslados
         {
             InitializeComponent();
           
-            cmb_propietario.DataSource = CapaDatosBodega.llenarPropietario();
+            /*cmb_propietario.DataSource = CapaDatosBodega.llenarPropietario();
             cmb_propietario.ValueMember = "Nombre";
 
             cmb_prestador.DataSource = CapaDatosBodega.llenarPrestador();
-            cmb_prestador.ValueMember = "Nombre";
+            cmb_prestador.ValueMember = "Nombre";*/
 
             txt_encargado.Text = UserLoginCache.username;
-            
 
-            cmb_tipoBodega.DataSource = CapaDatosBodega.llenarBodega();
-            cmb_tipoBodega.ValueMember = "tipo_bodega";
+
+            /*cmb_tipoBodega.DataSource = CapaDatosBodega.llenarBodega();
+            cmb_tipoBodega.ValueMember = "tipo_bodega";*/
+
+            prestadores();
+            bodegas();
+            propietarios();
+
 
             Random r_aleatgenerador = new Random();
             int numero_generado;
@@ -60,6 +65,57 @@ namespace Bodega.Traslados
 
             btn_ok.Enabled = false;
                     
+        }
+
+        public void prestadores()
+
+        {
+            DataTable tabla = new DataTable();
+            using (OdbcConnection con = new OdbcConnection(ConnStr))
+            {
+                con.Open();
+                OdbcDataAdapter cmd = new OdbcDataAdapter("select * from Prestador", con);//llama a la tabla de inventario para ver stock
+                                                                                       //OdbcDataReader queryResults = cmd.ExecuteReader();
+                cmd.Fill(tabla);
+
+            }
+            cmb_prestador.ValueMember = "Nombre";
+            cmb_prestador.DataSource = tabla;
+
+        }
+
+        public void bodegas() 
+
+        {
+            DataTable tabla = new DataTable();
+            using (OdbcConnection con = new OdbcConnection(ConnStr))
+            {
+                con.Open();
+                OdbcDataAdapter cmd = new OdbcDataAdapter("select * from Bodega", con);//llama a la tabla de inventario para ver stock
+                                                                                       //OdbcDataReader queryResults = cmd.ExecuteReader();
+                cmd.Fill(tabla);
+
+            }
+            cmb_tipoBodega.ValueMember = "tipo_bodega";
+            cmb_tipoBodega.DataSource = tabla;
+
+        }
+
+        public void propietarios() 
+
+        {
+            DataTable tabla = new DataTable();
+            using (OdbcConnection con = new OdbcConnection(ConnStr))
+            {
+                con.Open();
+                OdbcDataAdapter cmd = new OdbcDataAdapter("select nombre from Distribuidores", con);//llama a la tabla de inventario para ver stock
+                                                                                                    //OdbcDataReader queryResults = cmd.ExecuteReader();
+                cmd.Fill(tabla);
+
+            }
+            cmb_propietario.ValueMember = "Nombre";
+            cmb_propietario.DataSource = tabla;
+
         }
 
         public void verPrestamos() {

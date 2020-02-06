@@ -18,8 +18,26 @@ namespace Bodega.Ajustes
         public CambiarContraseña()
         {
             InitializeComponent();
-            cmb_usuario.DataSource = CapaDatosBodega.llenarUsuario();
+            /*cmb_usuario.DataSource = CapaDatosBodega.llenarUsuario();
+            cmb_usuario.ValueMember = "Nombre";*/
+            propietarios();
+        }
+
+        public void propietarios()
+
+        {
+            DataTable tabla = new DataTable();
+            using (OdbcConnection con = new OdbcConnection(ConnStr))
+            {
+                con.Open();
+                OdbcDataAdapter cmd = new OdbcDataAdapter("select * from Usuario where estado=1", con);//llama a la tabla de inventario para ver stock
+                                                                                                    //OdbcDataReader queryResults = cmd.ExecuteReader();
+                cmd.Fill(tabla);
+
+            }
             cmb_usuario.ValueMember = "Nombre";
+            cmb_usuario.DataSource = tabla;
+
         }
 
         private void btn_aceptar_Click(object sender, EventArgs e)

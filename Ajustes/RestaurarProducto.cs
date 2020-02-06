@@ -18,8 +18,26 @@ namespace Bodega.Ajustes
         public RestaurarProducto()
         {
             InitializeComponent();
-            cmb_Producto.DataSource = CapaDatosBodega.llenarProductoInactivo();
-            cmb_Producto.ValueMember = "name";
+            //cmb_Producto.DataSource = CapaDatosBodega.llenarProductoInactivo();
+            //cmb_Producto.ValueMember = "name";
+            productos();
+        }
+
+        public void productos()
+
+        {
+            DataTable tabla = new DataTable();
+            using (OdbcConnection con = new OdbcConnection(ConnStr))
+            {
+                con.Open();
+                OdbcDataAdapter cmd = new OdbcDataAdapter("select * from Producto where estado=0", con);//llama a la tabla de inventario para ver stock
+                                                                                                    //OdbcDataReader queryResults = cmd.ExecuteReader();
+                cmd.Fill(tabla);
+
+            }
+            cmb_Producto.ValueMember = "Name";
+            cmb_Producto.DataSource = tabla;
+
         }
 
         private void btn_Aceptar_Click(object sender, EventArgs e)

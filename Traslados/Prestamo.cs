@@ -38,17 +38,22 @@ namespace Bodega.Traslados
             numero_generado = r_aleatgenerador.Next();
             txt_codigo.Text = Convert.ToString(numero_generado);
 
-            dgv_producto.DataSource = CapaDatosBodega.llenarproducto();
+            //dgv_producto.DataSource = CapaDatosBodega.llenarproducto();
+            productos();
             txt_encargado.Text = UserLoginCache.username;
 
-            cmb_propietario.DataSource = CapaDatosBodega.llenarPropietario();
+            /*cmb_propietario.DataSource = CapaDatosBodega.llenarPropietario();
             cmb_propietario.ValueMember = "Nombre";
 
             cmb_bodega.DataSource = CapaDatosBodega.llenarBodega();
             cmb_bodega.ValueMember = "tipo_bodega";
 
             cmb_prestador.DataSource = CapaDatosBodega.llenarPrestador();
-            cmb_prestador.ValueMember = "Nombre";
+            cmb_prestador.ValueMember = "Nombre";*/
+
+            prestadores();
+            bodegas();
+            propietarios();
 
         }
 
@@ -56,6 +61,73 @@ namespace Bodega.Traslados
         private extern static void ReleaseCapture();
         [DllImport("user32.DLL", EntryPoint = "SendMessage")]
         private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
+
+        public void productos()
+
+        {
+            DataTable tabla = new DataTable();
+            using (OdbcConnection con = new OdbcConnection(ConnStr))
+            {
+                con.Open();
+                OdbcDataAdapter cmd = new OdbcDataAdapter("select idProducto, name AS 'Nombre' from Producto where estado=1", con);//llama a la tabla de inventario para ver stock
+                                                                                                                                   //OdbcDataReader queryResults = cmd.ExecuteReader();
+                cmd.Fill(tabla);
+
+            }
+            dgv_producto.DataSource = tabla;
+
+        }
+
+        public void prestadores()
+
+        {
+            DataTable tabla = new DataTable();
+            using (OdbcConnection con = new OdbcConnection(ConnStr))
+            {
+                con.Open();
+                OdbcDataAdapter cmd = new OdbcDataAdapter("select * from Prestador", con);//llama a la tabla de inventario para ver stock
+                                                                                          //OdbcDataReader queryResults = cmd.ExecuteReader();
+                cmd.Fill(tabla);
+
+            }
+            cmb_prestador.ValueMember = "Nombre";
+            cmb_prestador.DataSource = tabla;
+
+        }
+
+        public void bodegas()
+
+        {
+            DataTable tabla = new DataTable();
+            using (OdbcConnection con = new OdbcConnection(ConnStr))
+            {
+                con.Open();
+                OdbcDataAdapter cmd = new OdbcDataAdapter("select * from Bodega", con);//llama a la tabla de inventario para ver stock
+                                                                                       //OdbcDataReader queryResults = cmd.ExecuteReader();
+                cmd.Fill(tabla);
+
+            }
+            cmb_bodega.ValueMember = "tipo_bodega";
+            cmb_bodega.DataSource = tabla;
+
+        }
+
+        public void propietarios()
+
+        {
+            DataTable tabla = new DataTable();
+            using (OdbcConnection con = new OdbcConnection(ConnStr))
+            {
+                con.Open();
+                OdbcDataAdapter cmd = new OdbcDataAdapter("select nombre from Distribuidores", con);//llama a la tabla de inventario para ver stock
+                                                                                                    //OdbcDataReader queryResults = cmd.ExecuteReader();
+                cmd.Fill(tabla);
+
+            }
+            cmb_propietario.ValueMember = "Nombre";
+            cmb_propietario.DataSource = tabla;
+
+        }
 
         public void producto()
         {
