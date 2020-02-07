@@ -220,9 +220,24 @@ namespace Bodega.Traslados
                 {
                     MessageBox.Show(ex.ToString());
                 }
-                dgv_productos2.DataSource = CapaDatosBodega.llenarproducto();
+                llenarproducto();
 
             }
+        }
+
+        public void llenarproducto()
+        {
+            DataTable tabla = new DataTable();
+            using (OdbcConnection con1 = new OdbcConnection(ConnStr))
+            {
+                con1.Open();
+                OdbcDataAdapter cmd = new OdbcDataAdapter("select idProducto, name AS 'Nombre' from Producto where estado=1", con1);//llama a la tabla de inventario para ver stock
+                                                                                                                                                                                                                          //OdbcDataReader queryResults = cmd.ExecuteReader();
+                cmd.Fill(tabla);
+
+            }
+
+            dgv_productos2.DataSource = tabla;
         }
 
         private void dgv_productos2_CellDoubleClick(object sender, DataGridViewCellEventArgs e)

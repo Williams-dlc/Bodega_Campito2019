@@ -171,12 +171,13 @@ namespace Bodega.Traslados
                     con.Open();//abre la conexion ;
                     cmd1.ExecuteNonQuery();
                     con.Close();//cierra la conexion
-                    //INSERT INTO detalleinventario (idDetalleInventario, FK_EncaDetalle, Fk_Producto, Cantidad, FK_Propietario) SELECT * FROM (SELECT '13','3','104','50','Jorge') AS tmp WHERE NOT EXISTS (SELECT Fk_Producto FROM detalleinventario WHERE Fk_Producto=104) LIMIT 1
-                    OdbcCommand cmd3 = new OdbcCommand("INSERT INTO DetalleInventario (idDetalleInventario, FK_EncaDetalle, Fk_Producto, Cantidad, FK_Propietario) SELECT * FROM (SELECT null,'" + txt_codigo.Text + "','" + txt_codProducto.Text + "','" + txt_cantidad.Text + "','" + cmb_propietario.Text.ToString() + "') AS tmp WHERE NOT EXISTS (SELECT Fk_Producto FROM detalleinventario WHERE Fk_Producto='" + txt_codProducto.Text + "' and fk_propietario='" + cmb_propietario.Text.ToString() + "') ", con);
+                                //INSERT INTO detalleinventario (idDetalleInventario, FK_EncaDetalle, Fk_Producto, Cantidad, FK_Propietario) SELECT * FROM (SELECT '13','3','104','50','Jorge') AS tmp WHERE NOT EXISTS (SELECT Fk_Producto FROM detalleinventario WHERE Fk_Producto=104) LIMIT 1
+
+
+                    OdbcCommand cmd3 = new OdbcCommand("INSERT INTO DetalleInventario (idDetalleInventario, FK_EncaDetalle, Fk_Producto, Cantidad, FK_Propietario) SELECT * FROM (SELECT null,'" + txt_codigo.Text + "','" + txt_codProducto.Text + "','" + txt_cantidad.Text + "','" + cmb_propietario.Text.ToString() + "') AS tmp WHERE NOT EXISTS (SELECT Fk_Producto FROM DetalleInventario WHERE Fk_Producto='" + txt_codProducto.Text + "' and fk_propietario='" + cmb_propietario.Text.ToString() + "') ", con);
                     con.Open();//abre la conexion ;
                     cmd3.ExecuteNonQuery();
                     con.Close();//cierra la conexion
-
 
                     btn_imprimirMensual.Visible = true;
                     DataTable tabla = new DataTable();

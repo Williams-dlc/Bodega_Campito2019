@@ -1,0 +1,13 @@
+***ENTRADA DE PRODUCTO***
+
+Codigo: 369169731
+Encargado: Willian
+Fecha: jueves, 6 de febrero de 2020
+Propietario Producto: Fredy
+Entrego: ee
+
+Producto
+Harina dura
+10
+
+6/02/2020 22:45:20

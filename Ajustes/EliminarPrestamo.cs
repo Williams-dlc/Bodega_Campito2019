@@ -226,7 +226,7 @@ namespace Bodega.Ajustes
                         cmd1.ExecuteNonQuery();
                         con.Close();//cierra la conexion
 
-                        OdbcCommand cmd3 = new OdbcCommand("update DetallePrestamo set estado=0 WHERE Fk_Producto='" + txt_producto.Text + "' AND FK_EncPrestamo_resp='" + txt_codPrestamo.Text + "' AND cantidad='" + txt_cantidad.Text + "' AND idDetallePrestamo_resp='" + txt_codDetalle.Text + "' ", con);
+                        OdbcCommand cmd3 = new OdbcCommand("update DetallePrestamo_respaldo set estado=0 WHERE Fk_Producto='" + txt_producto.Text + "' AND FK_EncPrestamo_resp='" + txt_codPrestamo.Text + "' AND cantidad='" + txt_cantidad.Text + "' AND idDetallePrestamo_resp='" + txt_codDetalle.Text + "' ", con);
                         con.Open();//abre la conexion ;
                         cmd3.ExecuteNonQuery();
                         con.Close();//cierra la conexion
